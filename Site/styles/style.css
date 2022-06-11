@@ -1,9 +1,15 @@
 *{
+    /* reset */
     margin: 0;
     padding: 0;
-    text-decoration: none;
+
+
+    /* default font */
+    font-family: 'Roboto Slab', serif;
 }
 
+
+/* title  section*/
 
 .background1{
     background-image: url(../images/background1.png);
@@ -25,13 +31,16 @@
     width: 100%;
 }
 
+
+/* navbar */
+
 .nav{
     position: fixed;
     top: 0;
     background-color: #ffdc5c;   
     height: 7vh;
     width: 100%;
-    border-bottom-left-radius: 3rem;
+    /* border-bottom-left-radius: 3rem; */
 }
 
 .nav ul{
@@ -44,7 +53,14 @@
     float: left;
     list-style: none;
 }
+
 .nav ul li a{
     float: left;
-    color: black
+    color: black;
+    text-decoration:none;
+    transition: 0.3s;
+}
+
+.nav ul li a:hover{
+    color: slategray;
 }
