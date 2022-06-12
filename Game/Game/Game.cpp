@@ -1,5 +1,7 @@
-#include<iostream>
-#include "raylib.h"
+#include "include.h"
+#include "DrawHeroRight.h"
+#include "DrawHeroLeft.h"
+#include "CheckArrow.h"
 int main()
 {
     // Initialization
@@ -10,6 +12,8 @@ int main()
     InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
     SetTargetFPS(60);          
+    
+    Arrows arrow_obj;
 
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
@@ -18,13 +22,16 @@ int main()
 
         ClearBackground(RAYWHITE);
 
-        DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
+        arrow_obj.checkArrows();
+
+        arrow_obj.StartMovement();
 
         EndDrawing();
         
     }
 
-    
+    arrow_obj.Hero_obj_right.UnloadHeroRight();
+    arrow_obj.Hero_obj_left.UnloadHeroLeft();
     CloseWindow();        // Close window and OpenGL context
     
 }

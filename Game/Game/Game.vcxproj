@@ -144,6 +144,12 @@
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CheckArrow.h" />
+    <ClInclude Include="DrawHeroRight.h" />
+    <ClInclude Include="DrawHeroLeft.h" />
+    <ClInclude Include="include.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
