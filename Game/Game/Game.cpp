@@ -6,12 +6,12 @@ int main()
 {
     // Initialization
     //--------------------------------------------------------------------------------------
-    const int screenWidth = 800;
-    const int screenHeight = 450;
+    const int screenWidth = 1900;
+    const int screenHeight = 1025;
 
     InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
-    SetTargetFPS(60);          
+    SetTargetFPS(90);          
     
     Arrows arrow_obj;
 
