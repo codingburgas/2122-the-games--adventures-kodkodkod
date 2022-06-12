@@ -10,12 +10,12 @@ public:
 	HeroLeft Hero_obj_left;
 	void checkArrows()
 	{
-		if (IsKeyPressed(KEY_A))
+		if (IsKeyPressed(KEY_A) or IsKeyPressed(KEY_LEFT))
 		{
 			LeftHero = 1;
 			RightHero = 0;
 		}
-		else if (IsKeyPressed(KEY_D))
+		else if (IsKeyPressed(KEY_D) or IsKeyPressed(KEY_RIGHT))
 		{
 			RightHero = 1;
 			LeftHero = 0;
