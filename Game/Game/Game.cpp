@@ -8,7 +8,7 @@ using namespace std;
 int main()
 {
     // Initialization
-    const int screenWidth = 1900;
+    const int screenWidth = 1915;
     const int screenHeight = 1025;
 
     bool checker = 1;
@@ -21,13 +21,8 @@ int main()
 
     Texture2D bgimg = LoadTexture("../images/Menu_Background.png");
 
-    Texture2D Hero = LoadTexture("../images/Hero.png");
-
     bgimg.width = GetScreenWidth();
     bgimg.height = GetScreenHeight();
-
-    Hero.width = 450;
-    Hero.height = 900;
 
     Rectangle hide = { 0,0,screenWidth,screenHeight };
 
@@ -41,30 +36,45 @@ int main()
         mousePoint = GetMousePosition();
         BeginDrawing();
 
-        ClearBackground(RAYWHITE);
+        ClearBackground(DARKPURPLE);
+
         Rectangle options[4];
-        Rectangle options_border[4];
-        for (int i = 0; i < 4; i++)
-        {
-            options_border[i] = { 815,float(210 + (i * 200)), 500, 175 };;
-        }
+
+        Vector2 LineOfPlayStart = { 460,495};
+        Vector2 LineOfSettingsStart = { 17.5,100 };
+        Vector2 LineOfRulesStart = { 1670,975 };
+        Vector2 LineOfExitStart = { 1160, 495};
+
+        Vector2 LineOfPlayEnd = { 675,495 };
+        Vector2 LineOfSettingsEnd = { 400,100 };
+        Vector2 LineOfRulesEnd = { 1870,975 };
+        Vector2 LineOfExitEnd = { 1375, 495};
             
+        options[0] = { 470, 400, 185, 85 };;
+        options[1] = { 17.5, 12, 382.5, 91 };;
+        options[2] = { 1660, 895, 225, 85 };;
+        options[3] = { 1170, 400, 185, 85 };;
+
+        //DrawTexture(bgimg, 0, 0, WHITE);
+
         for (int i = 0; i < 4; i++)
         {
-            options[i] = { 825, float(220 + (i * 200)), 480, 155 };;
-        }
-        DrawTexture(bgimg, 10, 10, WHITE);
-        DrawTexture(Hero, 100, 100, WHITE);
-        for (int i = 0; i < 4; i++)
-        {
-            DrawRectangleRec(options_border[i], BLUE);
-            DrawRectangleRec(options[i], ORANGE);
+            DrawRectangleRec(options[i],GREEN);
         }
 
-        DrawText("PLAY!", 950, 265, 75, BLACK);
-        DrawText("SETTINGS!", 857.5, 465, 75, BLACK);
-        DrawText("RULES!", 942.5, 665, 75, BLACK);
-        DrawText("EXIT!", 962.5, 865, 75, BLACK);
+        DrawTexture(bgimg, 0, 0, WHITE);
+
+        DrawLineEx(LineOfPlayStart, LineOfPlayEnd, 7,DARKPURPLE);
+        DrawLineEx(LineOfSettingsStart, LineOfSettingsEnd, 7, DARKPURPLE);
+        DrawLineEx(LineOfRulesStart, LineOfRulesEnd, 7, DARKPURPLE);
+        DrawLineEx(LineOfExitStart, LineOfExitEnd, 7, DARKPURPLE);
+
+        DrawText("PLAY", 500, 425, 50, ORANGE);
+        DrawText("SETTINGS", 30,50, 50, ORANGE);
+        DrawText("RULES", 1700, 922.5, 50, ORANGE);
+        DrawText("EXIT", 1200.5, 425, 50, ORANGE);
+
+        DrawText("THE LAST SWORDSMAN", 290, 250, 100, ORANGE);
 
         if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, options[0]) && checker)
         {
