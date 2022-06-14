@@ -34,7 +34,6 @@ public:
 					object.Hero_obj_right.HeroPos = object.Hero_obj_left.HeroPos;
 				}
 			}
-			cout << object.UpHero;
 			
 				
 			
@@ -64,7 +63,6 @@ public:
 					object.Hero_obj_left.HeroPos = object.Hero_obj_right.HeroPos;
 				}
 			}
-			cout << object.UpHero << "here";
 		}
 	}
 };
