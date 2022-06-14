@@ -4,12 +4,16 @@ class HeroLeft
 {
 private:
 	int fpscouter = 0;
+<<<<<<< HEAD
 
 	Vector2 HeroPos = { 500, 100 };
+=======
+>>>>>>> 336db5f8fdcc196e6a36521ce5ff2fc003a2167f
 	Texture2D hero = LoadTexture("../images/heroLeft.png");
 	Rectangle HeroClip = { (float)hero.width, 0, (float)hero.width / 6, (float)hero.height };
 public:
 
+	Vector2 HeroPos = { 200, 100 };
 	int DrawLeft()
 	{
 		try {

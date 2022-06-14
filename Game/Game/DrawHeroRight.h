@@ -2,13 +2,12 @@
 #include "include.h"
 class HeroRight {
 	private:
-		int fpscouter = 0;
-		
-		Vector2 HeroPos = { 200, 100 };
+		int fpscouter = 0;	
 		Texture2D hero = LoadTexture("../images/heroRight.png");
 		Rectangle HeroClip = { 0, 0, (float) hero.width / 6, (float)hero.height};
 	public:
 	
+	Vector2 HeroPos = { 200, 100 };
 	int DrawRight()
 	{
 		try {

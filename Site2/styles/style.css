@@ -1,0 +1,220 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    
+}
+
+body{
+    background-image: linear-gradient(to bottom, #3d1052, #ad5388);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.nav img{
+    user-select: none;
+    position: relative;
+    left: -10%;
+    top: -0.2rem;
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #20092C;
+    height: 112px;
+    width:100%;
+}
+.htp:hover ~ .how-to-play
+{
+    display:block;
+    animation:appear 0.5s ease-out 1;
+}
+@keyframes appear
+{
+    0%
+    {
+        filter:blur(10px);
+    }
+    1%
+    {
+        opacity:0;
+    }
+    99%
+    {
+        opacity:100%;
+    }
+    100%
+    {
+        filter:blur(0px);
+    }
+}
+.how-to-play
+{
+    display:none;
+    z-index: 1;
+    width:100vw;
+    height:400px;
+    position:fixed;
+    left:0;
+    top:112px;
+    background-color: black;
+    color:white;
+}
+.storyline
+{
+    display:none;
+}
+.headings h1
+{
+    font-weight: 350;
+    color:rgba(255, 255, 255, 0.545);
+    display:inline-block;
+}
+.headings
+{
+    
+    margin-top:30px;
+    display:flex;
+    justify-content: space-around;
+}
+img[alt = "movements keys"]
+{
+    height:300px;
+    width:300px;
+    position:absolute;
+    top:90px;
+    left:4%;
+    opacity:31%;
+}
+img[alt = "e-key"]
+{
+    opacity: 31%;
+    position:absolute;
+    top:120px;
+    left:40%;
+}
+img[alt = "f-key"]
+{
+    opacity: 31%;
+    position:absolute;
+    top:120px;
+    left:67%;
+}
+img[alt = "mouse-click"]
+{
+    opacity: 60%;
+    position:absolute;
+    top:150px;
+    margin-left:94%;;
+}
+.nav h2
+{
+    position:absolute;
+    right:3%;
+    color:rgba(255, 255, 255, 0.251);
+
+}
+.nav ul{
+    user-select: none;
+    position:relative;
+    left:-20%;
+}
+
+.nav ul li{
+    user-select: none;
+    cursor:pointer;
+    font-size: 30px;
+    color: white;
+    opacity: 42%;
+    transition: 0.5s;
+    padding: 1.7rem 1.5rem;
+    display:inline-block;
+    list-style: none;
+}
+
+
+.nav ul li a{
+    text-decoration: none;
+    color: white;
+
+    transition: 0.5s;
+}
+
+.nav ul li:hover{
+    opacity: 100%;
+    transform: scale(1.3);
+}
+
+main h1{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    top: 5rem;
+    font-size: 3.5rem;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 4px;
+    color: white;
+    opacity: 64%;
+    text-transform: uppercase;
+}
+
+.download{
+    user-select: none;
+    background-color: #38104E;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.504);
+    padding: 15px 20px;;
+    color: rgba(255, 255, 255, 0.655);
+    font-size: 1.5rem;
+    position:relative;
+    top:20rem;
+    letter-spacing: 7px;
+    text-decoration: none;
+    left:45%;
+    font-family: 'Inter', sans-serif;
+    transition:0.3s;
+}
+.download:hover 
+{
+    color:rgba(255, 255, 255, 0.659);
+    background-color: #38104e94;
+    animation:border 1s linear infinite, text-color 1s linear infinite;
+}
+.download:active
+{
+
+    background-color: rgb(0, 0, 0);
+}
+@keyframes text-color
+{
+    0%{color:rgb(69, 6, 60);}
+    25%{color:purple;}
+    50%{color:rgb(152, 9, 168);}
+    75%{color:purple;}
+    100%{color:rgb(69, 6, 60);}
+}
+@keyframes border
+{
+    0%{border:2px solid rgb(57, 4, 49);}
+    25%{border:2px solid rgb(156, 11, 156);}
+    50%{border: 2px solid rgb(214, 7, 204);}
+    75%{border:2px solid rgb(135, 9, 116);}
+    100%{border:2px solid rgb(78, 8, 89);}
+}
+@media only screen and (max-width:1100px)
+{
+    img[alt = "our logo"]
+    {
+        left:-3%;
+    }
+    .nav ul
+    {
+        left:-3rem;
+    }
+}
