@@ -1,5 +1,4 @@
 #pragma once
-#include "include.h"
 class HeroRight {
 	private:
 		int fpscouter = 0;	
@@ -7,7 +6,7 @@ class HeroRight {
 		Rectangle HeroClip = { 0, 0, (float) hero.width / 6, (float)hero.height};
 	public:
 	
-	Vector2 HeroPos = { 200, 100 };
+	Vector2 HeroPos = { 800, 700 };
 	int DrawRight()
 	{
 		try {

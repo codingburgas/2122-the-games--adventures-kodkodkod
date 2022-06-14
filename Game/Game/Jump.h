@@ -1,57 +1,70 @@
 #pragma once
 #include"CheckArrow.h"
-class Jump{
+#include"Namespace.h"
+using namespace std;
+class Jump {
+	int fpscouter = 0;
+	bool check = 1;
 public:
-	bool LeftHero = 0;
-	bool RightHero = 0;
-	bool UpHero = 0;
-	void CheckINputs()
+	
+	void GetObject(Arrows &object)
 	{
-		if (IsKeyPressed(KEY_A) or IsKeyPressed(KEY_LEFT))
+		//object.Hero_obj_right.HeroPos = object.Hero_obj_left.HeroPos;
+		if (object.UpHero and object.LeftHero)
 		{
-			LeftHero = 1;
-			RightHero = 0;
-
-		}
-		else if (IsKeyPressed(KEY_D) or IsKeyPressed(KEY_RIGHT))
-		{
-			RightHero = 1;
-			LeftHero = 0;
-
-		}
-		else if (IsKeyPressed(KEY_W) or IsKeyPressed(KEY_UP))
-		{
-			UpHero = 1;
-		}
-	}
-	void StartJump()
-	{
-		if (UpHero and LeftHero)
-		{
-			int start = Hero_obj_left.HeroPos.y;
-			while (Hero_obj_left.HeroPos.y >= start - 60)
+			
+			if (object.Hero_obj_left.HeroPos.y >= object.state - 60 and check)
 			{
-				Hero_obj_left.HeroPos.y -= 5;
+				object.Hero_obj_left.HeroPos.y -= 1;
+				object.Hero_obj_right.HeroPos = object.Hero_obj_left.HeroPos;
+				object.Hero_obj_left.DrawLeft();
 			}
-			while (Hero_obj_left.HeroPos.y != start)
-			{
-				Hero_obj_left.HeroPos.y += 5;
+			else{
+				check = 0;
+				if (!(object.Hero_obj_left.HeroPos.y == object.state))
+				{
+					object.Hero_obj_left.HeroPos.y += 1;
+					object.Hero_obj_right.HeroPos = object.Hero_obj_left.HeroPos;
+					object.Hero_obj_left.DrawLeft();
+				}
+				else {
+					object.UpHero = 0;
+					check = 1;
+					help::finish = 0;
+					object.Hero_obj_right.HeroPos = object.Hero_obj_left.HeroPos;
+				}
 			}
-			UpHero = 0;
+			cout << object.UpHero;
+			
+				
+			
 			
 		}
-		else if (UpHero and RightHero)
+		else if (object.UpHero and object.RightHero)
 		{
-			int start = Hero_obj_right.HeroPos.y;
-			while (Hero_obj_right.HeroPos.y >= start - 60)
+
+			if (object.Hero_obj_right.HeroPos.y >= object.state - 60 and check)
 			{
-				Hero_obj_right.HeroPos.y -= 5;
+				object.Hero_obj_right.HeroPos.y -= 1;
+				object.Hero_obj_left.HeroPos = object.Hero_obj_right.HeroPos;
+				object.Hero_obj_right.DrawRight();
 			}
-			while (Hero_obj_right.HeroPos.y != start)
-			{
-				Hero_obj_right.HeroPos.y += 5;
+			else {
+				check = 0;
+				if (!(object.Hero_obj_right.HeroPos.y == object.state))
+				{
+					object.Hero_obj_right.HeroPos.y += 1;
+					object.Hero_obj_left.HeroPos = object.Hero_obj_right.HeroPos;
+					object.Hero_obj_right.DrawRight();
+				}
+				else {
+					object.UpHero = 0;
+					check = 1;
+					help::finish = 0;
+					object.Hero_obj_left.HeroPos = object.Hero_obj_right.HeroPos;
+				}
 			}
-			UpHero = 0;
+			cout << object.UpHero << "here";
 		}
 	}
 };

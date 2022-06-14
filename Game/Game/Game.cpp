@@ -2,8 +2,9 @@
 #include "DrawHeroRight.h"
 #include "DrawHeroLeft.h"
 #include "CheckArrow.h"
-
-
+#include "Jump.h"
+#include "Background.h"
+using namespace std;
 int main()
 {
     // Initialization
@@ -11,30 +12,34 @@ int main()
     const int screenWidth = 1900;
     const int screenHeight = 1025;
 
-
     InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
-    Image background = LoadImage("pixilart-drawing.png");
-    Texture2D backgroundTexture = LoadTextureFromImage(background);
-    SetTargetFPS(90);
 
+    SetTargetFPS(90);          
+    
     Arrows arrow_obj;
-
+    Jump jump_obj;
+    Background Drawbg;
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
-
-        BeginDrawing();
-        DrawTexture(backgroundTexture, screenWidth / 2, screenHeight / 2, WHITE);
-    
-        arrow_obj.checkArrows();
         
+        BeginDrawing();
+
+        ClearBackground(RAYWHITE);
+
+        Drawbg.DrawBackground();
+        arrow_obj.checkArrows();
+        jump_obj.GetObject(arrow_obj);
+
+		
         arrow_obj.StartMovement();
-
+        
         EndDrawing();
-
+        
     }
 
     arrow_obj.Hero_obj_right.UnloadHeroRight();
     arrow_obj.Hero_obj_left.UnloadHeroLeft();
+    Drawbg.UnloadBG();
     CloseWindow();        // Close window and OpenGL context
-
+    
 }
