@@ -1,10 +1,11 @@
 #pragma once
 #include "include.h"
-class HeroLeft {
+class HeroLeft 
+{
 private:
 	int fpscouter = 0;
 
-	Vector2 HeroPos = { 200, 100 };
+	Vector2 HeroPos = { 500, 100 };
 	Texture2D hero = LoadTexture("../images/heroLeft.png");
 	Rectangle HeroClip = { (float)hero.width, 0, (float)hero.width / 6, (float)hero.height };
 public:
@@ -29,7 +30,7 @@ public:
 		fpscouter++;
 		if (fpscouter == 10)
 		{
-			HeroClip.x -= hero.width / 6;
+			HeroClip.x = HeroClip.x - hero.width / 6;
 			fpscouter = 0;
 		}
 		if (HeroClip.x == 0)
