@@ -20,19 +20,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DrawHeroRight.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DrawHeroLeft.h">
+    <ClInclude Include="DrawHero.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CheckArrow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Jump.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Namespace.h">

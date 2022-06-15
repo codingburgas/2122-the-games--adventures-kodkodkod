@@ -1,65 +1,48 @@
 #pragma once
-#include "DrawHeroRight.h"
-#include "DrawHeroLeft.h"
 #include "Namespace.h"
+#include "DrawHero.h"
+#include "Background.h"
 class Arrows{
 public:
-	bool LeftHero = 0;
-	bool RightHero = 1;
-	bool UpHero = 0;
-	int state = 0;
-	
-	HeroRight Hero_obj_right;
-	HeroLeft Hero_obj_left;
-	
+	Hero Hero_obj;
+	Background moveBG;
 	void checkArrows()
 	{
-		if (IsKeyPressed(KEY_A) or IsKeyPressed(KEY_LEFT))
+		if (IsKeyDown(KEY_A) or IsKeyDown(KEY_LEFT))
 		{
-			LeftHero = 1;
-			RightHero = 0;
-
-		}
-		else if (IsKeyPressed(KEY_D) or IsKeyPressed(KEY_RIGHT))
-		{
-			RightHero = 1;
-			LeftHero = 0;
-
-		}
-		if (IsKeyPressed(KEY_W) or IsKeyPressed(KEY_UP))
-		{
-			if (help::finish == 0 && UpHero == 0)
+			Hero_obj.HeroPos.x -= 5;
+			if (!(moveBG.bg_pos.x <= 0) && Hero_obj.HeroPos.x < GetScreenWidth() - 200)
 			{
-				UpHero = 1;
-				if(LeftHero)
-				state = Hero_obj_left.HeroPos.y;
-				else
-				state = Hero_obj_right.HeroPos.y;
-			}
-			else {
-				help::finish = 1;
+				moveBG.bg_pos.x -= 20;
 			}
 
-
+		}
+		else if (IsKeyDown(KEY_D) or IsKeyDown(KEY_RIGHT))
+		{
+			Hero_obj.HeroPos.x += 5;
+			if (!(moveBG.bg_pos.x >= GetScreenWidth()) && Hero_obj.HeroPos.x > 200)
+			{
+				moveBG.bg_pos.x += 20;
+			}
+		}
+		if (IsKeyDown(KEY_W) or IsKeyDown(KEY_UP))
+		{
+			Hero_obj.HeroPos.y -= 5;
+			if (!(moveBG.bg_pos.y <= 0) && Hero_obj.HeroPos.x < GetScreenHeight() - 200)
+			{
+				moveBG.bg_pos.y -= 20;
+			}
+		}
+		else if (IsKeyDown(KEY_S) or IsKeyDown(KEY_DOWN))
+		{
+			Hero_obj.HeroPos.y += 5;
+			if (!(moveBG.bg_pos.y >= GetScreenHeight()) && Hero_obj.HeroPos.y > 200)
+			{
+				moveBG.bg_pos.y += 20;
+			}
 		}
 		
 	}
-	void StartMovement()
-	{
-		
-		if (LeftHero)
-		{
-			
-			Hero_obj_left.DrawLeft();
-
-			Hero_obj_left.UpdateLeft();
-		}
-		else if (RightHero)
-		{
-			Hero_obj_right.DrawRight();
-
-			Hero_obj_right.UpdateRight();
-		}
-	}
+	
 	
 };

@@ -5,16 +5,16 @@ class Background {
 	
 	void SetupSize()
 	{
-		background.width = GetScreenWidth();
-		background.height = GetScreenHeight();
+		background.width = GetScreenWidth() * 2;
+		background.height = GetScreenHeight() * 2;
 	}
 	
 	public:
-
+	Rectangle bg_pos = { (float)GetScreenWidth() / 2, (float)GetScreenHeight() / 2, (float)GetScreenWidth(), (float)GetScreenHeight()};
 	void DrawBackground()
 	{
 		SetupSize();
-		DrawTexture(background, 0, 0, WHITE);
+		DrawTextureRec(background, bg_pos, {0, 0}, WHITE);
 	}
 	void UnloadBG()
 	{

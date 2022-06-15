@@ -1,16 +1,14 @@
 #include "include.h"
-#include "DrawHeroRight.h"
-#include "DrawHeroLeft.h"
+#include "DrawHero.h"
 #include "CheckArrow.h"
-#include "Jump.h"
 #include "Background.h"
 #include "Menu.h"
 using namespace std;
 int main()
 {
     // Initialization
-    const int screenWidth = 1915;
-    const int screenHeight = 1025;
+    const int screenWidth = 1900;
+    const int screenHeight = 1000;
 
 
     InitWindow(screenWidth, screenHeight, "The last swordsman");
@@ -19,9 +17,7 @@ int main()
 
    
     Menu menu_obj;
-   Arrows arrow_obj;
-   Jump jump_obj;
-   Background Drawbg;
+    Arrows arrow_obj;
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
        
@@ -36,22 +32,20 @@ int main()
             menu_obj.checker = 0;
             DrawRectangleRec(menu_obj.hide, LIGHTGRAY);
 
-            Drawbg.DrawBackground();
+            arrow_obj.moveBG.DrawBackground();
 
             arrow_obj.checkArrows();
 
-            jump_obj.GetObject(arrow_obj);
-
-            arrow_obj.StartMovement();
+            arrow_obj.Hero_obj.DrawLeft();
+            arrow_obj.Hero_obj.UpdateLeft();
         }
         
         EndDrawing();
+        arrow_obj.Hero_obj.UnloadHero();
         
     }
-
-   arrow_obj.Hero_obj_right.UnloadHeroRight();
-   arrow_obj.Hero_obj_left.UnloadHeroLeft();
-   Drawbg.UnloadBG();
+    arrow_obj.Hero_obj.UnloadHero();
+    arrow_obj.moveBG.UnloadBG();
 
     CloseWindow();        // Close window and OpenGL context
     
