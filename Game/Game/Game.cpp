@@ -3,7 +3,6 @@
 #include "CheckArrow.h"
 #include "Background.h"
 #include "Menu.h"
-#include "Items.h"
 using namespace std;
 int main()
 {
@@ -11,19 +10,18 @@ int main()
     const int screenWidth = 1915;
     const int screenHeight = 1025;
 
-
+    
     InitWindow(screenWidth, screenHeight, "The last swordsman");
 
     SetTargetFPS(60);      
 
-    Items Items_obj;
     Menu menu_obj;
     Arrows arrow_obj;
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
-       
-        BeginDrawing();
 
+        BeginDrawing();
+        
         ClearBackground(DARKPURPLE);
 
         menu_obj.SetMenuSize();
@@ -35,8 +33,8 @@ int main()
 
             arrow_obj.moveBG.DrawBackground();
 
-            Items_obj.MakeChests();
-            Items_obj.CheckChests();
+            arrow_obj.MakeChests();
+            arrow_obj.CheckChests();
 
             arrow_obj.checkArrows();
             arrow_obj.Hero_obj.DrawLeft();

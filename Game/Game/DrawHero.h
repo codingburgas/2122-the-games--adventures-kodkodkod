@@ -6,6 +6,8 @@ public:
 	Texture2D hero = LoadTexture("../images/heroLeft.png");
 	Rectangle HeroClip = { (float)hero.width, 0, (float)hero.width / 6, (float)hero.height };
 	Vector2 HeroPos = {800, 700};
+
+
 	void DrawLeft()
 	{
 		hero = LoadTexture("../images/heroLeft.png");
