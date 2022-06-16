@@ -5,8 +5,8 @@ class Background {
 	
 	void SetupSize()
 	{
-		background.width = GetScreenWidth() * 3;
-		background.height = GetScreenHeight() * 3;
+		background.width = GetScreenWidth() * 2;
+		background.height = GetScreenHeight() * 2;
 	}
 	
 	public:
