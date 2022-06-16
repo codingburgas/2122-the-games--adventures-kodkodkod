@@ -39,13 +39,14 @@ int main()
             Items_obj.CheckChests();
 
             arrow_obj.checkArrows();
-
+            cout << arrow_obj.Hero_obj.HeroPos.y;
             arrow_obj.Hero_obj.DrawLeft();
             arrow_obj.Hero_obj.UpdateLeft();
         }
         
         EndDrawing();
         arrow_obj.Hero_obj.UnloadHero();
+        /*system("CLS");*/
         
     }
     arrow_obj.Hero_obj.UnloadHero();
