@@ -39,7 +39,6 @@ int main()
             Items_obj.CheckChests();
 
             arrow_obj.checkArrows();
-            cout << arrow_obj.Hero_obj.HeroPos.y;
             arrow_obj.Hero_obj.DrawLeft();
             arrow_obj.Hero_obj.UpdateLeft();
         }
