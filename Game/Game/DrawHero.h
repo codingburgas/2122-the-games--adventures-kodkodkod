@@ -30,7 +30,7 @@ public:
 			HeroClip.x -= (float)hero.width / 6;
 			fpscouter = 0;
 		}
-		if (HeroClip.x <= 0)
+		if (HeroClip.x== 0)
 		{
 			HeroClip.x = hero.width;
 		}
