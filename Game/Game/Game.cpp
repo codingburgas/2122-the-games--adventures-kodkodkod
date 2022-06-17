@@ -7,22 +7,21 @@ using namespace std;
 int main()
 {
     // Initialization
-    const int screenWidth = 1900;
-    const int screenHeight = 1000;
+    const int screenWidth = 1915;
+    const int screenHeight = 1025;
 
-
+    
     InitWindow(screenWidth, screenHeight, "The last swordsman");
 
-    SetTargetFPS(90);      
+    SetTargetFPS(60);      
 
-   
     Menu menu_obj;
     Arrows arrow_obj;
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
-       
-        BeginDrawing();
 
+        BeginDrawing();
+        
         ClearBackground(DARKPURPLE);
 
         menu_obj.SetMenuSize();
@@ -34,14 +33,17 @@ int main()
 
             arrow_obj.moveBG.DrawBackground();
 
-            arrow_obj.checkArrows();
+            arrow_obj.MakeChests();
+            arrow_obj.CheckChests();
 
+            arrow_obj.checkArrows();
             arrow_obj.Hero_obj.DrawLeft();
             arrow_obj.Hero_obj.UpdateLeft();
         }
         
         EndDrawing();
         arrow_obj.Hero_obj.UnloadHero();
+        /*system("CLS");*/
         
     }
     arrow_obj.Hero_obj.UnloadHero();

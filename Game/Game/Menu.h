@@ -11,9 +11,8 @@ public:
     bool menuZero = 0, menuOne = 0, menuTwo = 0, menuThree = 0;
     void SetMenuSize()
     {
-
-    bgimg.width = GetScreenWidth();
-    bgimg.height = GetScreenHeight();
+        bgimg.width = GetScreenWidth();
+        bgimg.height = GetScreenHeight();
     }
     void UpdateMenu()
     {
@@ -30,12 +29,10 @@ public:
         Vector2 LineOfRulesEnd = { 1870,975 };
         Vector2 LineOfExitEnd = { 1375, 495 };
 
-        options[0] = { 470, 400, 185, 85 };;
-        options[1] = { 17.5, 12, 382.5, 91 };;
-        options[2] = { 1660, 895, 225, 85 };;
-        options[3] = { 1170, 400, 185, 85 };;
-
-        //DrawTexture(bgimg, 0, 0, WHITE);
+        options[0] = { 470, 400, 185, 85 };
+        options[1] = { 17.5, 12, 382.5, 91 };
+        options[2] = { 1660, 895, 225, 85 };
+        options[3] = { 1170, 400, 185, 85 };
 
         for (int i = 0; i < 4; i++)
         {
