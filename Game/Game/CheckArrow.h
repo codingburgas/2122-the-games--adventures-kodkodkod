@@ -24,7 +24,7 @@ public:
 
 		mousePoint = GetMousePosition();
 
-		chests[0] = { 0,0, 600, 450 };
+		chests[0] = { 0,0, 400, 350 };
 		chests[1] = { 11270, 135, 150, 100 };
 		chests[2] = { 111470, 185, 150, 100 };
 		chests[3] = { 111670, 235, 150, 100 };
@@ -125,12 +125,16 @@ public:
 				moveBG.bg_pos.y += GetScreenHeight() / 100;
 			}
 		}
-		if (CheckCollisionPointRec(Hero_obj.HeroPos, chests[0]))
+		if (chests[0].width - Hero_obj.HeroPos.x > Hero_obj.HeroClip.width / 2 && chests[0].height - Hero_obj.HeroPos.y > Hero_obj.HeroClip.height / 2)
 		{
-			DrawText("Press 'E' to open the chest", 10, 10, 40, WHITE);
-			if (IsKeyPressed(KEY_E))
+			if (CheckCollisionPointRec(Hero_obj.HeroPos, chests[0]))
 			{
-				checker2 = 1;
+
+				DrawText("Press 'E' to open the chest", 10, 10, 40, WHITE);
+				if (IsKeyPressed(KEY_E))
+				{
+					checker2 = 1;
+				}
 			}
 		}
 		if (checker2)
