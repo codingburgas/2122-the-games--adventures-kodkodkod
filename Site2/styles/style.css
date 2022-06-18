@@ -89,7 +89,7 @@ img[alt = "movements keys"]
     width:300px;
     position:absolute;
     top:90px;
-    left:4%;
+    left:6%;
     opacity:31%;
 }
 img[alt = "e-key"]
@@ -97,21 +97,21 @@ img[alt = "e-key"]
     opacity: 31%;
     position:absolute;
     top:120px;
-    left:40%;
+    left:39%;
 }
 img[alt = "f-key"]
 {
     opacity: 31%;
     position:absolute;
     top:120px;
-    left:67%;
+    left:65%;
 }
 img[alt = "mouse-click"]
 {
     opacity: 60%;
     position:absolute;
     top:150px;
-    margin-left:94%;;
+    margin-left:95%;;
 }
 .nav h2
 {
