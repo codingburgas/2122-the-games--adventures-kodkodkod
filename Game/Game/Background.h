@@ -1,7 +1,6 @@
 #pragma once
 #include "raylib.h"
 class Background {
-	Texture2D background = LoadTexture("../images/background.png");
 	
 	void SetupSize()
 	{
@@ -10,6 +9,7 @@ class Background {
 	}
 	
 	public:
+	Texture2D background = LoadTexture("../images/background.png");
 	Rectangle bg_pos = { (float)GetScreenWidth() / 2, (float)GetScreenHeight() / 2, (float)GetScreenWidth(), (float)GetScreenHeight()};
 	void DrawBackground()
 	{

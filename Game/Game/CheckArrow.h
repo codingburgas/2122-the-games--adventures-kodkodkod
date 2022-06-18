@@ -11,6 +11,8 @@ public:
 	bool checker2 = 0;
 	bool checker3 = 0;
 	bool checker4 = 0;
+
+	bool checkInput[4] = {0, 0, 0, 0};
 	Rectangle hide = { 0,0,(float)GetScreenWidth(),(float)GetScreenHeight() };
 	Texture2D Chest = LoadTexture("../images/chest.png");
 	Texture2D Opened_Chest = LoadTexture("../images/opened_chest.png");
@@ -29,9 +31,9 @@ public:
 		mousePoint = GetMousePosition();
 
 		chests[0] = { 0,0, 500, 350 };
-		chests[1] = { 1365, 0, 500, 350 };
-		chests[2] = { 0, 610, 500, 350 };
-		chests[3] = { 1365, 610, 500, 350 };
+		chests[1] = { (float)GetScreenWidth() - 500, 0, 500, 350 };
+		chests[2] = { 0, (float)GetScreenHeight() - 350, 500, 350 };
+		chests[3] = { (float)GetScreenWidth() - 500, (float)GetScreenHeight() - 350, 500, 350 };
 
 		Opened_Chest.width = 1800;
 		Opened_Chest.height = 850;
@@ -43,7 +45,7 @@ public:
 		{
 
 
-			DrawRectangleLinesEx(chests[i], 7.5, BLANK);
+			DrawRectangleLinesEx(chests[i], 7.5, WHITE);
 		}
 
 	}
@@ -84,8 +86,12 @@ public:
 	}
 	void checkArrows()
 	{
-		if (IsKeyDown(KEY_A) or IsKeyDown(KEY_LEFT))
+		if ((IsKeyDown(KEY_A) or IsKeyDown(KEY_LEFT)) && checkInput[3] == 0 && checkInput[1] == 0 && checkInput[2] == 0)
 		{
+			checkInput[0] = 1;
+			checkInput[1] = 0;
+			checkInput[2] = 0;
+			checkInput[3] = 0;
 			if (!(Hero_obj.HeroPos.x <= 5))
 			{
 				Hero_obj.HeroPos.x -= 5;
@@ -96,8 +102,12 @@ public:
 			}
 
 		}
-		else if (IsKeyDown(KEY_D) or IsKeyDown(KEY_RIGHT))
+		else if ((IsKeyDown(KEY_D) or IsKeyDown(KEY_RIGHT)) && checkInput[0] == 0 && checkInput[2] == 0 && checkInput[3] == 0)
 		{
+			checkInput[0] = 0;
+			checkInput[1] = 1;
+			checkInput[2] = 0;
+			checkInput[3] = 0;
 			if (!(Hero_obj.HeroPos.x >= (GetScreenWidth() - Hero_obj.HeroClip.width) - 5))
 			{
 				Hero_obj.HeroPos.x += 5;
@@ -107,8 +117,12 @@ public:
 				moveBG.bg_pos.x += GetScreenWidth() / 100;
 			}
 		}
-		if (IsKeyDown(KEY_W) or IsKeyDown(KEY_UP))
+		else if ((IsKeyDown(KEY_W) or IsKeyDown(KEY_UP)) && checkInput[0] == 0 && checkInput[1] == 0 && checkInput[3] == 0)
 		{
+			checkInput[0] = 0;
+			checkInput[1] = 0;
+			checkInput[2] = 1;
+			checkInput[3] = 0;
 			if (!(Hero_obj.HeroPos.y <= 5))
 			{
 				Hero_obj.HeroPos.y -= 5;
@@ -118,8 +132,12 @@ public:
 				moveBG.bg_pos.y -= GetScreenHeight() / 100;
 			}
 		}
-		else if (IsKeyDown(KEY_S) or IsKeyDown(KEY_DOWN))
+		else if ((IsKeyDown(KEY_S) or IsKeyDown(KEY_DOWN)) && checkInput[0] == 0 && checkInput[1] == 0 && checkInput[2] == 0)
 		{
+			checkInput[0] = 0;
+			checkInput[1] = 0;
+			checkInput[2] = 0;
+			checkInput[3] = 1;
 			if (!(Hero_obj.HeroPos.y >= (GetScreenHeight() - Hero_obj.HeroClip.height) - 30))
 			{
 				Hero_obj.HeroPos.y += 5;
@@ -128,6 +146,13 @@ public:
 			{
 				moveBG.bg_pos.y += GetScreenHeight() / 100;
 			}
+		}
+		else
+		{
+			checkInput[0] = 0;
+			checkInput[1] = 0;
+			checkInput[2] = 0;
+			checkInput[3] = 0;
 		}
 		if (chests[0].width - Hero_obj.HeroPos.x > Hero_obj.HeroClip.width / 2 && chests[0].height - Hero_obj.HeroPos.y > Hero_obj.HeroClip.height / 2)
 		{
@@ -210,9 +235,8 @@ public:
 			Circlee.y = 125;
 			if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, KeyRec))
 			{
-				moveBG.UnloadBG();
-				DrawRectangleRec(hide, BLANK);
-				checker3 = 0;
+				moveBG.background = LoadTexture("../images/background2.png");
+				//DrawRectangleRec(hide, BLANK);
 				checker3 = 0;
 			}
 			if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Circlee, 20))
