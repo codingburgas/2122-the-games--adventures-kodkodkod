@@ -17,18 +17,23 @@ body{
 
 .nav img{
     user-select: none;
-    position: relative;
-    left: -10%;
-    top: -0.2rem;
+    position: absolute;
+    left: 3;
+    top: 0.3rem;
+}
+
+.nav-links{
+    text-align: left;
 }
 
 .nav{
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-around; */
     background-color: #20092C;
     height: 112px;
     width:100%;
+    text-align: center;
 }
 .htp:hover ~ .how-to-play
 {
@@ -59,13 +64,22 @@ body{
     display:none;
     z-index: 1;
     width:100vw;
-    height:400px;
+    height: min-content;
     position:fixed;
     left:0;
     top:112px;
-    background-color: black;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
     color:white;
+    text-align: center;
 }
+
+.controls-col{
+    text-align: center;
+    padding: 1rem;
+
+}
+
+
 .storyline
 {
     display:none;
@@ -74,56 +88,64 @@ body{
 {
     font-weight: 350;
     color:rgba(255, 255, 255, 0.545);
-    display:inline-block;
+    /* display:inline-block; */
 }
+
+.headings img{
+    position: static;
+}
+
 .headings
 {
     
     margin-top:30px;
-    display:flex;
-    justify-content: space-around;
+    /* display:flex;
+    justify-content: space-around; */
 }
 img[alt = "movements keys"]
 {
     height:300px;
     width:300px;
-    position:absolute;
-    top:90px;
+    /* position:absolute; */
+    /* top:90px;
     left:6%;
+    */
     opacity:31%;
 }
 img[alt = "e-key"]
 {
     opacity: 31%;
-    position:absolute;
+    /* position:absolute;
     top:120px;
-    left:39%;
+    left:39%; */
 }
 img[alt = "f-key"]
 {
     opacity: 31%;
-    position:absolute;
+    /* position:absolute;
     top:120px;
-    left:65%;
+    left:65%; */
 }
 img[alt = "mouse-click"]
 {
     opacity: 60%;
-    position:absolute;
+    /* position:absolute;
     top:150px;
-    margin-left:95%;;
+    margin-left:95%;; */
 }
 .nav h2
 {
-    position:absolute;
-    right:3%;
+    /* position:absolute;
+    right:3%; */
     color:rgba(255, 255, 255, 0.251);
 
 }
 .nav ul{
-    user-select: none;
+    /* user-select: none;
     position:relative;
-    left:-20%;
+    left:-20%; */
+    position: static;
+    text-align: center;
 }
 
 .nav ul li{
