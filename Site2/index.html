@@ -19,11 +19,13 @@
 
     <!-- styles -->
     <link rel="stylesheet" href="styles/style.css">
-    <!-- script-->
+   
+    
     <title>Final Project</title>
 
 </head>
 <body>
+    
         <nav>
             <div class = "nav row">
 
@@ -71,17 +73,15 @@
             <h1>The last swordsman</h1>
             <div class = "slider-container">
 
-                <div class = "slider active">
-                    <img src="../Game/images/background.png" alt="first-pic" >
-                </div>
+                <div class = "slider active"><img src="../Game/images/background.png" alt="first-pic"></div>
                     <div class="slider"> <img src="../Game/images/heroFront.png" alt="first-pic"></div>
                     <div class="slider"><img src="../Game/images/heroBack.png" alt="first-pic"></div>
-                    <div class="slider"><img src="../Game/images/heroLeft.png" alt="first-pic"></div>
+                    <div class="slider"><img src="../Game/images/Menu_Background.png" alt="first-pic"></div>
                     <div class="slider"><img src="../Game/images/background2.png" alt="first-pic"></div>
                     <div class="arrows-container">
-                   <i class="fa fa-chevron-left buttonRight">
+                   <i class="fa fa-chevron-left buttonLeft">
                    </i>
-                     <i class="fa fa-chevron-right buttonLeft" >
+                     <i class="fa fa-chevron-right buttonRight" >
                     </i>
                     </div>
                     <div class="slide-icons-container">
@@ -101,14 +101,13 @@
         </main>
         <script type = "text/javascript">
 //declaring and initialising variables
-
+const SliderContainer = document.querySelector(".slider-container");
 const ButtonRight = document.querySelector(".buttonRight");
 const ButtonLeft = document.querySelector(".buttonLeft");
 const ImageSlider = document.querySelectorAll(".slider");
 const SliderIcons = document.querySelectorAll(".slideicon");
 const LengthOfSlides = ImageSlider.length;
 var NumberOfSlide = 0;
-
 //action for the right button
 ButtonRight.addEventListener("click", () =>
 {
@@ -123,10 +122,53 @@ ButtonRight.addEventListener("click", () =>
      SliderIcons[NumberOfSlide].classList.add("active");
 
 });
+ButtonLeft.addEventListener("click", () =>
+{
+    ImageSlider.forEach((slider) => {slider.classList.remove("active")});
+    SliderIcons.forEach((slideicon) => {slideicon.classList.remove("active")});
+     NumberOfSlide--;
+     if(NumberOfSlide < 0)
+     {
+        NumberOfSlide = LengthOfSlides - 1;
+     }
+     ImageSlider[NumberOfSlide].classList.add("active");
+     SliderIcons[NumberOfSlide].classList.add("active");
+
+});
+
+//slider autoplay
+//autoplay goes to right
+var SliderAutoplay;
+var repeater = () => 
+ {
+   SliderAutoplay = setInterval(function()
+   {
+     ImageSlider.forEach((slider) => {slider.classList.remove("active")});
+    SliderIcons.forEach((slideicon) => {slideicon.classList.remove("active")});
+     NumberOfSlide++;
+     if(NumberOfSlide > LengthOfSlides - 1)
+     {
+        NumberOfSlide = 0;
+     }
+     ImageSlider[NumberOfSlide].classList.add("active");
+     SliderIcons[NumberOfSlide].classList.add("active");
+   }, 2000);
+}
+repeater();
 
 
+//stop the autoplay on hover
 
+SliderContainer.addEventListener("mouseover", () => 
+{
+   clearInterval(SliderAutoplay);
+});
 
+//continue autoplaying if there is no hover
+SliderContainer.addEventListener("mouseout", () => 
+{
+    repeater();
+});
         </script>
 </body>
 </html>
