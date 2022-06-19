@@ -1,4 +1,5 @@
-*{
+*
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7,7 +8,9 @@
     
 }
 
-body{
+body
+{
+    overflow-x: hidden;
     background-image: linear-gradient(to bottom, #3d1052, #ad5388);
     background-repeat: no-repeat;
     background-size: cover;
@@ -18,7 +21,7 @@ body{
 .nav img{
     user-select: none;
     position: absolute;
-    left: 3;
+    left: 3%;
     top: 0.3rem;
 }
 
@@ -27,12 +30,10 @@ body{
 }
 
 .nav{
-    /* display: flex;
-    align-items: center;
-    justify-content: space-around; */
+     
     background-color: #20092C;
     height: 112px;
-    width:100%;
+    width:110%;
     text-align: center;
 }
 .htp:hover ~ .how-to-play
@@ -65,9 +66,9 @@ body{
     z-index: 1;
     width:100vw;
     height: min-content;
-    position:fixed;
+    position:absolute;
     left:0;
-    top:112px;
+    top:110px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
     color:white;
     text-align: center;
@@ -172,7 +173,10 @@ img[alt = "mouse-click"]
     opacity: 100%;
     transform: scale(1.3);
 }
-
+main
+{
+    position:relative;
+}
 main h1{
     display: flex;
     position: relative;
@@ -185,20 +189,82 @@ main h1{
     opacity: 64%;
     text-transform: uppercase;
 }
+.slider-container
+{
+    margin:0 auto;
+    width:60%;
+    height:400px;
+    position:relative;
+    top:100px;
+}
+.slider
+{
 
+    width:100%;
+   height:100%;
+    position:absolute;
+    
+}
+.slider img
+{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+.slideicon.active{
+    background-color: blue;
+}
+.arrows-container 
+{
+    left:-2.5%;
+    width:105%;
+    height:20px;
+    top:48%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    position:absolute;
+}
+.arrows-container i
+{
+    color:white;
+    cursor: pointer;
+    font-size: 70px;
+    position:relative;
+}
+.slide-icons-container
+{
+    width:30%;
+    height:5%;
+    margin: 0 auto;
+    top:350px;
+    background-color: #20092C;
+    position: relative;
+    z-index: 212;
+    display:flex;
+    justify-content: space-around;
+}
+.slide-icons-container div
+{
+    background-color: white;
+    width:20px;
+    height:100%;
+    border-radius: 100% ;
+    
+}
 .download{
     user-select: none;
     background-color: #38104E;
     border-radius: 20px;
     border: 2px solid rgba(255, 255, 255, 0.504);
     padding: 15px 20px;;
+    position:relative;
     color: rgba(255, 255, 255, 0.655);
     font-size: 1.5rem;
-    position:relative;
-    top:20rem;
     letter-spacing: 7px;
     text-decoration: none;
-    left:45%;
+    margin:0 43%;
+    top:130px;
     font-family: 'Inter', sans-serif;
     transition:0.3s;
 }

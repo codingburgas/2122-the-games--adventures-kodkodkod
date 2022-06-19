@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
 
     <!-- google fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Open+Sans:wght@300;400;500;600;700;800&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -18,6 +19,7 @@
 
     <!-- styles -->
     <link rel="stylesheet" href="styles/style.css">
+    <!-- script-->
     <title>Final Project</title>
 
 </head>
@@ -67,14 +69,64 @@
         </nav>
         <main>
             <h1>The last swordsman</h1>
-            <div class = "slider">
+            <div class = "slider-container">
 
-            </div>
+                <div class = "slider active">
+                    <img src="../Game/images/background.png" alt="first-pic" >
+                </div>
+                    <div class="slider"> <img src="../Game/images/heroFront.png" alt="first-pic"></div>
+                    <div class="slider"><img src="../Game/images/heroBack.png" alt="first-pic"></div>
+                    <div class="slider"><img src="../Game/images/heroLeft.png" alt="first-pic"></div>
+                    <div class="slider"><img src="../Game/images/background2.png" alt="first-pic"></div>
+                    <div class="arrows-container">
+                   <i class="fa fa-chevron-left buttonRight">
+                   </i>
+                     <i class="fa fa-chevron-right buttonLeft" >
+                    </i>
+                    </div>
+                    <div class="slide-icons-container">
+                        <div class="slideicon active"></div>
+                        <div class="slideicon"></div>
+                        <div class="slideicon"></div>
+                        <div class="slideicon"></div>
+                        <div class="slideicon"></div>
+                    </div>
+                </div>
             <div>
                 <a href="../Game.rar" download class = "download">
             Download 
                 </a>
             </div>
+            
         </main>
+        <script type = "text/javascript">
+//declaring and initialising variables
+
+const ButtonRight = document.querySelector(".buttonRight");
+const ButtonLeft = document.querySelector(".buttonLeft");
+const ImageSlider = document.querySelectorAll(".slider");
+const SliderIcons = document.querySelectorAll(".slideicon");
+const LengthOfSlides = ImageSlider.length;
+var NumberOfSlide = 0;
+
+//action for the right button
+ButtonRight.addEventListener("click", () =>
+{
+    ImageSlider.forEach((slider) => {slider.classList.remove("active")});
+    SliderIcons.forEach((slideicon) => {slideicon.classList.remove("active")});
+     NumberOfSlide++;
+     if(NumberOfSlide > LengthOfSlides - 1)
+     {
+        NumberOfSlide = 0;
+     }
+     ImageSlider[NumberOfSlide].classList.add("active");
+     SliderIcons[NumberOfSlide].classList.add("active");
+
+});
+
+
+
+
+        </script>
 </body>
 </html>
