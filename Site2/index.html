@@ -20,7 +20,8 @@
     <!-- styles -->
     <link rel="stylesheet" href="styles/style.css">
    
-    
+
+    <script defer src="script/script.js"></script>
     <title>Final Project</title>
 
 </head>
@@ -30,7 +31,7 @@
             <div class = "nav row">
 
                 <div class="col-2">
-                    <img src="./images/game-logo.png" alt="our logo" width="220" height="90">
+                    <img src="./images/logo-adventure.png" alt="our logo" width="180" height="90">
                 </div>
 
                 <div class="col-10"></div>
@@ -91,84 +92,69 @@
                         <div class="slideicon"></div>
                         <div class="slideicon"></div>
                     </div>
+                   
                 </div>
-            <div>
+                <div class = "pic-and-btn-container">
+                    <img src="images/circle_1.png" alt="purple circle">
+                    <img src="images/circle_2.png" alt="pink circle">
+                    <img src="images/sword_1.png" alt="first sword">
+                    <img src="images/sword_2.png" alt="second sword">
                 <a href="../Game.rar" download class = "download">
-            Download 
+                    Download 
                 </a>
-            </div>
-            
+                    </div>
+                <h3 class = "skins-title">
+                    Skins
+                </h3>
+                <div class="all">
+                    
+                    <img src="images/skins.png" alt="skins" class = "skins">
+                </div>
+                <h1 class = "about-us-title">About us</h1>
+                <div class="about-us">
+                    
+                    <div class="cardcontainer">
+                        <div class="cards"></div>
+                        <div class="info"></div>
+                        <div class="click-me">Click me!</div>
+                    </div>
+                    <div class="cardcontainer">
+                        <div class="cards"></div>
+                        <div class="info"></div>
+                        <div class="click-me">Click me!</div>
+                    </div>
+                    <div class="cardcontainer">
+                        <div class="cards"></div>
+                        <div class="info"></div>
+                        <div class="click-me">Click me!</div>
+                    </div>
+                    <div class="cardcontainer">
+                        <div class="cards"></div>
+                        <div class="info"></div>
+                        <div class="click-me">Click me!</div>
+                    </div>
+                    <div class="cardcontainer">
+                        <div class="cards"></div>
+                        <div class="info"></div>
+                        <div class="click-me">Click me!</div>
+                    </div>
+                    <div class="cardcontainer">
+                        <div class="cards"></div>
+                        <div class="info"></div>
+                        <div class="click-me">Click me!</div>
+                    </div>
+                    <div class="cardcontainer">
+                        <div class="cards"></div>
+                        <div class="info"></div>
+                        <div class="click-me">Click me!</div>
+                    </div>
+                    <div class="cardcontainer">
+                        <div class="cards"></div>
+                        <div class="info"></div>
+                        <div class="click-me">Click me!</div>
+                    </div>
+                </div>
         </main>
-        <script type = "text/javascript">
-//declaring and initialising variables
-const SliderContainer = document.querySelector(".slider-container");
-const ButtonRight = document.querySelector(".buttonRight");
-const ButtonLeft = document.querySelector(".buttonLeft");
-const ImageSlider = document.querySelectorAll(".slider");
-const SliderIcons = document.querySelectorAll(".slideicon");
-const LengthOfSlides = ImageSlider.length;
-var NumberOfSlide = 0;
-//action for the right button
-ButtonRight.addEventListener("click", () =>
-{
-    ImageSlider.forEach((slider) => {slider.classList.remove("active")});
-    SliderIcons.forEach((slideicon) => {slideicon.classList.remove("active")});
-     NumberOfSlide++;
-     if(NumberOfSlide > LengthOfSlides - 1)
-     {
-        NumberOfSlide = 0;
-     }
-     ImageSlider[NumberOfSlide].classList.add("active");
-     SliderIcons[NumberOfSlide].classList.add("active");
-
-});
-ButtonLeft.addEventListener("click", () =>
-{
-    ImageSlider.forEach((slider) => {slider.classList.remove("active")});
-    SliderIcons.forEach((slideicon) => {slideicon.classList.remove("active")});
-     NumberOfSlide--;
-     if(NumberOfSlide < 0)
-     {
-        NumberOfSlide = LengthOfSlides - 1;
-     }
-     ImageSlider[NumberOfSlide].classList.add("active");
-     SliderIcons[NumberOfSlide].classList.add("active");
-
-});
-
-//slider autoplay
-//autoplay goes to right
-var SliderAutoplay;
-var repeater = () => 
- {
-   SliderAutoplay = setInterval(function()
-   {
-     ImageSlider.forEach((slider) => {slider.classList.remove("active")});
-    SliderIcons.forEach((slideicon) => {slideicon.classList.remove("active")});
-     NumberOfSlide++;
-     if(NumberOfSlide > LengthOfSlides - 1)
-     {
-        NumberOfSlide = 0;
-     }
-     ImageSlider[NumberOfSlide].classList.add("active");
-     SliderIcons[NumberOfSlide].classList.add("active");
-   }, 2000);
-}
-repeater();
-
-
-//stop the autoplay on hover
-
-SliderContainer.addEventListener("mouseover", () => 
-{
-   clearInterval(SliderAutoplay);
-});
-
-//continue autoplaying if there is no hover
-SliderContainer.addEventListener("mouseout", () => 
-{
-    repeater();
-});
-        </script>
+        
 </body>
 </html>

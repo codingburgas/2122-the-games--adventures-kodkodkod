@@ -10,12 +10,9 @@
 
 body
 {
+    scroll-behavior: smooth;
     overflow-x: hidden;
-    background-image: linear-gradient(to bottom, #3d1052, #ad5388);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-color:#9D749C;
 }
 
 .nav img{
@@ -23,6 +20,7 @@ body
     position: absolute;
     left: 3%;
     top: 0.3rem;
+    opacity:0.7;
 }
 
 .nav-links{
@@ -30,8 +28,8 @@ body
 }
 
 .nav{
-     
-    background-color: #20092C;
+     z-index: 102;
+    background-color: #000000;
     height: 112px;
     width:110%;
     text-align: center;
@@ -165,23 +163,25 @@ main
     position:relative;
 }
 main h1{
+    z-index: 101;
     display: flex;
     position: relative;
     justify-content: center;
     top: 5rem;
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-family: 'Inter', sans-serif;
     letter-spacing: 4px;
-    color: white;
+    color: rgba(255, 255, 255, 0.649);
     opacity: 64%;
     text-transform: uppercase;
 }
+
 .slider-container
 {
     border-radius: 10px;
     margin:0 auto;
     width:60%;
-    height:400px;
+    height:500px;
     position:relative;
     top:100px;
     box-shadow: 2px 1px 40px rgba(0, 0, 0, 0.533);
@@ -231,6 +231,7 @@ main h1{
 }
 .arrows-container i
 {
+    z-index: 107;
     visibility:visible;
     color:white;
     cursor: pointer;
@@ -251,7 +252,7 @@ main h1{
     width:30%;
     height:5%;
     margin: 0 auto;
-    top:350px;
+    top:450px;
     position: relative;
     z-index: 212;
     display:flex;
@@ -262,25 +263,70 @@ main h1{
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.636);
     background-color: rgba(255, 255, 255, 0.379);
     width:20px;
-    height:100%;
+    height:20px;
     border-radius: 100% ;
     
 }
-.download{
+.pic-and-btn-container
+{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    top: 5rem;
+}
+.pic-and-btn-container img
+{
+    position: absolute;
+}
+.pic-and-btn-container img:nth-child(1)
+{
+    z-index: -1;
+    height:500px;
+    top:-250px;
+    left:-70px;
+}
+.pic-and-btn-container img:nth-child(2)
+{
+    height:300px;
+    top:-600px;
+    right:10%;
+    opacity:0.9;
+    z-index: 100;
+}
+.pic-and-btn-container img:nth-child(3)
+{
+    z-index: 104;
+    height:400px;
+    top:-650px;
+    left:-30px;
+
+}
+.pic-and-btn-container img:nth-child(4)
+{
+    height:600px;
+    top:-500px;
+    right:40px;
+    z-index: 104;
+}
+.download
+{
     user-select: none;
     background-color: #38104E;
     border-radius: 20px;
     border: 2px solid rgba(255, 255, 255, 0.504);
     padding: 15px 20px;;
-    position:relative;
+    position:absolute;
+    top:50px;
     color: rgba(255, 255, 255, 0.655);
     font-size: 1.5rem;
     letter-spacing: 7px;
     text-decoration: none;
-    margin:0 43%;
-    top:130px;
     font-family: 'Inter', sans-serif;
     transition:0.3s;
+}
+.download:hover ~ .circle1
+{
+   transform: scale(1);
 }
 .download:hover 
 {
@@ -309,14 +355,218 @@ main h1{
     75%{border:2px solid rgb(135, 9, 116);}
     100%{border:2px solid rgb(78, 8, 89);}
 }
-@media only screen and (max-width:1100px)
+
+main h3
 {
-    img[alt = "our logo"]
+    color: rgba(255, 255, 255, 0.649);
+    text-transform: uppercase;
+    font-size: 50px;
+    margin-top: 400px;
+    text-align: center;
+}
+.all
+{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height:110vh;
+}
+
+.skins
+{
+    width:700px;
+    transform: translateY(200px);
+    height:90vh;
+    position:relative;
+    z-index: 5;
+}
+.appeared
+{
+   animation:boom 1s 1;
+}
+.appeared-box
+{
+   animation:boom-reverse 2s 1;
+}
+@keyframes boom
+{
+    0%{transform: translateX(-1000px);}
+    1%{opacity:0;}
+    99%{opacity: 1;}
+    100%{transform: translateX(0px);}
+}
+@keyframes boom-reverse
+{
+    0%{transform: translateY(100px);}
+    1%{opacity:0;}
+    99%{opacity: 1;}
+    100%{transform: translateY(0px);}
+}
+.about-us
+{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.796);
+    width:100vw;
+    height:80vh;
+    display:flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+.cards
+{
+    position:absolute;
+    height:100%;
+    width: 100%;
+}
+
+.cardcontainer
+{
+    overflow:hidden;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+    cursor: pointer;
+    border: 1px solid #ff00f77d;
+    box-shadow: 1px 1px 10px #8000ff63;
+    border-radius: 10px;
+    float: left;
+    background-color: rgb(221, 110, 110);
+    width:150px;
+    height:200px;
+    transition: box-shadow 0.5s;
+    
+}
+.cardcontainer::before
+{
+    overflow:hidden;
+    border-radius: inherit;
+    z-index: 1;
+    display:none;
+    content:"";
+    clip-path: circle(142.2% at 0 0);
+    background-color: rgba(0, 0, 0, 0.719);
+    width:100%;
+    height:100%;
+    position:absolute;
+    
+}
+.cardcontainer:hover::before
+{
+    display:block;
+    animation:circle 0.5s 1;
+}
+.cardcontainer:hover
+{
+    border: 1px solid rgba(255, 255, 255, 0.437);
+    box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.482);
+}
+.cardcontainer:hover .click-me
+{
+    display:inline-block;
+    animation:hover 0.5s 1;
+}
+@keyframes hover 
+{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+@keyframes circle 
+{
+    0%{clip-path: circle(11.9% at 50% 0);}
+    100%{clip-path: circle(142.2% at 50% 0);}
+}
+.click-me
+{
+    z-index: 2;
+    display:none;
+    text-shadow: 1px 1px 10px white;
+    color:rgba(255, 255, 255, 0.649);
+}
+.cardcontainer:nth-child(1)
+{
+    
+  
+    top:100px;
+}
+.cardcontainer:nth-child(2)
+{
+  
+    
+    top:300px;
+}
+.cardcontainer:nth-child(3)
+{
+ 
+    
+    top:100px;
+}
+.cardcontainer:nth-child(4)
+{
+    
+    top:300px;
+
+}
+.cardcontainer:nth-child(5)
+{
+  
+    
+    top:100px;
+}
+.cardcontainer:nth-child(6)
+{
+   
+    
+    top:300px;
+
+}
+.cardcontainer:nth-child(7)
+{
+    
+    
+    top:100px;
+}
+.cardcontainer:nth-child(8)
+{
+  
+    
+    top:300px;
+}
+.clicked 
+{
+    position:fixed;
+    transform: scale(1.4);
+}
+@media only screen and (max-width:1250px)
+{
+    .about-us-title
     {
-        left:-3%;
+        font-size: 2rem;
+        margin-bottom: 30px;
     }
-    .nav ul
+    .cardcontainer
     {
-        left:-3rem;
+        position:static;
+        height:150px;
+        width:100px;
+        margin-top: 50px;
     }
+
+    .cardcontainer::before
+    {
+        position:absolute;
+        height:150px;
+        width:100px;
+
+    }
+    .cards
+    {
+        position:absolute;
+        height:150px;
+        width:100px;
+    }
+    
 }
