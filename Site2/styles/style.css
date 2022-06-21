@@ -176,18 +176,16 @@ main h1{
     font-family: 'Inter', sans-serif;
     letter-spacing: 4px;
     color: rgba(255, 255, 255, 0.649);
-    opacity: 64%;
     text-transform: uppercase;
 }
 
 .slider-container
 {
-    border-radius: 10px;
     margin:0 auto;
-    width:60%;
-    height:500px;
+    width:100%;
+    height:86vh;
     position:relative;
-    top:100px;
+    top:-66px;
     box-shadow: 2px 1px 40px rgba(0, 0, 0, 0.533);
 }
 .slider
@@ -207,7 +205,6 @@ main h1{
 }
 .slider img
 {
-    cursor:pointer;
     border-radius: inherit;
     width:100%;
     height:100%;
@@ -235,6 +232,7 @@ main h1{
 }
 .arrows-container i
 {
+    display: none;
     z-index: 107;
     visibility:visible;
     color:white;
@@ -264,6 +262,7 @@ main h1{
 }
 .slide-icons-container div
 {
+    display: none;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.636);
     background-color: rgba(255, 255, 255, 0.379);
     width:20px;
@@ -271,58 +270,28 @@ main h1{
     border-radius: 100% ;
     
 }
-.pic-and-btn-container
+.btn-container
 {
     display: flex;
     position: relative;
     justify-content: center;
-    top: 5rem;
+    top:-12rem;
 }
-.pic-and-btn-container img
+.btn-container img
 {
     position: absolute;
 }
-.pic-and-btn-container img:nth-child(1)
-{
-    z-index: -1;
-    height:500px;
-    top:-250px;
-    left:-70px;
-}
-.pic-and-btn-container img:nth-child(2)
-{
-    height:300px;
-    top:-600px;
-    right:10%;
-    opacity:0.9;
-    z-index: 100;
-}
-.pic-and-btn-container img:nth-child(3)
-{
-    z-index: 104;
-    height:400px;
-    top:-650px;
-    left:-30px;
 
-}
-.pic-and-btn-container img:nth-child(4)
-{
-    height:600px;
-    top:-500px;
-    right:40px;
-    z-index: 104;
-}
 .download
 {
     user-select: none;
     background-color: #38104E;
-    border-radius: 20px;
+    border-radius: 30px;
     border: 2px solid rgba(255, 255, 255, 0.504);
-    padding: 15px 20px;;
+    padding: 15px 40px;;
     position:absolute;
-    top:50px;
     color: rgba(255, 255, 255, 0.655);
-    font-size: 1.5rem;
+    font-size: 2rem;
     letter-spacing: 7px;
     text-decoration: none;
     font-family: 'Inter', sans-serif;
@@ -360,21 +329,25 @@ main h1{
     100%{border:2px solid rgb(78, 8, 89);}
 }
 
-main h3
+.all h3
 {
     color: rgba(255, 255, 255, 0.649);
     text-transform: uppercase;
     font-size: 50px;
-    margin-top: 400px;
-    text-align: center;
+    position: relative;
+     z-index: 10000;
+
 }
 .all
 {
-    display:flex;
+    display: flex;;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    background-color: black;
     width: 100%;
     height:110vh;
+    margin-top: -4.1rem;
 }
 
 .skins
@@ -395,24 +368,25 @@ main h3
 }
 @keyframes boom
 {
-    0%{transform: translateX(-1000px);}
+    0%{transform: translateX(-500px);}
     1%{opacity:0;}
     99%{opacity: 1;}
     100%{transform: translateX(0px);}
 }
 @keyframes boom-reverse
 {
-    0%{transform: translateY(100px);}
+    0%{transform: translateY(0px);}
     1%{opacity:0;}
     99%{opacity: 1;}
-    100%{transform: translateY(0px);}
+    100%{transform: translateY(200px);}
 }
 .about-us
 {
     position: relative;
+    top:-100px;
     background-color: rgba(0, 0, 0, 0.796);
     width:100vw;
-    height:80vh;
+    height:100vh;
     display:flex;
     align-items: flex-start;
     justify-content: space-around;
@@ -542,44 +516,44 @@ main h3
 {
   
     
-    top:300px;
+    top:400px;
 }
 .cardcontainer:nth-child(3)
 {
  
     
-    top:100px;
+    top:200px;
 }
 .cardcontainer:nth-child(4)
 {
     
-    top:300px;
+    top:400px;
 
 }
 .cardcontainer:nth-child(5)
 {
   
     
-    top:100px;
+    top:200px;
 }
 .cardcontainer:nth-child(6)
 {
    
     
-    top:300px;
+    top:400px;
 
 }
 .cardcontainer:nth-child(7)
 {
     
     
-    top:100px;
+    top:200px;
 }
 .cardcontainer:nth-child(8)
 {
   
     
-    top:300px;
+    top:400px;
 }
 .clicked .info
 {
@@ -612,15 +586,18 @@ main h3
 {
     .about-us-title
     {
+        position: relative;
+        top:20px;
         font-size: 2rem;
         margin-bottom: 30px;
     }
     .cardcontainer
     {
         position:static;
+    
         height:150px;
         width:100px;
-        margin-top: 50px;
+        margin-top: 100px;
     }
 
     .cardcontainer::before

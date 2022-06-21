@@ -50,23 +50,10 @@ var repeater = () =>
      }
      ImageSlider[NumberOfSlide].classList.add("active");
      SliderIcons[NumberOfSlide].classList.add("active");
-   }, 1500);
+   }, 2500);
 }
 repeater();
 
-
-//stop the autoplay on hover
-
-SliderContainer.addEventListener("mouseover", () => 
-{
-   clearInterval(SliderAutoplay);
-});
-
-//continue autoplaying if there is no hover
-SliderContainer.addEventListener("mouseout", () => 
-{
-    repeater();
-});
 
 //appearing of skins
 
@@ -88,9 +75,9 @@ function AppearWhenScroll()
 }
 function AppearWhenScrollbox() 
 {
-    var skins = document.querySelector(".all");
+    var skins = document.querySelector(".skins");
     var SkinsPosition = skins.getBoundingClientRect().top;
-    var PositionOfScreen = window.innerHeight;
+    var PositionOfScreen = window.innerHeight +200;
     if(SkinsPosition < PositionOfScreen)
 
     {
