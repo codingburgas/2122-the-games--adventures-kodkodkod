@@ -37,31 +37,39 @@ int main()
             arrow_obj.CheckChests();
 
             arrow_obj.checkArrows();
-
-            if (arrow_obj.checkInput[0])
+            if (arrow_obj.dia)
+            {
+                arrow_obj.Hero_obj.DrawLeft();
+            }
+            if (arrow_obj.checkInput[0] && arrow_obj.dia == 0 )
             {
                 arrow_obj.Hero_obj.DrawLeft();
                 arrow_obj.Hero_obj.UpdateLeft();
+
             }
-            else if (arrow_obj.checkInput[1])
+            else if (arrow_obj.checkInput[1] && arrow_obj.dia == 0)
             {
                 arrow_obj.Hero_obj.DrawRight();
                 arrow_obj.Hero_obj.UpdateRight();
+
             }
-            else if (arrow_obj.checkInput[2])
+            else if (arrow_obj.checkInput[2] && arrow_obj.dia == 0)
             {
                 arrow_obj.Hero_obj.DrawUp();
                 arrow_obj.Hero_obj.UpdateUp();
 
+
             }
-            else if (arrow_obj.checkInput[3])
+            else if (arrow_obj.checkInput[3] && arrow_obj.dia == 0)
             {
                 arrow_obj.Hero_obj.DrawDown();
                 arrow_obj.Hero_obj.UpdateUp();
+
             }
             else
             {
-            arrow_obj.Hero_obj.DrawDown();
+            arrow_obj.Hero_obj.Idle();
+
             }
               
                 
@@ -69,7 +77,6 @@ int main()
         }
         
         EndDrawing();
-        arrow_obj.Hero_obj.UnloadHero();
         /*system("CLS");*/
         
     }

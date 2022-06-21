@@ -3,6 +3,7 @@
 #include "DrawHero.h"
 #include "Background.h"
 #include <iostream>
+using namespace std;
 class Arrows {
 public:
 	Hero Hero_obj;
@@ -11,7 +12,8 @@ public:
 	bool checker2 = 0;
 	bool checker3 = 0;
 	bool checker4 = 0;
-
+	int speedBG = 100;
+	int speedHero = 5;
 	bool checkInput[4] = {0, 0, 0, 0};
 	Rectangle hide = { 0,0,(float)GetScreenWidth(),(float)GetScreenHeight() };
 	Texture2D Chest = LoadTexture("../images/chest.png");
@@ -21,6 +23,7 @@ public:
 	Rectangle KeyRec;
 	Vector2 mousePoint;
 	Vector2 Circlee;
+	bool dia = 0;
 	bool wrong_chest1 = 0, wrong_chest2 = 0, wrong_chest3 = 0, right_chest = 0;
 
 	Rectangle chests[4];
@@ -45,7 +48,7 @@ public:
 		{
 
 
-			DrawRectangleLinesEx(chests[i], 7.5, WHITE);
+			DrawRectangleLinesEx(chests[i], 7.5, BLANK);
 		}
 
 	}
@@ -86,68 +89,88 @@ public:
 	}
 	void checkArrows()
 	{
-		if ((IsKeyDown(KEY_A) or IsKeyDown(KEY_LEFT)) && checkInput[3] == 0 && checkInput[1] == 0 && checkInput[2] == 0)
+		int count = 0;
+		for (int i = 0; i < 4; i++)
 		{
+
+			if (checkInput[i])
+			{
+				count++;
+				if (count == 2)
+				{
+					speedHero = 2;
+					speedBG = 150;
+					dia = 1;
+					break;
+				}
+				else {
+					dia = 0;
+					speedHero = 5;
+					speedBG = 100;
+				}
+
+
+			}
+		}
+		if (IsKeyDown(KEY_A) or IsKeyDown(KEY_LEFT))
+		{
+			
 			checkInput[0] = 1;
 			checkInput[1] = 0;
-			checkInput[2] = 0;
-			checkInput[3] = 0;
+
 			if (!(Hero_obj.HeroPos.x <= 5))
 			{
-				Hero_obj.HeroPos.x -= 5;
+				Hero_obj.HeroPos.x -= speedHero;
 			}
 			if (!(moveBG.bg_pos.x <= 0) && Hero_obj.HeroPos.x < (GetScreenWidth() - Hero_obj.HeroClip.width) - 200)
 			{
-				moveBG.bg_pos.x -= GetScreenWidth() / 100;
+				moveBG.bg_pos.x -= GetScreenWidth() / speedBG;
 			}
 
 		}
-		else if ((IsKeyDown(KEY_D) or IsKeyDown(KEY_RIGHT)) && checkInput[0] == 0 && checkInput[2] == 0 && checkInput[3] == 0)
+		if (IsKeyDown(KEY_D) or IsKeyDown(KEY_RIGHT))
 		{
-			checkInput[0] = 0;
+			
 			checkInput[1] = 1;
-			checkInput[2] = 0;
-			checkInput[3] = 0;
+			checkInput[0] = 0;
 			if (!(Hero_obj.HeroPos.x >= (GetScreenWidth() - Hero_obj.HeroClip.width) - 5))
 			{
-				Hero_obj.HeroPos.x += 5;
+				Hero_obj.HeroPos.x += speedHero;
 			}
 			if (!(moveBG.bg_pos.x >= GetScreenWidth()) && Hero_obj.HeroPos.x > 200)
 			{
-				moveBG.bg_pos.x += GetScreenWidth() / 100;
+				moveBG.bg_pos.x += GetScreenWidth() / speedBG;
 			}
 		}
-		else if ((IsKeyDown(KEY_W) or IsKeyDown(KEY_UP)) && checkInput[0] == 0 && checkInput[1] == 0 && checkInput[3] == 0)
+		if (IsKeyDown(KEY_W) or IsKeyDown(KEY_UP))
 		{
-			checkInput[0] = 0;
-			checkInput[1] = 0;
-			checkInput[2] = 1;
 			checkInput[3] = 0;
+			checkInput[2] = 1;
 			if (!(Hero_obj.HeroPos.y <= 5))
 			{
-				Hero_obj.HeroPos.y -= 5;
+				Hero_obj.HeroPos.y -= speedHero;
 			}
 			if (!(moveBG.bg_pos.y <= 0) && Hero_obj.HeroPos.y < (GetScreenHeight() - Hero_obj.HeroClip.height) - 200)
 			{
-				moveBG.bg_pos.y -= GetScreenHeight() / 100;
+				moveBG.bg_pos.y -= GetScreenHeight() / speedBG;
 			}
 		}
-		else if ((IsKeyDown(KEY_S) or IsKeyDown(KEY_DOWN)) && checkInput[0] == 0 && checkInput[1] == 0 && checkInput[2] == 0)
+		if (IsKeyDown(KEY_S) or IsKeyDown(KEY_DOWN))
 		{
-			checkInput[0] = 0;
-			checkInput[1] = 0;
-			checkInput[2] = 0;
+			
+			
 			checkInput[3] = 1;
+			checkInput[2] = 0;
 			if (!(Hero_obj.HeroPos.y >= (GetScreenHeight() - Hero_obj.HeroClip.height) - 30))
 			{
-				Hero_obj.HeroPos.y += 5;
+				Hero_obj.HeroPos.y += speedHero;
 			}
 			if (!(moveBG.bg_pos.y >= GetScreenHeight()) && Hero_obj.HeroPos.y > 200)
 			{
-				moveBG.bg_pos.y += GetScreenHeight() / 100;
+				moveBG.bg_pos.y += GetScreenHeight() / speedBG;
 			}
 		}
-		else
+		if (!(IsKeyDown(KEY_A) || IsKeyDown(KEY_D) || IsKeyDown(KEY_S) || IsKeyDown(KEY_W)|| IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_DOWN) || IsKeyDown(KEY_UP)))
 		{
 			checkInput[0] = 0;
 			checkInput[1] = 0;
