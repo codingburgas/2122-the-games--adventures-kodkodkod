@@ -39,6 +39,10 @@ body
     display:block;
     animation:appear 0.5s ease-out 1;
 }
+.htp
+{
+       margin-left: -10%;
+}
 @keyframes appear
 {
     0%
@@ -454,7 +458,7 @@ main h3
 }
 .cards
 {
-
+    transition:filter 0.4s ease-out;
     position:absolute;
     background-image: url(../images/logo-adventure.png);
     height: 100%;
@@ -490,6 +494,10 @@ main h3
 {
     border: 1px solid rgba(255, 255, 255, 0.437);
     box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.482);
+}
+.cardcontainer:hover .cards
+{
+    filter:blur(2px);
 }
 .cardcontainer:hover .click-me
 {
@@ -582,14 +590,23 @@ main h3
 {
     display: none;
 }
+.clicked .cards
+{
+    filter: blur(5px);
+}
 .clicked:hover .click-me
 {
     display: none;
 }
-.clicked:hover::before
+.clicked::before
 {
     background-color: rgba(255, 255, 255, 0.525);
+    display:block;
+}
+.clicked:hover::before
+{
     animation:circle-reverse 0.5s 1;
+    display:block;
 }
 @media only screen and (max-width:1250px)
 {
