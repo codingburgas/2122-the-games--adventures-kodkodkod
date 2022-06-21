@@ -126,7 +126,6 @@ Card.forEach(cardcontainer =>
          {
             Card.forEach(card => card.classList.remove("clicked"));
             this.classList.add("clicked");   
-            
          });
          
     });

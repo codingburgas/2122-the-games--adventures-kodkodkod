@@ -415,11 +415,23 @@ main h3
     flex-wrap: wrap;
 
 }
-.cards
+.cardcontainer span
 {
+    z-index: 2;
+}
+.info
+{
+
     position:absolute;
-    height:100%;
-    width: 100%;
+    font-size: 0.9em;
+    color:rgba(0, 0, 0, 0.601);
+    font-weight: 500;
+    height:200px;
+    bottom:-20%;
+    text-align: center;
+    width: 150px;
+    z-index: 2;
+    display: none;
 }
 
 .cardcontainer
@@ -438,6 +450,21 @@ main h3
     width:150px;
     height:200px;
     transition: box-shadow 0.5s;
+    
+}
+.cards
+{
+
+    position:absolute;
+    background-image: url(../images/logo-adventure.png);
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+}
+.cardcontainer:hover span
+{
+    display:none;
     
 }
 .cardcontainer::before
@@ -474,14 +501,25 @@ main h3
     0%{opacity: 0;}
     100%{opacity: 1;}
 }
+@keyframes up
+{
+    0%{transform: translateY(10px);}
+    100%{transform: translateY(0px);}
+}
+
 @keyframes circle 
 {
     0%{clip-path: circle(11.9% at 50% 0);}
     100%{clip-path: circle(142.2% at 50% 0);}
 }
+@keyframes circle-reverse
+{
+    0%{clip-path: circle(11.9% at 50% 100%);}
+    100%{clip-path: circle(142.2% at 50% 100%);}
+}
 .click-me
 {
-    z-index: 2;
+    z-index: 3;
     display:none;
     text-shadow: 1px 1px 10px white;
     color:rgba(255, 255, 255, 0.649);
@@ -535,10 +573,23 @@ main h3
     
     top:300px;
 }
-.clicked 
+.clicked .info
 {
-    position:fixed;
-    transform: scale(1.4);
+    animation:up 0.7s 1;
+    display: inline-block;
+}
+.clicked span
+{
+    display: none;
+}
+.clicked:hover .click-me
+{
+    display: none;
+}
+.clicked:hover::before
+{
+    background-color: rgba(255, 255, 255, 0.525);
+    animation:circle-reverse 0.5s 1;
 }
 @media only screen and (max-width:1250px)
 {
