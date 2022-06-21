@@ -92,7 +92,7 @@ function AppearWhenScrollbox()
 window.addEventListener("scroll",AppearWhenScroll);
 window.addEventListener("scroll", AppearWhenScrollbox);
 
-//parallax for skins
+//parallax for skins and slider
 
 let allskins = document.querySelector(".skins");
 
@@ -101,6 +101,21 @@ window.addEventListener("scroll", function()
     let value = window.scrollY;
     allskins.style.bottom = value *0.3 + 'px';
 });
+let slider = document.querySelector(".slider-container");
+
+window.addEventListener("scroll", function()
+{
+    let value = window.scrollY;
+    slider.style.bottom = value*0.11 + 'px';
+});
+let btn = document.querySelector(".btn-container");
+
+window.addEventListener("scroll", function()
+{
+    let value = window.scrollY;
+    btn.style.bottom = value*0.5 + 'px';
+});
+
 
 //about us card zooming and reading info
 
