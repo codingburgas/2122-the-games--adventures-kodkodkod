@@ -661,3 +661,34 @@
 	padding: 1rem 0 2rem 0;
 	text-align: center;
 }
+
+
+
+.storyline-hover:hover ~ .storyline
+{
+    display:block;
+    animation:appear 0.5s ease-out 1;
+}
+
+
+.storyline
+{
+    display:none;
+    z-index: 1000;
+    width:100vw;
+    height: min-content;
+    position:absolute;
+    left:0;
+    top:110px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
+    color:white;
+    text-align: center;
+}
+
+.story-text{
+    text-align: left;
+    opacity: 0.5;
+    margin: 1rem 10% 5%;
+    font-size: 2rem;
+}
+
