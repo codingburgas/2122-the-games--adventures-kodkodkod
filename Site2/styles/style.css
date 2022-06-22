@@ -446,7 +446,7 @@
     }
     .cardcontainer:nth-child(2)
     {
-        background-image: url(../images/Alexander.jpg);
+        background-image: url(../images/Alexander.jfif);
         
         top:200px;
     }
@@ -458,26 +458,26 @@
     }
     .cardcontainer:nth-child(4)
     {
-        background-image: url(../images/Denis.jpg);
+        background-image: url(../images/Denis.jfif);
         top:200px;
 
     }
     .cardcontainer:nth-child(5)
     {
-        background-image: url(../images/Denislav.jpg);
+        background-image: url(../images/Denislav.png);
         margin-left: -74.5rem;
         top:460px;
     }
     .cardcontainer:nth-child(6)
     {
     
-        background-image: url(../images/Hakan.jpg);
+        background-image: url(../images/Hakan.jfif);
         top:460px;
 
     }
     .cardcontainer:nth-child(7)
     {
-        background-image: url(../images/Ivailo.jpg);
+        background-image: url(../images/Ivailo.jfif);
         top:460px;
     }
     .cardcontainer:nth-child(8)
@@ -565,7 +565,9 @@
     .clicked .info
     {
         animation:up 0.7s 1;
-        display: inline-block;
+        display: flex;
+		justify-content: center;
+		align-items: center;
     }
     .clicked span
     {
