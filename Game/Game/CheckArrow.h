@@ -12,6 +12,8 @@ public:
 	bool checker2 = 0;
 	bool checker3 = 0;
 	bool checker4 = 0;
+	bool checker5 = 0;
+	bool checker6 = 0;
 	int speedBG = 100;
 	int speedHero = 5;
 	bool checkInput[4] = {0, 0, 0, 0};
@@ -21,6 +23,7 @@ public:
 	Texture2D Key = LoadTexture("../images/Key.png");
 	Rectangle Border;
 	Rectangle KeyRec;
+	Rectangle Door;
 	Vector2 mousePoint;
 	Vector2 Circlee;
 	bool dia = 0;
@@ -33,10 +36,14 @@ public:
 
 		mousePoint = GetMousePosition();
 
-		chests[0] = { 0,0, 500, 350 };
-		chests[1] = { (float)GetScreenWidth() - 500, 0, 500, 350 };
-		chests[2] = { 0, (float)GetScreenHeight() - 350, 500, 350 };
-		chests[3] = { (float)GetScreenWidth() - 500, (float)GetScreenHeight() - 350, 500, 350 };
+		chests[0] = { 320,100, 500, 350 };
+		chests[1] = { (float)GetScreenWidth() - 800, 100, 500, 350 };
+		chests[2] = { 200, (float)GetScreenHeight() - 450, 500, 350 };
+		chests[3] = { (float)GetScreenWidth() - 800, (float)GetScreenHeight() - 450, 500, 350 };
+
+		Door = { 650,100, 250, 250 };
+
+		DrawRectangleLinesEx(Door, 7.5, BLACK);
 
 		Opened_Chest.width = 1800;
 		Opened_Chest.height = 850;
@@ -208,6 +215,17 @@ public:
 			}
 
 		}
+		if (checker6)
+		{
+			if (CheckCollisionPointRec(Hero_obj.HeroPos, Door))
+			{
+				DrawText("Press 'ENTER' to go to the room", 10, 10, 35, WHITE);
+				if (IsKeyPressed(KEY_ENTER))
+				{
+					checker5 = 1;
+				}
+			}
+		}
 		Border.x = 420;
 		Border.y = 60;
 		Border.width = 1300;
@@ -259,10 +277,9 @@ public:
 				checker2 = 0;
 			}
 		}
+
 		if (checker3)
 		{
-
-
 			DrawTexture(Opened_Chest, 30, 30, WHITE);
 			DrawTexture(Key, 600, 360, WHITE);
 
@@ -276,13 +293,18 @@ public:
 			if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, KeyRec))
 			{
 				moveBG.background = LoadTexture("../images/background2.png");
-				//DrawRectangleRec(hide, BLANK);
+				checker6 = 1;
 				checker3 = 0;
 			}
 			if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Circlee, 20))
 			{
 				checker3 = 0;
 			}
+		}
+		if (checker5)
+		{
+			moveBG.background = LoadTexture("../images/background3.png");
+			checker3 = 0;
 		}
 
 	}
