@@ -257,11 +257,12 @@
         justify-content: space-around;
     }
 	
-    .slide-icons-container div
+    .slideicon
     {
+        cursor: pointer;
 		box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.636);
 		background-color: rgba(255, 255, 255, 0.379);
-		width:80px;
+		width:15%;
 		border-radius: 5px;
 		height:20px;
 		margin-top: 180px;
@@ -281,7 +282,7 @@
     .download
     {
         user-select: none;
-        background-color: #38104E;
+        background-color: #000000ae;
         border-radius: 30px;
         border: 2px solid rgba(255, 255, 255, 0.504);
         padding: 15px 40px;;
@@ -293,38 +294,40 @@
         font-family: 'Inter', sans-serif;
         transition:0.3s;
     }
-    .download:hover ~ .circle1
+    .download::before
     {
-    transform: scale(1);
+        content: "";
+        position:absolute;
+        height:100%;
+        width: 100%;
+        top:0;
+        left:0;
+        border-radius: inherit;
+      background-color: #ffffff5a;;
+      display: none;
     }
-    .download:hover 
+    .download:hover
     {
-        color:rgba(255, 255, 255, 0.659);
-        background-color: #38104e94;
-        animation:border 1s linear infinite, text-color 1s linear infinite;
+        color:rgba(0, 0, 0, 0.659);
+        background-color: transparent;
+    }
+    .download:hover::before
+    {
+        z-index: -1;
+        display: block;
+        clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);
+        animation:polygon 0.3s 1;
+    }
+    @keyframes polygon
+    {
+        0%{clip-path: polygon(0% 0%, 11% 0, 25% 51%, 11% 100%, 0% 100%);}
+        100%{clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);}
     }
     .download:active
     {
     
         background-color: rgb(0, 0, 0);
     }
-    @keyframes text-color
-    {
-        0%{color:rgb(69, 6, 60);}
-        25%{color:purple;}
-        50%{color:rgb(152, 9, 168);}
-        75%{color:purple;}
-        100%{color:rgb(69, 6, 60);}
-    }
-    @keyframes border
-    {
-        0%{border:2px solid rgb(57, 4, 49);}
-        25%{border:2px solid rgb(156, 11, 156);}
-        50%{border: 2px solid rgb(214, 7, 204);}
-        75%{border:2px solid rgb(135, 9, 116);}
-        100%{border:2px solid rgb(78, 8, 89);}
-    }
-
     .all h3
     {
         color: rgba(255, 255, 255, 0.649);
@@ -425,8 +428,8 @@
         justify-content: center;
         position:relative;
         cursor: pointer;
-        border: 1px solid #ff00f77d;
-        box-shadow: 1px 1px 10px #8000ff63;
+        border: 1px solid #6b6b6b7d;
+        box-shadow: 1px 1px 10px #7b7b7b;
         border-radius: 50%;
         float: left;
         margin-top: 50px;
@@ -561,7 +564,6 @@
         text-shadow: 1px 1px 10px white;
         color:rgba(255, 255, 255, 0.649);
     }
-
     .clicked .info
     {
         animation:up 0.7s 1;
@@ -648,12 +650,18 @@
 
 .icon-footer
 {
+    text-decoration: none;
+    color:white;
     background-color: rgb(87, 87, 87);
     padding: 0.3rem;
     border-radius: 5px;
     margin: 0.5rem 0.1rem;
+    transition:0.5s;
 }
-
+.icon-footer:hover
+{
+    color:black;
+}
 .footer
 {
     color: white;

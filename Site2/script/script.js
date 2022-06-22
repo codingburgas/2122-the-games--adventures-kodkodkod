@@ -127,7 +127,7 @@ Card.forEach(cardcontainer =>
          cardcontainer.addEventListener("click", function(click)
          {
             Card.forEach(card => card.classList.remove("clicked"));
-            this.classList.add("clicked");   
+            this.classList.toggle("clicked"); 
          });
-         
     });
+   
