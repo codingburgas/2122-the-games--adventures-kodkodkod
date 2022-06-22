@@ -628,3 +628,31 @@
         }
         
     }
+    /* footer */
+
+.logo-footer{
+    width: 4rem;
+}
+
+.button-footer{
+    padding: 0.5rem 4rem;
+    background-color: rgb(87, 87, 87);
+    color: white;
+    border-radius: 5px;
+}
+
+.icon-footer{
+    background-color: rgb(87, 87, 87);
+    padding: 0.3rem;
+    border-radius: 5px;
+    margin: 0.5rem 0.1rem;
+}
+
+.footer{
+
+
+    color: white;
+    background-color: black;
+    padding: 1rem 0 2rem 0;
+    text-align: center;
+}
