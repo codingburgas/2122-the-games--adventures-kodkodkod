@@ -256,15 +256,15 @@
         display:flex;
         justify-content: space-around;
     }
+	
     .slide-icons-container div
     {
-        display: none;
-        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.636);
-        background-color: rgba(255, 255, 255, 0.379);
-        width:20px;
-        height:20px;
-        border-radius: 100% ;
-        
+		box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.636);
+		background-color: rgba(255, 255, 255, 0.379);
+		width:80px;
+		border-radius: 5px;
+		height:20px;
+		margin-top: 180px;
     }
     .btn-container
     {
