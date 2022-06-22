@@ -10,10 +10,10 @@ int main()
     const int screenWidth = 1915;
     const int screenHeight = 1025;
 
-    
+
     InitWindow(screenWidth, screenHeight, "The last swordsman");
 
-    SetTargetFPS(60);      
+    SetTargetFPS(60);
 
     Menu menu_obj;
     Arrows arrow_obj;
@@ -21,7 +21,7 @@ int main()
     {
 
         BeginDrawing();
-        
+
         ClearBackground(DARKPURPLE);
 
         menu_obj.SetMenuSize();
@@ -37,11 +37,19 @@ int main()
             arrow_obj.CheckChests();
 
             arrow_obj.checkArrows();
-            if (arrow_obj.dia)
+            if (arrow_obj.dia && arrow_obj.checkInput[0])
             {
                 arrow_obj.Hero_obj.DrawLeft();
+                arrow_obj.Hero_obj.UpdateLeft();
+
             }
-            if (arrow_obj.checkInput[0] && arrow_obj.dia == 0 )
+            if (arrow_obj.dia && arrow_obj.checkInput[1])
+            {
+                arrow_obj.Hero_obj.DrawRight();
+                arrow_obj.Hero_obj.UpdateRight();
+
+            }
+            else if (arrow_obj.checkInput[0] && arrow_obj.dia == 0)
             {
                 arrow_obj.Hero_obj.DrawLeft();
                 arrow_obj.Hero_obj.UpdateLeft();
@@ -68,8 +76,14 @@ int main()
             }
             else
             {
-            arrow_obj.Hero_obj.Idle();
-
+                bool fourth = 0;
+                for (int i = 0; i < 4; i++)
+                {
+                    if (arrow_obj.checkInput[i])
+                    fourth = 1;
+                }
+                if(fourth == 0)
+                arrow_obj.Hero_obj.Idle();
             }
               
                 

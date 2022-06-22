@@ -98,6 +98,7 @@ public:
 				count++;
 				if (count == 2)
 				{
+					
 					speedHero = 2;
 					speedBG = 150;
 					dia = 1;
@@ -115,8 +116,8 @@ public:
 		if (IsKeyDown(KEY_A) or IsKeyDown(KEY_LEFT))
 		{
 			
-			checkInput[0] = 1;
 			checkInput[1] = 0;
+			checkInput[0] = 1;
 
 			if (!(Hero_obj.HeroPos.x <= 5))
 			{
@@ -127,6 +128,10 @@ public:
 				moveBG.bg_pos.x -= GetScreenWidth() / speedBG;
 			}
 
+		}
+		else
+		{
+			checkInput[0] = 0;
 		}
 		if (IsKeyDown(KEY_D) or IsKeyDown(KEY_RIGHT))
 		{
@@ -142,6 +147,10 @@ public:
 				moveBG.bg_pos.x += GetScreenWidth() / speedBG;
 			}
 		}
+		else
+		{
+			checkInput[1] = 0;
+		}
 		if (IsKeyDown(KEY_W) or IsKeyDown(KEY_UP))
 		{
 			checkInput[3] = 0;
@@ -154,6 +163,10 @@ public:
 			{
 				moveBG.bg_pos.y -= GetScreenHeight() / speedBG;
 			}
+		}
+		else
+		{
+			checkInput[2] = 0;
 		}
 		if (IsKeyDown(KEY_S) or IsKeyDown(KEY_DOWN))
 		{
@@ -169,6 +182,10 @@ public:
 			{
 				moveBG.bg_pos.y += GetScreenHeight() / speedBG;
 			}
+		}
+		else
+		{
+			checkInput[3] = 0;
 		}
 		if (!(IsKeyDown(KEY_A) || IsKeyDown(KEY_D) || IsKeyDown(KEY_S) || IsKeyDown(KEY_W)|| IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_DOWN) || IsKeyDown(KEY_UP)))
 		{
