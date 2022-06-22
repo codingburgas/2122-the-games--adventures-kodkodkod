@@ -105,7 +105,7 @@ function AppearWhenScrollbox()
        
         arrowUp.style.color = "black";
     }
-    if(SkinsPosition+2200 < PositionOfScreen)
+    if(SkinsPosition+2150 < PositionOfScreen)
     {
         arrowUp.style.color = "rgba(255, 255, 255, 0.53)";
     }
