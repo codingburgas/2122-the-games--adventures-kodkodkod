@@ -194,6 +194,10 @@
         position:absolute;
         
     }
+    .upper-waves
+    {
+        position:absolute;
+    }
     .slider.active
     {
         opacity:1;
@@ -210,7 +214,7 @@
 
     .slideicon.active{
         transition:0.5s;
-        background-color: rgba(255, 255, 255, 0.726);
+        background-color: rgba(255, 255, 255, 0.453);
     }
 
     .arrows-container 
@@ -260,8 +264,8 @@
     .slideicon
     {
         cursor: pointer;
-		box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.636);
-		background-color: rgba(255, 255, 255, 0.379);
+		box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.347);
+		background-color: rgba(0, 0, 0, 0.616);
 		width:15%;
 		border-radius: 5px;
 		height:20px;
@@ -343,7 +347,7 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        background-color: rgb(0, 0, 0);
+        background-image:linear-gradient(to bottom, rgb(0, 0, 0), rgba(0, 0, 0, 0.9), black);
         width: 100%;
         height:110vh;
         margin-top: 8.11rem;
@@ -395,7 +399,8 @@
     {
         position: relative;
         top:-100px;
-        background-color: rgba(0, 0, 0, 0.796);
+        background-image:linear-gradient(to top, rgba(0, 0, 0, 0.789), black);
+        box-shadow: 10px 0px 10px black;
         width:100vw;
         height:100vh;
         display:flex;
@@ -436,11 +441,11 @@
         position:relative;
         cursor: pointer;
         border: 1px solid #6b6b6b7d;
-        box-shadow: 1px 1px 10px #7b7b7b;
-        border-radius: 50%;
+       
+        border-radius: 1000px;
         float: left;
         margin-top: 50px;
-        background-color: rgb(221, 110, 110);
+        background-color:transparent;
         width: 160px;
         height:160px;
         transition: box-shadow 0.5s;
@@ -456,7 +461,7 @@
     }
     .cardcontainer:nth-child(2)
     {
-        background-image: url(../images/Alexander.jfif);
+        background-image: url(../images/Alexander.jpg);
         
         top:200px;
     }
@@ -468,26 +473,26 @@
     }
     .cardcontainer:nth-child(4)
     {
-        background-image: url(../images/Denis.jfif);
+        background-image: url(../images/Denis.jpg);
         top:200px;
 
     }
     .cardcontainer:nth-child(5)
     {
-        background-image: url(../images/Denislav.png);
+        background-image: url(../images/Denislav.jpg);
         margin-left: -74.5rem;
         top:460px;
     }
     .cardcontainer:nth-child(6)
     {
     
-        background-image: url(../images/Hakan.jfif);
+        background-image: url(../images/Hakan.jpg);
         top:460px;
 
     }
     .cardcontainer:nth-child(7)
     {
-        background-image: url(../images/Ivailo.jfif);
+        background-image: url(../images/Ivailo.jpg);
         top:460px;
     }
     .cardcontainer:nth-child(8)
@@ -611,25 +616,18 @@
         }
         .cardcontainer
         {
-            position:static;
-        
             height:150px;
-            width:100px;
-            margin-top: 100px;
+            width:150px;
+            margin:0 50px;
+            
         }
 
         .cardcontainer::before
         {
             position:absolute;
             height:150px;
-            width:100px;
+            width:150px;
 
-        }
-        .cards
-        {
-            position:absolute;
-            height:150px;
-            width:100px;
         }
         
     }
@@ -714,20 +712,30 @@
     font-size: 50px;
     position:fixed;
     bottom:50px;
-    right:25px;
+    right:15px;
     transition: 0.2s;
-}
-.arrow-up:hover
-{
-    color:white;
 }
 .appear-arrow
 {
+    opacity:0.5;
     display:block;
     animation:pop-up 0.5s 1;
+}
+.appear-arrow:hover
+{
+    opacity:1;
 }
 @keyframes pop-up
 {
     0%{opacity:0;}
-    100%{opacity:1;}
+    100%{opacity:0.5;}
+}
+.waves 
+{
+    
+    width:100%;
+    height:150px;
+    margin-top: -90px;
+
+    transform: rotateZ(180deg);
 }
