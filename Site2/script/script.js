@@ -5,6 +5,7 @@ const ButtonLeft = document.querySelector(".buttonLeft");
 const ImageSlider = document.querySelectorAll(".slider");
 const SliderIcons = document.querySelectorAll(".slideicon");
 const LengthOfSlides = ImageSlider.length;
+const arrowUp = document.querySelector(".arrow-up");
 var NumberOfSlide = 0;
 //action for the right button
 ButtonRight.addEventListener("click", () =>
@@ -81,11 +82,32 @@ function AppearWhenScrollbox()
     if(SkinsPosition < PositionOfScreen)
 
     {
+        
     skins.classList.add("appeared-box");
+    
     }
     else
     {
         skins.classList.remove("appeared-box");
+    }
+    if(SkinsPosition+600 < PositionOfScreen)
+    {
+        arrowUp.classList.add("appear-arrow");
+        arrowUp.style.color = "rgba(255, 255, 255, 0.53)";
+    }
+    else
+    {
+
+        arrowUp.classList.remove("appear-arrow");
+    }
+    if(SkinsPosition+1100 < PositionOfScreen)
+    {
+       
+        arrowUp.style.color = "black";
+    }
+    if(SkinsPosition+2200 < PositionOfScreen)
+    {
+        arrowUp.style.color = "rgba(255, 255, 255, 0.53)";
     }
    
 }
