@@ -350,4 +350,5 @@ MigrationBackup/
 .ionide/
 
 #Ignore Inneeded VScode files
-.vscode/
+!.vscode/
+!.vscode/*
