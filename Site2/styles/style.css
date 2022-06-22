@@ -382,6 +382,11 @@ main h1{
     99%{opacity: 1;}
     100%{transform: translateY(200px);}
 }
+.about-us-title > a 
+{
+    color:white;
+    text-decoration: none;
+}
 .about-us
 {
     position: relative;
@@ -424,13 +429,61 @@ main h1{
     cursor: pointer;
     border: 1px solid #ff00f77d;
     box-shadow: 1px 1px 10px #8000ff63;
-    border-radius: 10px;
+    border-radius: 50%;
     float: left;
+    margin-top: 40px;
     background-color: rgb(221, 110, 110);
-    width:150px;
-    height:200px;
+    width: 160px;
+    height:160px;
     transition: box-shadow 0.5s;
     
+}
+.cardcontainer:nth-child(1)
+{
+    
+    top:200px;
+}
+.cardcontainer:nth-child(2)
+{
+  
+    
+    top:200px;
+}
+.cardcontainer:nth-child(3)
+{
+ 
+    
+    top:200px;
+}
+.cardcontainer:nth-child(4)
+{
+    
+    top:200px;
+
+}
+.cardcontainer:nth-child(5)
+{
+  
+    margin-left: -80.5rem;
+    top:400px;
+}
+.cardcontainer:nth-child(6)
+{
+   
+    
+    top:400px;
+
+}
+.cardcontainer:nth-child(7)
+{
+    
+    top:400px;
+}
+.cardcontainer:nth-child(8)
+{
+  
+    
+    top:400px;
 }
 .cards
 {
@@ -508,55 +561,7 @@ main h1{
     text-shadow: 1px 1px 10px white;
     color:rgba(255, 255, 255, 0.649);
 }
-.cardcontainer:nth-child(1)
-{
-    
-  
-    top:100px;
-}
-.cardcontainer:nth-child(2)
-{
-  
-    
-    top:400px;
-}
-.cardcontainer:nth-child(3)
-{
- 
-    
-    top:200px;
-}
-.cardcontainer:nth-child(4)
-{
-    
-    top:400px;
 
-}
-.cardcontainer:nth-child(5)
-{
-  
-    
-    top:200px;
-}
-.cardcontainer:nth-child(6)
-{
-   
-    
-    top:400px;
-
-}
-.cardcontainer:nth-child(7)
-{
-    
-    
-    top:200px;
-}
-.cardcontainer:nth-child(8)
-{
-  
-    
-    top:400px;
-}
 .clicked .info
 {
     animation:up 0.7s 1;
