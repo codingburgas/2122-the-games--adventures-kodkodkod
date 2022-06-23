@@ -126,7 +126,7 @@ public:
                 DrawCircle(850.5 + i * 200, 400.5, 27.5, LIGHTGRAY);
             }
 
-            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Music_Yes_Circle, 10))
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Music_Yes_Circle, 31.5))
             {
                 Music_checker2 = 1;
             }
@@ -134,7 +134,7 @@ public:
             {
                 right_check.x = right_check.x - 200;
                 //needs to be added music here
-                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Music_No_Circle, 10))
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Music_No_Circle, 31.5))
                 {
                     //stop the music here
                     Music_checker2 = 0;

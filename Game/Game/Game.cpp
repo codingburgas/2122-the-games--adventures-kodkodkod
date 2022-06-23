@@ -12,7 +12,6 @@ int main()
     const int screenWidth = 1915;
     const int screenHeight = 1025;
 
-
     InitWindow(screenWidth, screenHeight, "The last swordsman");
 
     SetTargetFPS(60);

@@ -42,9 +42,7 @@ public:
 		chests[2] = { 200, (float)GetScreenHeight() - 450, 500, 350 };
 		chests[3] = { (float)GetScreenWidth() - 800, (float)GetScreenHeight() - 450, 500, 350 };
 
-		Door = { 650,100, 250, 250 };
-
-		DrawRectangleLinesEx(Door, 7.5, BLACK);
+		Door = { 500,0, 450, 250 };
 
 		Opened_Chest.width = 1800;
 		Opened_Chest.height = 850;
@@ -226,13 +224,15 @@ public:
 		}
 		if (checker6)
 		{
+			DrawRectangleLinesEx(Door, 7.5, BLACK);
 			if (CheckCollisionPointRec(Hero_obj.HeroPos, Door))
 			{
-				DrawText("Press 'ENTER' to go to the room", 10, 10, 35, WHITE);
-				if (IsKeyPressed(KEY_ENTER))
-				{
-					checker5 = 1;
-				}
+				Hero_obj.HeroPos = {KeyRec.x + 150, (float)GetScreenHeight() - 300};
+				moveBG.bg_pos.y = GetScreenHeight() + 200;
+				moveBG.bg_pos.x = KeyRec.x - 100;
+				Door.y = -1000;
+				checker5 = 1;
+				
 			}
 		}
 		Border.x = 420;

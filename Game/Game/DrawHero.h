@@ -61,7 +61,7 @@ public:
 	//UP
 	void DrawUp()
 	{
-		HeroClipUp.width = heroUp.width / 2.9;
+		HeroClipUp.width = heroUp.width / 3;
 		DrawTextureRec(heroUp, HeroClipUp, HeroPos, WHITE);
 
 
@@ -70,7 +70,7 @@ public:
 	{
 		if (fpscouter == 10)
 		{
-			HeroClipUp.x -= (float)heroUp.width / 2.9;
+			HeroClipUp.x -= (float)heroUp.width / 3;
 			fpscouter = 0;
 		}
 		if (HeroClipUp.x <= 0)
@@ -83,7 +83,7 @@ public:
 	//Down
 	void DrawDown()
 	{
-
+		HeroClipUp.width = heroUp.width / 3;
 		DrawTextureRec(heroDown, HeroClipDown, HeroPos, WHITE);
 
 
@@ -92,7 +92,7 @@ public:
 	{
 		if (fpscouter == 10)
 		{
-			HeroClipDown.x -= (float)heroDown.width / 2.9;
+			HeroClipDown.x -= (float)heroDown.width / 3;
 			fpscouter = 0;
 		}
 		if (HeroClipDown.x <= 0)
