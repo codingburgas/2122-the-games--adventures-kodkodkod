@@ -9,9 +9,17 @@ public:
     bool checker2 = 1;
     bool Music_checker = 1;
     bool Music_checker2 = 0;
+    bool Skin_checker = 1;
+    bool Skin_checker2 = 0;
+    bool Skin_checker3 = 0;
+    bool Skin_checker4 = 0;
     //bool checker4 = 1;
     //bool checker5 = 1;
 
+    Vector2 Skin1_Circle;
+    Vector2 Skin2_Circle;
+    Vector2 Skin3_Circle;
+    Vector2 Skin4_Circle;
     Vector2 Music_Yes_Circle;
     Vector2 Music_No_Circle;
     Vector2 mousePoint;
@@ -19,7 +27,8 @@ public:
     Texture2D Check = LoadTexture("../images/check.png");
     Texture2D set_bg = LoadTexture("../images/Settings_bg.png");
     Rectangle hide = { 0,0,(float)GetScreenWidth(),(float)GetScreenHeight() };
-    Rectangle back = { 800,600,350,150};
+    Rectangle back = { 850,950, 165,50 };
+    Rectangle skins[4];
     bool menuZero = 0, menuOne = 0, menuTwo = 0, menuThree = 0;
     int MusicArr[2];
     void SetMenuSize()
@@ -35,7 +44,8 @@ public:
         mousePoint = GetMousePosition();
         Rectangle options[4];
 
-        Vector2 right_check = { 1027.5, 377.5 };
+        Vector2 right_check = { 1027.5, 327.5 };
+        Vector2 skins_check = { 392.5, 907.5 };
 
         Vector2 LineOfPlayStart = { 460,495 };
         Vector2 LineOfSettingsStart = { 17.5,100 };
@@ -51,10 +61,22 @@ public:
         Check.height = 45;
 
         Music_Yes_Circle.x = 850;
-        Music_Yes_Circle.y = 400;
+        Music_Yes_Circle.y = 350;
 
         Music_No_Circle.x = 1050;
-        Music_No_Circle.y = 400;
+        Music_No_Circle.y = 350;
+
+        Skin1_Circle.x = 392.5 + 22.5;
+        Skin1_Circle.y = 907.5 + 22.5;
+
+        Skin2_Circle.x = 742.5 + 22.5;
+        Skin2_Circle.y = 907.5 + 22.5;
+
+        Skin3_Circle.x = 1092.5 + 22.5;
+        Skin3_Circle.y = 907.5 + 22.5;
+
+        Skin4_Circle.x = 1442.5 + 22.5;
+        Skin4_Circle.y = 907.5 + 22.5;
 
         options[0] = { 470, 400, 185, 85 };
         options[1] = { 17.5, 12, 382.5, 91 };
@@ -116,15 +138,15 @@ public:
         {
             checker2 = 0;
             DrawTexture(set_bg, 0, 0, WHITE);
-            DrawText("Settings", 700, 35, 125, BLACK);
-            DrawText("Music", 850, 235, 75, BLACK);
-            DrawText("Yes", 820, 325, 35, BLACK);
-            DrawText("No", 1030, 325, 35, BLACK);
+            DrawText("Settings", 700, 25, 125, LIGHTGRAY);
+            DrawText("Music", 850, 185, 75, LIGHTGRAY);
+            DrawText("Yes", 820, 275, 35, LIGHTGRAY);
+            DrawText("No", 1030, 275, 35, LIGHTGRAY);
 
             for (int i = 0; i < 2; i++)
             {
-                DrawCircle(850 + i * 200, 400, 31.5, BLACK);
-                DrawCircle(850.5 + i * 200, 400.5, 27.5, LIGHTGRAY);
+                DrawCircle(850 + i * 200, 350, 31.5, BLACK);
+                DrawCircle(850.5 + i * 200, 350.5, 27.5, LIGHTGRAY);
             }
 
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Music_Yes_Circle, 31.5))
@@ -143,12 +165,100 @@ public:
             }
 
             DrawTexture(Check, right_check.x, right_check.y, GREEN);
-            DrawRectangleRec(back, LIGHTGRAY);
+            DrawText("Choose a skin", 770, 400, 50, GRAY);
+
+            for (int i = 0; i < 4; i++)
+            {
+                skins[i].width = 250;
+                skins[i].height = 400;
+                skins[i].x = 285 + (i * 350);
+                skins[i].y = 475;
+                DrawRectangleRec(skins[i], BLACK);
+                DrawCircle(415 + (i * 350), 925, 31.5, BLACK);
+                DrawCircle(415 + (i * 350), 925.5, 27.5, LIGHTGRAY);
+            }
+
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Skin1_Circle, 31.5))
+            {
+                Skin_checker = 1;
+                Skin_checker3 = 0;
+                Skin_checker4 = 0;
+                Skin_checker2 = 0;
+            }
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Skin2_Circle, 31.5))
+            {
+                Skin_checker = 0;
+                Skin_checker3 = 0;
+                Skin_checker4 = 0;
+                Skin_checker2 = 1;
+            }
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Skin3_Circle, 31.5))
+            {
+                Skin_checker = 0;
+                Skin_checker2 = 0;
+                Skin_checker4 = 0;
+                Skin_checker3 = 1;
+            }
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Skin4_Circle, 31.5))
+            {
+                Skin_checker = 0;
+                Skin_checker2 = 0;
+                Skin_checker3 = 0;
+                Skin_checker4 = 1;
+            }
+
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, back))
             {
                 menuOne = 0;
                 checker2 = 1;
             }
+            if (Skin_checker)
+            {
+                skins_check.x = 415;
+                skins_check.y = 925;
+
+                DrawCircle(415, 925, 27.5, DARKGRAY);
+                DrawCircle(765, 925, 27.5, LIGHTGRAY);
+                DrawCircle(1115, 925, 27.5, LIGHTGRAY);
+                DrawCircle(1465, 925.5, 27.5, LIGHTGRAY);
+
+                //apply this skin
+            }
+            if (Skin_checker2)
+            {
+                skins_check.x = 765;
+                skins_check.y = 925;
+                DrawCircle(415, 925, 27.5, LIGHTGRAY);
+                DrawCircle(765, 925, 27.5, DARKGRAY);
+                DrawCircle(1115, 925, 27.5, LIGHTGRAY);
+                DrawCircle(1465, 925.5, 27.5, LIGHTGRAY);
+                //apply this skin
+            }
+            if (Skin_checker3)
+            {
+                skins_check.x = 1115;
+                skins_check.y = 907.5;
+                DrawCircle(415, 925, 27.5, LIGHTGRAY);
+                DrawCircle(765, 925, 27.5, LIGHTGRAY);
+                DrawCircle(1115, 925, 27.5, DARKGRAY);
+                DrawCircle(1465, 925.5, 27.5, LIGHTGRAY);
+                //apply this skin
+            }
+            if (Skin_checker4)
+            {
+                skins_check.x = 1465;
+                skins_check.y = 925;
+                DrawCircle(415, 925, 27.5, LIGHTGRAY);
+                DrawCircle(765, 925, 27.5, LIGHTGRAY);
+                DrawCircle(1115, 925, 27.5, LIGHTGRAY);
+                DrawCircle(1465, 925.5, 27.5, DARKGRAY);
+                //apply this skin
+            }
+
+
+
+            DrawRectangleRec(back, DARKGRAY);
+            DrawText("Back", 885, 957.5, 40, WHITE);
         }
         if (menuTwo)
         {
