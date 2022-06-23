@@ -102,9 +102,24 @@ public:
 		fpscouter++;
 
 	}
-	void Idle()
+	void IdleDown()
 	{
-		DrawTextureRec(heroDown, {0, 0, (float)heroDown.width / 3, (float)heroRight.height}, HeroPos, WHITE);
+		DrawTextureRec(heroDown, {0, 0, (float)heroDown.width / 3, (float)heroDown.height}, HeroPos, WHITE);
+
+	}
+	void IdleLeft()
+	{
+		DrawTextureRec(heroLeft, { 0, 0, (float)heroLeft.width / 6, (float)heroLeft.height }, HeroPos, WHITE);
+
+	}
+	void IdleUp()
+	{
+		DrawTextureRec(heroUp, { 0, 0, (float)heroUp.width / 3, (float)heroUp.height }, HeroPos, WHITE);
+
+	}
+	void IdleRight()
+	{
+		DrawTextureRec(heroRight, { 0, 0, (float)heroRight.width / 6, (float)heroRight.height }, HeroPos, WHITE);
 
 	}
 	void UnloadHero()

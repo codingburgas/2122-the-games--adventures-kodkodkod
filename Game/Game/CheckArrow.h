@@ -4,6 +4,7 @@
 #include "Background.h"
 #include <iostream>
 using namespace std;
+using namespace help;
 class Arrows {
 public:
 	Hero Hero_obj;
@@ -96,6 +97,7 @@ public:
 	}
 	void checkArrows()
 	{
+
 		int count = 0;
 		for (int i = 0; i < 4; i++)
 		{
@@ -115,6 +117,13 @@ public:
 					dia = 0;
 					speedHero = 5;
 					speedBG = 100;
+					for (int i = 0; i < 4; i++)
+					{
+						if (checkInput[i])
+							idleAnims[i] = 1;
+						else
+							idleAnims[i] = 0;
+					}
 				}
 
 

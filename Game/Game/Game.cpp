@@ -3,7 +3,9 @@
 #include "CheckArrow.h"
 #include "Background.h"
 #include "Menu.h"
+#include "Namespace.h"
 using namespace std;
+using namespace help;
 int main()
 {
     // Initialization
@@ -86,13 +88,65 @@ int main()
             else
             {
                 bool fourth = 0;
+                bool idleChek = 0;
+                int IdleCount = 0;
                 for (int i = 0; i < 4; i++)
                 {
                     if (arrow_obj.checkInput[i])
+                        
                     fourth = 1;
                 }
-                if(fourth == 0)
-                arrow_obj.Hero_obj.Idle();
+                if (fourth == 0)
+                {
+
+                    for (int i = 0;i< 4; i++)
+                    {
+                        if(idleAnims[i])
+                        {
+                            idleChek = 1;
+                            IdleCount++;
+                            switch (i)
+                            {
+                                case 0:
+                                {
+                                    if(!(IdleCount == 2))
+                                    arrow_obj.Hero_obj.IdleLeft();
+                                    else
+                                        IdleCount = 0;
+                                    break;
+                                }
+                                case 1:
+                                {
+                                    if (!(IdleCount == 2))
+                                    arrow_obj.Hero_obj.IdleRight();
+                                    else
+                                        IdleCount = 0;
+                                    break;
+                                }
+                                case 2:
+                                {
+                                    if (!(IdleCount == 2))
+                                    arrow_obj.Hero_obj.IdleUp();
+                                    else
+                                        IdleCount = 0;
+                                    break;
+                                }
+                                case 3:
+                                {
+                                    if (!(IdleCount == 2))
+                                        arrow_obj.Hero_obj.IdleDown();
+                                    else
+                                        IdleCount = 0;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    if (idleChek == 0)
+                    {
+                        arrow_obj.Hero_obj.IdleDown();
+                    }
+                }
             }
               
                 
