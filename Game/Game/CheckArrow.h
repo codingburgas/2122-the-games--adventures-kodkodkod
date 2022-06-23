@@ -10,6 +10,10 @@ public:
 	Hero Hero_obj;
 	Background moveBG;
 	bool checker = 1;
+	int LimitA = 320;
+	int LimitD = 320;
+	int LimitS = 120;
+	int LimitW = 120;
 	bool checker2 = 0;
 	bool checker3 = 0;
 	bool checker4 = 0;
@@ -42,7 +46,7 @@ public:
 		chests[2] = { 200, (float)GetScreenHeight() - 450, 500, 350 };
 		chests[3] = { (float)GetScreenWidth() - 800, (float)GetScreenHeight() - 450, 500, 350 };
 
-		Door = { 500,0, 450, 250 };
+		Door = { 500,0, 450, 150 };
 
 		Opened_Chest.width = 1800;
 		Opened_Chest.height = 850;
@@ -133,7 +137,7 @@ public:
 			checkInput[1] = 0;
 			checkInput[0] = 1;
 
-			if (!(Hero_obj.HeroPos.x <= 320))
+			if (!(Hero_obj.HeroPos.x <= LimitA))
 			{
 				Hero_obj.HeroPos.x -= speedHero;
 			}
@@ -152,7 +156,7 @@ public:
 			
 			checkInput[1] = 1;
 			checkInput[0] = 0;
-			if (!(Hero_obj.HeroPos.x >= (GetScreenWidth() - Hero_obj.HeroClipRight.width) - 370))
+			if (!(Hero_obj.HeroPos.x >= (GetScreenWidth() - Hero_obj.HeroClipRight.width) - LimitD))
 			{
 				Hero_obj.HeroPos.x += speedHero;
 			}
@@ -169,7 +173,7 @@ public:
 		{
 			checkInput[3] = 0;
 			checkInput[2] = 1;
-			if (!(Hero_obj.HeroPos.y <= 120))
+			if (!(Hero_obj.HeroPos.y <= LimitW))
 			{
 				Hero_obj.HeroPos.y -= speedHero;
 			}
@@ -188,7 +192,7 @@ public:
 			
 			checkInput[3] = 1;
 			checkInput[2] = 0;
-			if (!(Hero_obj.HeroPos.y >= (GetScreenHeight() - Hero_obj.HeroClipDown.height) - 120))
+			if (!(Hero_obj.HeroPos.y >= (GetScreenHeight() - Hero_obj.HeroClipDown.height) - LimitS))
 			{
 				Hero_obj.HeroPos.y += speedHero;
 			}
@@ -224,15 +228,15 @@ public:
 		}
 		if (checker6)
 		{
+			
 			DrawRectangleLinesEx(Door, 7.5, BLACK);
-			if (CheckCollisionPointRec(Hero_obj.HeroPos, Door))
+			if (CheckCollisionPointRec(Hero_obj.HeroPos, Door) && moveBG.bg_pos.x < 450 && moveBG.bg_pos.x > 200)
 			{
 				Hero_obj.HeroPos = {KeyRec.x + 150, (float)GetScreenHeight() - 300};
 				moveBG.bg_pos.y = GetScreenHeight() + 200;
 				moveBG.bg_pos.x = KeyRec.x - 100;
-				Door.y = -1000;
 				checker5 = 1;
-				
+				checker6 = 0;
 			}
 		}
 		Border.x = 420;
@@ -301,7 +305,6 @@ public:
 			Circlee.y = 125;
 			if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, KeyRec))
 			{
-				moveBG.background = LoadTexture("../images/background2.png");
 				checker6 = 1;
 				checker3 = 0;
 			}

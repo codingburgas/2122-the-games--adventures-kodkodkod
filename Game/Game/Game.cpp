@@ -37,6 +37,10 @@ int main()
                 arrow_obj.moveBG.DrawBackground3();
 
             }
+            else if (arrow_obj.checker6)
+            {
+                arrow_obj.moveBG.DrawBackground2();
+            }
             else
             {
                 arrow_obj.moveBG.DrawBackground();
@@ -108,8 +112,12 @@ int main()
                             {
                                 case 0:
                                 {
-                                    if(!(IdleCount == 2))
+                                    if (!(IdleCount == 2))
+                                    {
+
                                     arrow_obj.Hero_obj.IdleLeft();
+                                    arrow_obj.Hero_obj.UpdateLeftIdle();
+                                    }
                                     else
                                         IdleCount = 0;
                                     break;
@@ -117,7 +125,11 @@ int main()
                                 case 1:
                                 {
                                     if (!(IdleCount == 2))
+                                    {
+
                                     arrow_obj.Hero_obj.IdleRight();
+                                    arrow_obj.Hero_obj.UpdateRightIdle();
+                                    }
                                     else
                                         IdleCount = 0;
                                     break;
@@ -125,7 +137,13 @@ int main()
                                 case 2:
                                 {
                                     if (!(IdleCount == 2))
-                                    arrow_obj.Hero_obj.IdleUp();
+                                    {
+
+                                    
+
+                                    arrow_obj.Hero_obj.IdleDown();
+                                    arrow_obj.Hero_obj.UpdateDownIdle();
+                                    }
                                     else
                                         IdleCount = 0;
                                     break;
@@ -133,7 +151,11 @@ int main()
                                 case 3:
                                 {
                                     if (!(IdleCount == 2))
-                                        arrow_obj.Hero_obj.IdleDown();
+                                    {
+
+                                        arrow_obj.Hero_obj.IdleUp();
+                                        arrow_obj.Hero_obj.UpdateUpIdle();
+                                    }
                                     else
                                         IdleCount = 0;
                                     break;
@@ -144,6 +166,7 @@ int main()
                     if (idleChek == 0)
                     {
                         arrow_obj.Hero_obj.IdleDown();
+                        arrow_obj.Hero_obj.UpdateDownIdle();
                     }
                 }
             }

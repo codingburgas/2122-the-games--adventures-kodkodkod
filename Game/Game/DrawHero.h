@@ -7,11 +7,23 @@ private:
 	Texture2D heroLeft = LoadTexture("../images/heroLeft.png");
 	Texture2D heroRight = LoadTexture("../images/heroRight.png");
 	Texture2D heroUp = LoadTexture("../images/heroBack.png");
+
+	//idle textures
+	Texture2D heroDownIdle = LoadTexture("../images/backIdle.png");
+	Texture2D heroLeftIdle = LoadTexture("../images/leftIdle.png");
+	Texture2D heroRightIdle = LoadTexture("../images/rightIdle.png");
+	Texture2D heroUpIdle = LoadTexture("../images/frontIdle.png");
 public:
 	Rectangle HeroClipLeft = { (float)heroLeft.width, 0, (float)heroLeft.width / 6, (float)heroLeft.height };
 	Rectangle HeroClipRight = { 0, 0, (float)heroRight.width / 6, (float)heroRight.height };
 	Rectangle HeroClipUp = { (float)heroUp.width, 0, (float)heroUp.width / 3, (float)heroUp.height };
 	Rectangle HeroClipDown = { (float)heroDown.width, 0, (float)heroDown.width / 3, (float)heroDown.height };
+
+	//idle rectangles
+	Rectangle HeroClipLeftIdle = { (float)heroLeftIdle.width, 0, (float)heroLeftIdle.width / 3, (float)heroLeftIdle.height };
+	Rectangle HeroClipRightIdle = { 0, 0, (float)heroRightIdle.width / 3, (float)heroRightIdle.height };
+	Rectangle HeroClipUpIdle = { (float)heroUpIdle.width, 0, (float)heroUpIdle.width / 3, (float)heroUpIdle.height };
+	Rectangle HeroClipDownIdle = { (float)heroDownIdle.width, 0, (float)heroDownIdle.width / 3, (float)heroDownIdle.height };
 	
 	Vector2 HeroPos = {800, 700};
 
@@ -24,7 +36,7 @@ public:
 	}
 	void DrawRight()
 	{
-
+		
 		DrawTextureRec(heroRight, HeroClipRight, HeroPos, WHITE);
 
 		
@@ -104,23 +116,75 @@ public:
 	}
 	void IdleDown()
 	{
-		DrawTextureRec(heroDown, {0, 0, (float)heroDown.width / 3, (float)heroDown.height}, HeroPos, WHITE);
+		DrawTextureRec(heroDownIdle, HeroClipDownIdle, HeroPos, WHITE);
 
 	}
 	void IdleLeft()
 	{
-		DrawTextureRec(heroLeft, { 0, 0, (float)heroLeft.width / 6, (float)heroLeft.height }, HeroPos, WHITE);
+		DrawTextureRec(heroLeftIdle, HeroClipLeftIdle, HeroPos, WHITE);
 
 	}
 	void IdleUp()
 	{
-		DrawTextureRec(heroUp, { 0, 0, (float)heroUp.width / 3, (float)heroUp.height }, HeroPos, WHITE);
+		DrawTextureRec(heroUpIdle, HeroClipUpIdle, HeroPos, WHITE);
 
 	}
 	void IdleRight()
 	{
-		DrawTextureRec(heroRight, { 0, 0, (float)heroRight.width / 6, (float)heroRight.height }, HeroPos, WHITE);
+		DrawTextureRec(heroRightIdle, HeroClipRightIdle, HeroPos, WHITE);
 
+	}
+	void UpdateRightIdle()
+	{
+		if (fpscouter == 10)
+		{
+			HeroClipRightIdle.x += (float)heroRightIdle.width / 3;
+			fpscouter = 0;
+		}
+		if (HeroClipRightIdle.x >= heroRightIdle.width)
+		{
+			HeroClipRightIdle.x = 0;
+		}
+		fpscouter++;
+	}
+	void UpdateUpIdle()
+	{
+		if (fpscouter == 10)
+		{
+			HeroClipUpIdle.x -= (float)heroUpIdle.width / 3;
+			fpscouter = 0;
+		}
+		if (HeroClipUpIdle.x <= 0)
+		{
+			HeroClipUpIdle.x = heroUpIdle.width;
+		}
+		fpscouter++;
+	}
+	void UpdateDownIdle()
+	{
+		if (fpscouter == 10)
+		{
+			HeroClipDownIdle.x -= (float)heroDownIdle.width / 3;
+			fpscouter = 0;
+		}
+		if (HeroClipDownIdle.x <= 0)
+		{
+			HeroClipDownIdle.x = heroDownIdle.width;
+		}
+		fpscouter++;
+	}
+	void UpdateLeftIdle()
+	{
+		if (fpscouter == 10)
+		{
+			HeroClipLeftIdle.x -= (float)heroLeftIdle.width / 3;
+			fpscouter = 0;
+		}
+		if (HeroClipLeftIdle.x <= 0)
+		{
+			HeroClipLeftIdle.x = heroLeftIdle.width;
+		}
+		fpscouter++;
 	}
 	void UnloadHero()
 	{
@@ -128,5 +192,10 @@ public:
 		UnloadTexture(heroRight);
 		UnloadTexture(heroUp);
 		UnloadTexture(heroDown);
+
+		UnloadTexture(heroLeftIdle);
+		UnloadTexture(heroRightIdle);
+		UnloadTexture(heroUpIdle);
+		UnloadTexture(heroDownIdle);
 	}
 };
