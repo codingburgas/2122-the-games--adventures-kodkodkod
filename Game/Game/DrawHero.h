@@ -1,4 +1,5 @@
 #pragma once
+using namespace std;
 class Hero {
 private:
 	int fpscouter = 0;
@@ -7,77 +8,98 @@ private:
 	Texture2D heroRight = LoadTexture("../images/heroRight.png");
 	Texture2D heroUp = LoadTexture("../images/heroBack.png");
 public:
-	Rectangle HeroClip = { (float)heroLeft.width, 0, (float)heroLeft.width / 6, (float)heroLeft.height };
+	Rectangle HeroClipLeft = { (float)heroLeft.width, 0, (float)heroLeft.width / 6, (float)heroLeft.height };
+	Rectangle HeroClipRight = { 0, 0, (float)heroRight.width / 6, (float)heroRight.height };
+	Rectangle HeroClipUp = { (float)heroUp.width, 0, (float)heroUp.width / 3, (float)heroUp.height };
+	Rectangle HeroClipDown = { (float)heroDown.width, 0, (float)heroDown.width / 3, (float)heroDown.height };
 	
 	Vector2 HeroPos = {800, 700};
 
 	
 	void DrawLeft()
 	{
-		HeroClip.width = heroLeft.width / 6.1;
-		DrawTextureRec(heroLeft, HeroClip, HeroPos, WHITE);
+
+		DrawTextureRec(heroLeft, HeroClipLeft, HeroPos, WHITE);
 		
 	}
 	void DrawRight()
 	{
-		HeroClip.width = heroRight.width / 6.1;
-		DrawTextureRec(heroRight, HeroClip, HeroPos, WHITE);
+
+		DrawTextureRec(heroRight, HeroClipRight, HeroPos, WHITE);
 
 		
 	}
 	void UpdateLeft()
 	{
-		fpscouter++;
 		if (fpscouter == 10)
 		{
-			HeroClip.x -= (float)heroLeft.width / 6.1;
+			HeroClipLeft.x -= (float)heroLeft.width / 6;
 			fpscouter = 0;
 		}
-		if (HeroClip.x <= 0)
+		if (HeroClipLeft.x <= 0)
 		{
-			HeroClip.x = heroLeft.width;
+			HeroClipLeft.x = heroLeft.width;
 		}
+		fpscouter++;
+
 	}
 	void UpdateRight()
 	{
-		fpscouter++;
+
 		if (fpscouter == 10)
 		{
-			HeroClip.x += heroRight.width / 6.1;
+			HeroClipRight.x += heroRight.width / 6;
 			fpscouter = 0;
 		}
-		if (HeroClip.x >= heroRight.width)
+		if (HeroClipRight.x >= heroRight.width)
 		{
-			HeroClip.x = 0;
+			HeroClipRight.x = 0;
 		}
+		fpscouter++;
+
 	}
 	//UP
 	void DrawUp()
 	{
-		HeroClip.width = heroUp.width / 3;
-		DrawTextureRec(heroUp, HeroClip, HeroPos, WHITE);
+		HeroClipUp.width = heroUp.width / 2.9;
+		DrawTextureRec(heroUp, HeroClipUp, HeroPos, WHITE);
 
 
 	}
 	void UpdateUp()
 	{
-		fpscouter++;
 		if (fpscouter == 10)
 		{
-			HeroClip.x -= (float)heroUp.width / 2.9;
+			HeroClipUp.x -= (float)heroUp.width / 2.9;
 			fpscouter = 0;
 		}
-		if (HeroClip.x <= 0)
+		if (HeroClipUp.x <= 0)
 		{
-			HeroClip.x = heroUp.width;
+			HeroClipUp.x = heroUp.width;
 		}
+		fpscouter++;
+
 	}
 	//Down
 	void DrawDown()
 	{
-		HeroClip.width = heroUp.width / 3;
-		DrawTextureRec(heroDown, HeroClip, HeroPos, WHITE);
 
+		DrawTextureRec(heroDown, HeroClipDown, HeroPos, WHITE);
+
+
+	}
+	void UpdateDown()
+	{
+		if (fpscouter == 10)
+		{
+			HeroClipDown.x -= (float)heroDown.width / 2.9;
+			fpscouter = 0;
+		}
+		if (HeroClipDown.x <= 0)
+		{
+			HeroClipDown.x = heroUp.width;
+		}
+		fpscouter++;
 
 	}
 	void Idle()

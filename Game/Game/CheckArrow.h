@@ -126,11 +126,11 @@ public:
 			checkInput[1] = 0;
 			checkInput[0] = 1;
 
-			if (!(Hero_obj.HeroPos.x <= 5))
+			if (!(Hero_obj.HeroPos.x <= 320))
 			{
 				Hero_obj.HeroPos.x -= speedHero;
 			}
-			if (!(moveBG.bg_pos.x <= 0) && Hero_obj.HeroPos.x < (GetScreenWidth() - Hero_obj.HeroClip.width) - 200)
+			if (!(moveBG.bg_pos.x <= 0) && Hero_obj.HeroPos.x < (GetScreenWidth() - Hero_obj.HeroClipLeft.width) - 200)
 			{
 				moveBG.bg_pos.x -= GetScreenWidth() / speedBG;
 			}
@@ -145,7 +145,7 @@ public:
 			
 			checkInput[1] = 1;
 			checkInput[0] = 0;
-			if (!(Hero_obj.HeroPos.x >= (GetScreenWidth() - Hero_obj.HeroClip.width) - 5))
+			if (!(Hero_obj.HeroPos.x >= (GetScreenWidth() - Hero_obj.HeroClipRight.width) - 370))
 			{
 				Hero_obj.HeroPos.x += speedHero;
 			}
@@ -162,11 +162,11 @@ public:
 		{
 			checkInput[3] = 0;
 			checkInput[2] = 1;
-			if (!(Hero_obj.HeroPos.y <= 5))
+			if (!(Hero_obj.HeroPos.y <= 120))
 			{
 				Hero_obj.HeroPos.y -= speedHero;
 			}
-			if (!(moveBG.bg_pos.y <= 0) && Hero_obj.HeroPos.y < (GetScreenHeight() - Hero_obj.HeroClip.height) - 200)
+			if (!(moveBG.bg_pos.y <= 0) && Hero_obj.HeroPos.y < (GetScreenHeight() - Hero_obj.HeroClipUp.height) - 200)
 			{
 				moveBG.bg_pos.y -= GetScreenHeight() / speedBG;
 			}
@@ -181,7 +181,7 @@ public:
 			
 			checkInput[3] = 1;
 			checkInput[2] = 0;
-			if (!(Hero_obj.HeroPos.y >= (GetScreenHeight() - Hero_obj.HeroClip.height) - 30))
+			if (!(Hero_obj.HeroPos.y >= (GetScreenHeight() - Hero_obj.HeroClipDown.height) - 120))
 			{
 				Hero_obj.HeroPos.y += speedHero;
 			}
@@ -201,7 +201,7 @@ public:
 			checkInput[2] = 0;
 			checkInput[3] = 0;
 		}
-		if (chests[0].width - Hero_obj.HeroPos.x > Hero_obj.HeroClip.width / 2 && chests[0].height - Hero_obj.HeroPos.y > Hero_obj.HeroClip.height / 2)
+		if (chests[0].width - Hero_obj.HeroPos.x > Hero_obj.HeroClipLeft.width / 2 && chests[0].height - Hero_obj.HeroPos.y > Hero_obj.HeroClipLeft.height / 2)
 		{
 
 			if (CheckCollisionPointRec(Hero_obj.HeroPos, chests[0]))
@@ -301,9 +301,10 @@ public:
 				checker3 = 0;
 			}
 		}
+		//change checkers for backgrounds
 		if (checker5)
 		{
-			moveBG.background = LoadTexture("../images/background3.png");
+			
 			checker3 = 0;
 		}
 

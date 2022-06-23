@@ -30,8 +30,17 @@ int main()
         {
             menu_obj.checker = 0;
             DrawRectangleRec(menu_obj.hide, LIGHTGRAY);
+            //change backgrounds
+            if (arrow_obj.checker5)
+            {
+                arrow_obj.moveBG.DrawBackground3();
 
-            arrow_obj.moveBG.DrawBackground();
+            }
+            else
+            {
+                arrow_obj.moveBG.DrawBackground();
+
+            }
 
             arrow_obj.MakeChests();
             arrow_obj.CheckChests();
@@ -43,7 +52,7 @@ int main()
                 arrow_obj.Hero_obj.UpdateLeft();
 
             }
-            if (arrow_obj.dia && arrow_obj.checkInput[1])
+            else if (arrow_obj.dia && arrow_obj.checkInput[1])
             {
                 arrow_obj.Hero_obj.DrawRight();
                 arrow_obj.Hero_obj.UpdateRight();
@@ -71,7 +80,7 @@ int main()
             else if (arrow_obj.checkInput[3] && arrow_obj.dia == 0)
             {
                 arrow_obj.Hero_obj.DrawDown();
-                arrow_obj.Hero_obj.UpdateUp();
+                arrow_obj.Hero_obj.UpdateDown();
 
             }
             else
