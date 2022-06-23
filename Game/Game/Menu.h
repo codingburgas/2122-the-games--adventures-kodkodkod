@@ -19,6 +19,7 @@ public:
     Texture2D Check = LoadTexture("../images/check.png");
     Texture2D set_bg = LoadTexture("../images/Settings_bg.png");
     Rectangle hide = { 0,0,(float)GetScreenWidth(),(float)GetScreenHeight() };
+    Rectangle back = { 800,600,350,150};
     bool menuZero = 0, menuOne = 0, menuTwo = 0, menuThree = 0;
     int MusicArr[2];
     void SetMenuSize()
@@ -126,7 +127,7 @@ public:
                 DrawCircle(850.5 + i * 200, 400.5, 27.5, LIGHTGRAY);
             }
 
-            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Music_Yes_Circle, 10))
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Music_Yes_Circle, 31.5))
             {
                 Music_checker2 = 1;
             }
@@ -134,7 +135,7 @@ public:
             {
                 right_check.x = right_check.x - 200;
                 //needs to be added music here
-                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Music_No_Circle, 10))
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Music_No_Circle, 31.5))
                 {
                     //stop the music here
                     Music_checker2 = 0;
@@ -142,6 +143,12 @@ public:
             }
 
             DrawTexture(Check, right_check.x, right_check.y, GREEN);
+            DrawRectangleRec(back, LIGHTGRAY);
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, back))
+            {
+                menuOne = 0;
+                checker2 = 1;
+            }
         }
         if (menuTwo)
         {
