@@ -100,15 +100,7 @@ function AppearWhenScrollbox()
 
         arrowUp.classList.remove("appear-arrow");
     }
-    if(SkinsPosition+1400 < PositionOfScreen)
-    {
-       
-        arrowUp.style.color = "black";
-    }
-    if(SkinsPosition+2150 < PositionOfScreen)
-    {
-        arrowUp.style.color = "rgba(255, 255, 255, 0.53)";
-    }
+    
    
 }
 window.addEventListener("scroll",AppearWhenScroll);
