@@ -5,8 +5,8 @@ class Menu
 
 public:
     Sound music = LoadSound("../Music/music.mp3");
-    bool checker = 1;
-    bool checker2 = 1;
+    bool If_it_is_not_chosen_an_option = 1;
+    bool Menu_checker = 1;
     bool Music_checker = 1;
     bool Music_checker2 = 0;
     bool Music_checker3 = 0;
@@ -14,8 +14,7 @@ public:
     bool Skin_checker2 = 0;
     bool Skin_checker3 = 0;
     bool Skin_checker4 = 0;
-    //bool checker4 = 1;
-    //bool checker5 = 1;
+   
     Vector2 Close;
     Vector2 Skin1_Circle;
     Vector2 Skin2_Circle;
@@ -31,7 +30,7 @@ public:
     Rectangle hide = { 0,0,(float)GetScreenWidth(),(float)GetScreenHeight() };
     Rectangle back = { 850,950, 165,50 };
     Rectangle skins[4];
-    bool menuZero = 0, menuOne = 0, menuTwo = 0, menuThree = 0;
+    bool Play = 0, Settings_option = 0, Rules_option = 0, Exit = 0;
     int MusicArr[2];
     void SetMenuSize()
     {
@@ -94,7 +93,7 @@ public:
         options[1] = { 17.5, 12, 382.5, 91 };
         options[2] = { 1660, 895, 225, 85 };
         options[3] = { 1170, 400, 185, 85 };
-        if (checker2)
+        if (Menu_checker)
         {
             for (int i = 0; i < 4; i++)
             {
@@ -117,40 +116,40 @@ public:
 
             
 
-            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, options[0]) && checker)
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, options[0]) && If_it_is_not_chosen_an_option)
             {
 
-                menuZero = true;
-                menuOne = 0;
-                menuTwo = 0;
-                menuThree = 0;
+                Play = true;
+                Settings_option = 0;
+                Rules_option = 0;
+                Exit = 0;
             }
-            else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, options[1]) && checker)
+            else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, options[1]) && If_it_is_not_chosen_an_option)
             {
 
-                menuOne = true;
-                menuZero = 0;
-                menuTwo = 0;
-                menuThree = 0;
+                Settings_option = true;
+                Play = 0;
+                Rules_option = 0;
+                Exit = 0;
             }
-            else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, options[2]) && checker)
+            else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, options[2]) && If_it_is_not_chosen_an_option)
             {
-                menuTwo = true;
-                menuOne = 0;
-                menuZero = 0;
-                menuThree = 0;
+                Rules_option = true;
+                Settings_option = 0;
+                Play = 0;
+                Exit = 0;
             }
-            else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, options[3]) && checker)
+            else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, options[3]) && If_it_is_not_chosen_an_option)
             {
-                menuThree = true;
-                menuOne = 0;
-                menuZero = 0;
-                menuTwo = 0;
+                Exit = true;
+                Settings_option = 0;
+                Play = 0;
+                Rules_option = 0;
             }
         }
-        if (menuOne)
+        if (Settings_option)
         {
-            checker2 = 0;
+            Menu_checker = 0;
             DrawTexture(set_bg, 0, 0, WHITE);
             DrawText("Settings", 700, 25, 125, LIGHTGRAY);
             DrawText("Music", 850, 185, 75, LIGHTGRAY);
@@ -229,8 +228,8 @@ public:
 
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, back))
             {
-                menuOne = 0;
-                checker2 = 1;
+                Settings_option = 0;
+                Menu_checker = 1;
             }
             if (Skin_checker)
             {
@@ -280,7 +279,7 @@ public:
             DrawRectangleRounded(back,7,7, DARKGRAY);
             DrawText("Back", 885, 957.5, 40, WHITE);
         }
-        if (menuTwo)
+        if (Rules_option)
         {
             Rules.width = 1600;
             Rules.height = 850;
@@ -291,11 +290,11 @@ public:
             DrawLineEx(Rules_line_2_start, Rules_line_2_end, 6, WHITE);
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Close, 32.5))
             {
-                menuTwo = 0;
+                Rules_option = 0;
 
             }
         }
-        if (menuThree)
+        if (Exit)
         {
             
             exit(0);

@@ -32,12 +32,12 @@ int main()
 
         menu_obj.SetMenuSize();
         menu_obj.UpdateMenu();
-        if (menu_obj.menuZero)
+        if (menu_obj.Play)
         {
             menu_obj.checker = 0;
             DrawRectangleRec(menu_obj.hide, LIGHTGRAY);
             //change backgrounds
-            if (arrow_obj.checker5)
+            if (arrow_obj.Is_hero_passed_the_first_door)
             {
                 counterBg3 = 0;
                 counterBg++;
@@ -48,7 +48,7 @@ int main()
                 }
                 arrow_obj.moveBG.DrawBackground3();
             }
-            else if (arrow_obj.checker6)
+            else if (arrow_obj.Key_is_pressed)
             {
 
                 arrow_obj.moveBG.DrawBackground2();
@@ -70,38 +70,38 @@ int main()
             arrow_obj.MakeChests();
 
             arrow_obj.checkArrows();
-            if (arrow_obj.dia && arrow_obj.checkInput[0])
+            if (arrow_obj.diagonal && arrow_obj.checkInput[0])
             {
                 arrow_obj.Hero_obj.DrawLeft();
                 arrow_obj.Hero_obj.UpdateLeft();
 
             }
-            else if (arrow_obj.dia && arrow_obj.checkInput[1])
+            else if (arrow_obj.diagonal && arrow_obj.checkInput[1])
             {
                 arrow_obj.Hero_obj.DrawRight();
                 arrow_obj.Hero_obj.UpdateRight();
 
             }
-            else if (arrow_obj.checkInput[0] && arrow_obj.dia == 0)
+            else if (arrow_obj.checkInput[0] && arrow_obj.diagonal == 0)
             {
                 arrow_obj.Hero_obj.DrawLeft();
                 arrow_obj.Hero_obj.UpdateLeft();
 
             }
-            else if (arrow_obj.checkInput[1] && arrow_obj.dia == 0)
+            else if (arrow_obj.checkInput[1] && arrow_obj.diagonal == 0)
             {
                 arrow_obj.Hero_obj.DrawRight();
                 arrow_obj.Hero_obj.UpdateRight();
 
             }
-            else if (arrow_obj.checkInput[2] && arrow_obj.dia == 0)
+            else if (arrow_obj.checkInput[2] && arrow_obj.diagonal == 0)
             {
                 arrow_obj.Hero_obj.DrawUp();
                 arrow_obj.Hero_obj.UpdateUp();
 
 
             }
-            else if (arrow_obj.checkInput[3] && arrow_obj.dia == 0)
+            else if (arrow_obj.checkInput[3] && arrow_obj.diagonal == 0)
             {
                 arrow_obj.Hero_obj.DrawDown();
                 arrow_obj.Hero_obj.UpdateDown();

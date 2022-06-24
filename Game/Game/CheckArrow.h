@@ -14,18 +14,18 @@ class Arrows {
 public:
     Hero Hero_obj;
     Background moveBG;
-    bool checker = 1;
+    bool If_it_is_not_chosen_an_option = 1;
     int LimitA = 320;
     int LimitD = 320;
     int LimitS = 120;
     int LimitW = 120;
-    bool checker2 = 0;
-    bool checker3 = 0;
-    bool checker4 = 0;
-    bool checker5 = 0;
-    bool checker6 = 0;
-    bool checker7 = 0;
-    bool checker8 = 0;
+    bool Upper_left_chest = 0;
+    bool Lower_leFt_chest = 0;
+    bool Is_hero_passed_the_first_door = 0;
+    bool Key_is_pressed = 0;
+    bool Upper_right_chest = 0;
+    bool Lower_right_chest = 0;
+    bool checks_if_u_are_on_map2=0;
     bool checkInput[4] = { 0, 0, 0, 0 };
     int speedBG = 100;
     int speedHero = 5;
@@ -35,6 +35,7 @@ public:
     Rectangle hide = { 0,0,(float)GetScreenWidth(),(float)GetScreenHeight() };
     Texture2D Chest = LoadTexture("../images/chest.png");
     Texture2D Opened_Chest = LoadTexture("../images/opened_chest.png");
+    Texture2D Opened_Chest2 = LoadTexture("../images/opened_chest_green.png");
     Texture2D Key = LoadTexture("../images/Key.png");
     Rectangle Border;
     Rectangle KeyRec;
@@ -46,7 +47,7 @@ public:
     Vector2 Close_line_2_start = { 1560,118 };
     Vector2 Close_line_2_end = { 1540,152 };
 
-    bool dia = 0;
+    bool diagonal = 0;
     bool pressed_key_checker = 1;
     bool wrong_chest1 = 0, wrong_chest2 = 0, wrong_chest3 = 0, right_chest = 0;
     Rectangle chests[4];
@@ -121,11 +122,11 @@ public:
                 {
                     speedHero = 2;
                     speedBG = 150;
-                    dia = 1;
+                    diagonal = 1;
                     break;
                 }
                 else {
-                    dia = 0;
+                    diagonal = 0;
                     speedHero = 5;
                     speedBG = 100;
                     for (int i = 0; i < 4; i++)
@@ -220,30 +221,27 @@ public:
                 DrawText("Press 'E' to open the chest", 10, 50, 35, WHITE);
                 if (IsKeyPressed(KEY_E))
                 {
-                    checker2 = 1;
+                    Upper_left_chest = 1;
                 }
             }
         }
         else
         {
-            checker2 = 0;
+            Upper_left_chest = 0;
         }
-        if (checker6)
+        if (Key_is_pressed)
         {
-            DrawRectangleLinesEx(Door, 7.5, BLACK);
+            DrawRectangleLinesEx(Door, 7.5, BLANK);
             if (CheckCollisionPointRec(Hero_obj.HeroPos, Door) && moveBG.bg_pos.x < 450 && moveBG.bg_pos.x > 200)
             {
                 Hero_obj.HeroPos = { KeyRec.x + 150, (float)GetScreenHeight() - 300 };
                 moveBG.bg_pos.y = GetScreenHeight() + 200;
                 moveBG.bg_pos.x = KeyRec.x - 100;
-                checker5 = 1;
-                checker6 = 0;
+                Is_hero_passed_the_first_door = 1;
+                Key_is_pressed = 0;
+                checks_if_u_are_on_map2 = 1;
             }
         }
-        Border.x = 420;
-        Border.y = 60;
-        Border.width = 1300;
-        Border.height = 800;
         KeyRec.x = 590;
         KeyRec.y = 350;
         KeyRec.width = 125;
@@ -253,38 +251,38 @@ public:
             DrawText("Press 'E' to open the chest", 1380, 50, 35, WHITE);
             if (IsKeyPressed(KEY_E))
             {
-                checker7 = 1;
+                Upper_right_chest = 1;
             }
         }
         else
         {
-            checker7 = 0;
+            Upper_right_chest = 0;
         }
         if (CheckCollisionPointRec(Hero_obj.HeroPos, chests[2]))
         {
             DrawText("Press 'E' to open the chest", 10, 620, 35, WHITE);
             if (IsKeyPressed(KEY_E))
             {
-                checker3 = 1;
+                Lower_leFt_chest = 1;
             }
         }
         else
         {
-            checker3 = 0;
+            Lower_leFt_chest = 0;
         }
         if (CheckCollisionPointRec(Hero_obj.HeroPos, chests[3]))
         {
             DrawText("Press 'E' to open the chest", 1380, 620, 35, WHITE);
             if (IsKeyPressed(KEY_E))
             {
-                checker8 = 1;
+                Lower_right_chest = 1;
             }
         }
         else
         {
-            checker8 = 0;
+            Lower_right_chest = 0;
         }
-        if (checker2)
+        if (Upper_left_chest)
         {
             DrawTexture(Opened_Chest, 30, 30, WHITE);
             if (RandomKey[0] && pressed_key_checker)
@@ -298,20 +296,20 @@ public:
             DrawLineEx(Close_line_2_start, Close_line_2_end, 6, WHITE);
             Close.x = 1550;
             Close.y = 115;
-            
+
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, KeyRec))
             {
-                checker6 = 1;
-                checker2 = 0;
+                Key_is_pressed = 1;
+                Upper_left_chest = 0;
                 pressed_key_checker = 0;
             }
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Close, 32.5))
             {
-                checker2 = 0;
+                Upper_left_chest = 0;
             }
         }
-      
-        if (checker7)
+
+        if (Upper_right_chest)
         {
             DrawTexture(Opened_Chest, 30, 30, WHITE);
             if (RandomKey[1] && pressed_key_checker)
@@ -327,21 +325,21 @@ public:
             Close.y = 115;
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Close, 32.5))
             {
-                checker7 = 0;
+                Upper_right_chest = 0;
             }
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, KeyRec))
             {
-                checker6 = 1;
-                checker7 = 0;
+                Key_is_pressed = 1;
+                Upper_right_chest = 0;
                 pressed_key_checker = 0;
             }
         }
-        if (checker8 )
+        if (Lower_right_chest)
         {
             DrawTexture(Opened_Chest, 30, 30, WHITE);
             if (RandomKey[2] && pressed_key_checker)
             {
-                
+
                 DrawRectangleLinesEx(KeyRec, 6, BLANK);
                 DrawTexture(Key, 600, 360, WHITE);
             }
@@ -352,16 +350,16 @@ public:
             Close.y = 115;
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Close, 32.5))
             {
-                checker8 = 0;
+                Lower_right_chest = 0;
             }
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, KeyRec))
             {
-                checker6 = 1;
-                checker8 = 0;
+                Key_is_pressed = 1;
+                Lower_right_chest = 0;
                 pressed_key_checker = 0;
             }
         }
-        if (checker3)
+        if (Lower_leFt_chest)
         {
             DrawTexture(Opened_Chest, 30, 30, WHITE);
             if (RandomKey[3] && pressed_key_checker)
@@ -377,15 +375,20 @@ public:
             Close.y = 115;
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, KeyRec))
             {
-                checker6 = 1;
-                checker3 = 0;
+                Key_is_pressed = 1;
+                Lower_leFt_chest = 0;
                 pressed_key_checker = 0;
             }
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Close, 32.5))
             {
-                checker3 = 0;
+                Lower_leFt_chest = 0;
             }
         }
         
+        if (checks_if_u_are_on_map2)
+        {
+            
+        
+        }
     }
 };
