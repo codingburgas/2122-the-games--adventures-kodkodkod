@@ -4,7 +4,7 @@ class Menu
 {
 
 public:
-
+    
     bool checker = 1;
     bool checker2 = 1;
     bool Music_checker = 1;
@@ -42,6 +42,7 @@ public:
     }
     void UpdateMenu()
     {
+
         mousePoint = GetMousePosition();
         Rectangle options[4];
 
@@ -111,6 +112,8 @@ public:
             DrawText("EXIT", 1200.5, 425, 50, ORANGE);
 
             DrawText("THE LAST SWORDSMAN", 290, 250, 100, ORANGE);
+
+            
 
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, options[0]) && checker)
             {

@@ -14,10 +14,11 @@ int main()
     int counterBg = 0;
     int counterBg2 = 0;
     int counterBg3 = 0;
+    int a;
     InitWindow(screenWidth, screenHeight, "The Last Swordsman");
-
+    InitAudioDevice();
     SetTargetFPS(60);
-
+    Sound music = LoadSound("../Music/music.mp3");
     Menu menu_obj;
     Arrows arrow_obj;
     while (!WindowShouldClose())    // Detect window close button or ESC key
@@ -25,7 +26,10 @@ int main()
 
         BeginDrawing();
 
-        ClearBackground(DARKPURPLE);
+        ClearBackground(DARKPURPLE);  
+        
+       PlaySoundMulti(music);
+       SetSoundVolume(music, 1);
 
         menu_obj.SetMenuSize();
         menu_obj.UpdateMenu();
@@ -187,7 +191,7 @@ int main()
                 }
             }
               
-                
+            
             
         }
         
@@ -197,7 +201,7 @@ int main()
     }
     arrow_obj.Hero_obj.UnloadHero();
     arrow_obj.moveBG.UnloadBG();
-
+    UnloadSound(music);
     CloseWindow();        // Close window and OpenGL context
     
 }
