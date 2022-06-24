@@ -752,3 +752,28 @@ background-color: white;
 color: black;
 border-radius: 5px;
 }
+
+/* scrollbar */
+
+
+::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+
+  ::-webkit-scrollbar-track {
+    background: rgb(0, 0, 0);
+    padding: 3px;
+  }
+  
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+  }
+  
+
+  ::-webkit-scrollbar-thumb:hover {
+    background:rgba(255, 255, 255, 0.53);
+
+  }
