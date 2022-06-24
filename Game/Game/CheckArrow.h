@@ -39,8 +39,13 @@ public:
     Rectangle Border;
     Rectangle KeyRec;
     Rectangle Door;
+    Vector2 Close;
     Vector2 mousePoint;
-    Vector2 Circlee;
+    Vector2 Close_line_1_start = { 1540,118 };
+    Vector2 Close_line_1_end = { 1560,152 };
+    Vector2 Close_line_2_start = { 1560,118 };
+    Vector2 Close_line_2_end = { 1540,152 };
+
     bool dia = 0;
     bool pressed_key_checker = 1;
     bool wrong_chest1 = 0, wrong_chest2 = 0, wrong_chest3 = 0, right_chest = 0;
@@ -212,7 +217,7 @@ public:
         {
             if (CheckCollisionPointRec(Hero_obj.HeroPos, chests[0]))
             {
-                DrawText("Press 'E' to open the chest", 10, 10, 35, WHITE);
+                DrawText("Press 'E' to open the chest", 10, 50, 35, WHITE);
                 if (IsKeyPressed(KEY_E))
                 {
                     checker2 = 1;
@@ -245,7 +250,7 @@ public:
         KeyRec.height = 225;
         if (CheckCollisionPointRec(Hero_obj.HeroPos, chests[1]))
         {
-            DrawText("Press 'E' to open the chest", 1380, 10, 35, WHITE);
+            DrawText("Press 'E' to open the chest", 1380, 50, 35, WHITE);
             if (IsKeyPressed(KEY_E))
             {
                 checker7 = 1;
@@ -288,12 +293,11 @@ public:
                 DrawTexture(Key, 600, 360, WHITE);
                 DrawRectangleLinesEx(KeyRec, 6, BLANK);
             }
-            DrawCircle(1650, 125, 20, RED);
-            DrawRectangleLinesEx(Border, 7.5, BLACK);
-            DrawLine(1640, 108, 1660, 142, WHITE);
-            DrawLine(1660, 108, 1640, 142, WHITE);
-            Circlee.x = 1650;
-            Circlee.y = 125;
+            DrawCircle(1550, 135, 32.5, RED);
+            DrawLineEx(Close_line_1_start, Close_line_1_end, 6, WHITE);
+            DrawLineEx(Close_line_2_start, Close_line_2_end, 6, WHITE);
+            Close.x = 1550;
+            Close.y = 115;
             
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, KeyRec))
             {
@@ -301,7 +305,7 @@ public:
                 checker2 = 0;
                 pressed_key_checker = 0;
             }
-            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Circlee, 20))
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Close, 32.5))
             {
                 checker2 = 0;
             }
@@ -316,13 +320,12 @@ public:
                 DrawTexture(Key, 600, 360, WHITE);
                 DrawRectangleLinesEx(KeyRec, 6, BLANK);
             }
-            DrawCircle(1650, 125, 20, RED);
-            DrawRectangleLinesEx(Border, 7.5, BLACK);
-            DrawLine(1640, 108, 1660, 142, WHITE);
-            DrawLine(1660, 108, 1640, 142, WHITE);
-            Circlee.x = 1650;
-            Circlee.y = 125;
-            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Circlee, 20))
+            DrawCircle(1550, 135, 32.5, RED);
+            DrawLineEx(Close_line_1_start, Close_line_1_end, 6, WHITE);
+            DrawLineEx(Close_line_2_start, Close_line_2_end, 6, WHITE);
+            Close.x = 1550;
+            Close.y = 115;
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Close, 32.5))
             {
                 checker7 = 0;
             }
@@ -342,13 +345,12 @@ public:
                 DrawRectangleLinesEx(KeyRec, 6, BLANK);
                 DrawTexture(Key, 600, 360, WHITE);
             }
-            DrawCircle(1650, 125, 20, RED);
-            DrawRectangleLinesEx(Border, 7.5, BLACK);
-            DrawLine(1640, 108, 1660, 142, WHITE);
-            DrawLine(1660, 108, 1640, 142, WHITE);
-            Circlee.x = 1650;
-            Circlee.y = 125;
-            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Circlee, 20))
+            DrawCircle(1550, 135, 32.5, RED);
+            DrawLineEx(Close_line_1_start, Close_line_1_end, 6, WHITE);
+            DrawLineEx(Close_line_2_start, Close_line_2_end, 6, WHITE);
+            Close.x = 1550;
+            Close.y = 115;
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Close, 32.5))
             {
                 checker8 = 0;
             }
@@ -368,19 +370,18 @@ public:
                 DrawTexture(Key, 600, 360, WHITE);
                 DrawRectangleLinesEx(KeyRec, 6, BLANK);
             }
-            DrawRectangleLinesEx(Border, 7.5, BLACK);
-            DrawCircle(1650, 125, 20, RED);
-            DrawLine(1640, 108, 1660, 142, WHITE);
-            DrawLine(1660, 108, 1640, 142, WHITE);
-            Circlee.x = 1650;
-            Circlee.y = 125;
+            DrawCircle(1550, 135, 32.5, RED);
+            DrawLineEx(Close_line_1_start, Close_line_1_end, 6, WHITE);
+            DrawLineEx(Close_line_2_start, Close_line_2_end, 6, WHITE);
+            Close.x = 1550;
+            Close.y = 115;
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, KeyRec))
             {
                 checker6 = 1;
                 checker3 = 0;
                 pressed_key_checker = 0;
             }
-            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Circlee, 20))
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Close, 32.5))
             {
                 checker3 = 0;
             }

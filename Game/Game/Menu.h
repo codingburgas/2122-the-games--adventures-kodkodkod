@@ -15,7 +15,7 @@ public:
     bool Skin_checker4 = 0;
     //bool checker4 = 1;
     //bool checker5 = 1;
-
+    Vector2 Close;
     Vector2 Skin1_Circle;
     Vector2 Skin2_Circle;
     Vector2 Skin3_Circle;
@@ -23,6 +23,7 @@ public:
     Vector2 Music_Yes_Circle;
     Vector2 Music_No_Circle;
     Vector2 mousePoint;
+    Texture2D Rules = LoadTexture("../images/Rules.png");
     Texture2D bgimg = LoadTexture("../images/Menu_Background.png");
     Texture2D Check = LoadTexture("../images/check.png");
     Texture2D set_bg = LoadTexture("../images/Settings_bg.png");
@@ -44,6 +45,11 @@ public:
         mousePoint = GetMousePosition();
         Rectangle options[4];
 
+        Vector2 Rules_line_1_start = { 1540,88 };
+        Vector2 Rules_line_1_end = { 1560,112 };
+        Vector2 Rules_line_2_start = { 1560,88 };
+        Vector2 Rules_line_2_end = { 1540,112 };
+
         Vector2 right_check = { 1027.5, 327.5 };
         Vector2 skins_check = { 392.5, 907.5 };
 
@@ -59,6 +65,9 @@ public:
 
         Check.width = 45;
         Check.height = 45;
+
+        Close.x = 1550;
+        Close.y = 75;
 
         Music_Yes_Circle.x = 850;
         Music_Yes_Circle.y = 350;
@@ -262,7 +271,18 @@ public:
         }
         if (menuTwo)
         {
+            Rules.width = 1600;
+            Rules.height = 850;
+            DrawRectangleRec(hide, Fade(BLACK, 0.79999999));
+            DrawTexture(Rules, 150, 100, WHITE);
+            DrawCircle(1550, 100, 32.5, RED);
+            DrawLineEx(Rules_line_1_start, Rules_line_1_end, 6, WHITE);
+            DrawLineEx(Rules_line_2_start, Rules_line_2_end, 6, WHITE);
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Close, 32.5))
+            {
+                menuTwo = 0;
 
+            }
         }
         if (menuThree)
         {
