@@ -18,7 +18,7 @@ int main()
     InitWindow(screenWidth, screenHeight, "The Last Swordsman");
     InitAudioDevice();
     SetTargetFPS(60);
-    Sound music = LoadSound("../Music/music.mp3");
+    
     Menu menu_obj;
     Arrows arrow_obj;
     while (!WindowShouldClose())    // Detect window close button or ESC key
@@ -28,8 +28,7 @@ int main()
 
         ClearBackground(DARKPURPLE);  
         
-       PlaySoundMulti(music);
-       SetSoundVolume(music, 1);
+       
 
         menu_obj.SetMenuSize();
         menu_obj.UpdateMenu();
@@ -201,7 +200,7 @@ int main()
     }
     arrow_obj.Hero_obj.UnloadHero();
     arrow_obj.moveBG.UnloadBG();
-    UnloadSound(music);
+    
     CloseWindow();        // Close window and OpenGL context
     
 }

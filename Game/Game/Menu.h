@@ -4,11 +4,12 @@ class Menu
 {
 
 public:
-    
+    Sound music = LoadSound("../Music/music.mp3");
     bool checker = 1;
     bool checker2 = 1;
     bool Music_checker = 1;
     bool Music_checker2 = 0;
+    bool Music_checker3 = 0;
     bool Skin_checker = 1;
     bool Skin_checker2 = 0;
     bool Skin_checker3 = 0;
@@ -42,7 +43,8 @@ public:
     }
     void UpdateMenu()
     {
-
+        
+        SetSoundVolume(music, 1);
         mousePoint = GetMousePosition();
         Rectangle options[4];
 
@@ -168,14 +170,20 @@ public:
             if (Music_checker2)
             {
                 right_check.x = right_check.x - 200;
-                //needs to be added music here
+                if (!Music_checker3)
+                {
+                    PlaySoundMulti(music);
+                    Music_checker3 = 1;
+                }
                 if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Music_No_Circle, 31.5))
                 {
-                    //stop the music here
+                    StopSoundMulti();
                     Music_checker2 = 0;
+                    Music_checker3 = 0;
                 }
             }
-
+            
+            
             DrawTexture(Check, right_check.x, right_check.y, GREEN);
             DrawText("Choose a skin", 770, 400, 50, GRAY);
 
@@ -269,7 +277,7 @@ public:
 
 
 
-            DrawRectangleRec(back, DARKGRAY);
+            DrawRectangleRounded(back,7,7, DARKGRAY);
             DrawText("Back", 885, 957.5, 40, WHITE);
         }
         if (menuTwo)
@@ -289,6 +297,7 @@ public:
         }
         if (menuThree)
         {
+            
             exit(0);
 
         }
