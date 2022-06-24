@@ -42,6 +42,7 @@ public:
     Vector2 mousePoint;
     Vector2 Circlee;
     bool dia = 0;
+    bool pressed_key_checker = 1;
     bool wrong_chest1 = 0, wrong_chest2 = 0, wrong_chest3 = 0, right_chest = 0;
     Rectangle chests[4];
 
@@ -92,7 +93,7 @@ public:
         chests[1] = { (float)GetScreenWidth() - 800, 100, 500, 350 };
         chests[2] = { 200, (float)GetScreenHeight() - 450, 500, 350 };
         chests[3] = { (float)GetScreenWidth() - 800, (float)GetScreenHeight() - 450, 500, 350 };
-        Door = { 450,0, 450, 150 };
+        Door = { 450,0, 550, 150 };
         Opened_Chest.width = 1800;
         Opened_Chest.height = 850;
         Key.width = 100;
@@ -225,7 +226,7 @@ public:
         if (checker6)
         {
             DrawRectangleLinesEx(Door, 7.5, BLACK);
-            if (CheckCollisionPointRec(Hero_obj.HeroPos, Door) && moveBG.bg_pos.x < 450 && moveBG.bg_pos.x > 300)
+            if (CheckCollisionPointRec(Hero_obj.HeroPos, Door) && moveBG.bg_pos.x < 450 && moveBG.bg_pos.x > 200)
             {
                 Hero_obj.HeroPos = { KeyRec.x + 150, (float)GetScreenHeight() - 300 };
                 moveBG.bg_pos.y = GetScreenHeight() + 200;
@@ -281,7 +282,7 @@ public:
         if (checker2)
         {
             DrawTexture(Opened_Chest, 30, 30, WHITE);
-            if (RandomKey[0])
+            if (RandomKey[0] && pressed_key_checker)
             {
 
                 DrawTexture(Key, 600, 360, WHITE);
@@ -293,20 +294,23 @@ public:
             DrawLine(1660, 108, 1640, 142, WHITE);
             Circlee.x = 1650;
             Circlee.y = 125;
-            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Circlee, 20))
-            {
-                checker2 = 0;
-            }
+            
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, KeyRec))
             {
                 checker6 = 1;
                 checker2 = 0;
+                pressed_key_checker = 0;
+            }
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Circlee, 20))
+            {
+                checker2 = 0;
             }
         }
+      
         if (checker7)
         {
             DrawTexture(Opened_Chest, 30, 30, WHITE);
-            if (RandomKey[1])
+            if (RandomKey[1] && pressed_key_checker)
             {
 
                 DrawTexture(Key, 600, 360, WHITE);
@@ -326,12 +330,13 @@ public:
             {
                 checker6 = 1;
                 checker7 = 0;
+                pressed_key_checker = 0;
             }
         }
-        if (checker8)
+        if (checker8 )
         {
             DrawTexture(Opened_Chest, 30, 30, WHITE);
-            if (RandomKey[2])
+            if (RandomKey[2] && pressed_key_checker)
             {
                 
                 DrawRectangleLinesEx(KeyRec, 6, BLANK);
@@ -351,12 +356,13 @@ public:
             {
                 checker6 = 1;
                 checker8 = 0;
+                pressed_key_checker = 0;
             }
         }
         if (checker3)
         {
             DrawTexture(Opened_Chest, 30, 30, WHITE);
-            if (RandomKey[3])
+            if (RandomKey[3] && pressed_key_checker)
             {
 
                 DrawTexture(Key, 600, 360, WHITE);
@@ -372,6 +378,7 @@ public:
             {
                 checker6 = 1;
                 checker3 = 0;
+                pressed_key_checker = 0;
             }
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Circlee, 20))
             {
