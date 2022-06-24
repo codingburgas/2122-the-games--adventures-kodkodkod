@@ -3,8 +3,14 @@
 #include "DrawHero.h"
 #include "Background.h"
 #include <iostream>
+<<<<<<< HEAD
 #include <ctime>
 #include <cstdlib>
+=======
+#include <stdlib.h>
+#include <time.h>
+
+>>>>>>> cfd47bac3d55870063a339e019aff09472e63213
 using namespace std;
 using namespace help;
 class Arrows {
@@ -23,10 +29,16 @@ public:
     bool checker6 = 0;
     bool checker7 = 0;
     bool checker8 = 0;
+    bool checkInput[4] = { 0, 0, 0, 0 };
     int speedBG = 100;
     int speedHero = 5;
+<<<<<<< HEAD
     bool checkInput[4] = { 0, 0, 0, 0 };
     bool RandomKey[4] = { 0, 0, 0, 0 };
+=======
+    bool rightKey[4] = { 0, 0, 0, 0 };
+    
+>>>>>>> cfd47bac3d55870063a339e019aff09472e63213
     
     Rectangle hide = { 0,0,(float)GetScreenWidth(),(float)GetScreenHeight() };
     Texture2D Chest = LoadTexture("../images/chest.png");
@@ -40,6 +52,7 @@ public:
     bool dia = 0;
     bool wrong_chest1 = 0, wrong_chest2 = 0, wrong_chest3 = 0, right_chest = 0;
     Rectangle chests[4];
+<<<<<<< HEAD
     void SetRandomPosKey()
     {
         srand(time(0));
@@ -79,8 +92,18 @@ public:
         }
 
     }
+=======
+
+
+>>>>>>> cfd47bac3d55870063a339e019aff09472e63213
     void MakeChests()
     {
+        srand(time(NULL));
+        for (int i = 0; i < 4; i++)
+        {
+            rightKey[i] = rand() % 2;
+        }
+
         mousePoint = GetMousePosition();
         chests[0] = { 320,100, 500, 350 };
         chests[1] = { (float)GetScreenWidth() - 800, 100, 500, 350 };
@@ -91,6 +114,7 @@ public:
         Opened_Chest.height = 850;
         Key.width = 100;
         Key.height = 200;
+        
         for (int i = 0; i < 4; i++)
         {
             DrawRectangleLinesEx(chests[i], 7.5, BLANK);
@@ -98,34 +122,10 @@ public:
     }
     void CheckChests()
     {
-        if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, chests[0]) && checker)
-        {
-            wrong_chest1 = true;
-            wrong_chest2 = 0;
-            wrong_chest3 = 0;
-            right_chest = 0;
-        }
-        else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, chests[1]) && checker)
-        {
-            wrong_chest1 = 0;
-            wrong_chest2 = true;
-            wrong_chest3 = 0;
-            right_chest = 0;
-        }
-        else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, chests[2]) && checker)
-        {
-            wrong_chest1 = 0;
-            wrong_chest2 = 0;
-            wrong_chest3 = true;
-            right_chest = 0;
-        }
-        else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, chests[3]) && checker)
-        {
-            wrong_chest1 = 0;
-            wrong_chest2 = 0;
-            wrong_chest3 = 0;
-            right_chest = true;
-        }
+        wrong_chest1 = rightKey[0];
+        wrong_chest2 = rightKey[1];
+        wrong_chest3 = rightKey[2];
+        right_chest = rightKey[3];
     }
     void checkArrows()
     {
