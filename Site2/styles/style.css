@@ -165,11 +165,11 @@
         display: flex;
         position: relative;
         justify-content: center;
-        top: 5rem;
+        top: 250px;
         font-size: 3rem;
         font-family: 'Inter', sans-serif;
-        letter-spacing: 4px;
-        color: rgba(255, 255, 255, 0.649);
+        letter-spacing: 10px;
+        color: white;
         text-transform: uppercase;
     }
 
@@ -180,7 +180,8 @@
         height:100vh;
         position:relative;
         z-index: -1;
-        margin-top: -100px;
+        top:50px;
+        margin-top: -130px;
         margin-bottom: -210px;
         box-shadow: 2px 1px 40px rgba(0, 0, 0, 0.533);
     }
@@ -254,7 +255,7 @@
         width:30%;
         height:5%;
         margin: 0 auto;
-        top:60%;
+        bottom:-620px;
         position: relative;
         z-index: 212;
         display:flex;
@@ -390,6 +391,10 @@
         color:rgba(255, 255, 255, 0.64);
         text-decoration: none;
         transition: 0.5s;
+    }
+    .about-us-title
+    {
+        top:-100px;
     }
     .about-us-title > a:hover
     {
