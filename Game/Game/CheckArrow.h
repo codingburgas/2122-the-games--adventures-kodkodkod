@@ -92,7 +92,7 @@ public:
         chests[1] = { (float)GetScreenWidth() - 800, 100, 500, 350 };
         chests[2] = { 200, (float)GetScreenHeight() - 450, 500, 350 };
         chests[3] = { (float)GetScreenWidth() - 800, (float)GetScreenHeight() - 450, 500, 350 };
-        Door = { 450,0, 450, 150 };
+        Door = { 450,0, 550, 150 };
         Opened_Chest.width = 1800;
         Opened_Chest.height = 850;
         Key.width = 100;
@@ -225,7 +225,7 @@ public:
         if (checker6)
         {
             DrawRectangleLinesEx(Door, 7.5, BLACK);
-            if (CheckCollisionPointRec(Hero_obj.HeroPos, Door) && moveBG.bg_pos.x < 450 && moveBG.bg_pos.x > 300)
+            if (CheckCollisionPointRec(Hero_obj.HeroPos, Door) && moveBG.bg_pos.x < 450 && moveBG.bg_pos.x > 200)
             {
                 Hero_obj.HeroPos = { KeyRec.x + 150, (float)GetScreenHeight() - 300 };
                 moveBG.bg_pos.y = GetScreenHeight() + 200;
