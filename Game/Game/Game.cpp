@@ -12,7 +12,7 @@ int main()
     const int screenWidth = 1915;
     const int screenHeight = 1025;
 
-    InitWindow(screenWidth, screenHeight, "The last swordsman");
+    InitWindow(screenWidth, screenHeight, "The Last Swordsman");
 
     SetTargetFPS(60);
 
@@ -35,6 +35,7 @@ int main()
             if (arrow_obj.checker5)
             {
                 arrow_obj.moveBG.DrawBackground3();
+                arrow_obj.checker3 = 1;
 
             }
             else if (arrow_obj.checker6)
