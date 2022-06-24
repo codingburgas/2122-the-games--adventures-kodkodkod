@@ -146,8 +146,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Background.h" />
+    <ClInclude Include="Boss.h" />
     <ClInclude Include="CheckArrow.h" />
-    <ClInclude Include="CheckDoors.h" />
     <ClInclude Include="DrawHero.h" />
     <ClInclude Include="include.h" />
     <ClInclude Include="Menu.h" />

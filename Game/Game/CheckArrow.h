@@ -3,6 +3,8 @@
 #include "DrawHero.h"
 #include "Background.h"
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 using namespace std;
 using namespace help;
 class Arrows {
@@ -24,6 +26,8 @@ public:
     int speedBG = 100;
     int speedHero = 5;
     bool checkInput[4] = { 0, 0, 0, 0 };
+    bool RandomKey[4] = { 0, 0, 0, 0 };
+    
     Rectangle hide = { 0,0,(float)GetScreenWidth(),(float)GetScreenHeight() };
     Texture2D Chest = LoadTexture("../images/chest.png");
     Texture2D Opened_Chest = LoadTexture("../images/opened_chest.png");
@@ -36,6 +40,45 @@ public:
     bool dia = 0;
     bool wrong_chest1 = 0, wrong_chest2 = 0, wrong_chest3 = 0, right_chest = 0;
     Rectangle chests[4];
+    void SetRandomPosKey()
+    {
+        srand(time(0));
+        int Rand = rand() % 4;
+        RandomKey[Rand] = 1;
+        switch (Rand)
+        {
+            case 0:
+            {
+
+                RandomKey[1] = 0;
+                RandomKey[2] = 0;
+                RandomKey[3] = 0;
+                break;
+            }
+            case 1:
+            {
+                RandomKey[0] = 0;
+                RandomKey[2] = 0;
+                RandomKey[3] = 0;
+                break;
+            }
+            case 2:
+            {
+                RandomKey[0] = 0;
+                RandomKey[1] = 0;
+                RandomKey[3] = 0;
+                break;
+            }
+            case 3:
+            {
+                RandomKey[1] = 0;
+                RandomKey[2] = 0;
+                RandomKey[0] = 0;
+                break;
+            }
+        }
+
+    }
     void MakeChests()
     {
         mousePoint = GetMousePosition();
@@ -43,7 +86,7 @@ public:
         chests[1] = { (float)GetScreenWidth() - 800, 100, 500, 350 };
         chests[2] = { 200, (float)GetScreenHeight() - 450, 500, 350 };
         chests[3] = { (float)GetScreenWidth() - 800, (float)GetScreenHeight() - 450, 500, 350 };
-        Door = { 500,0, 450, 150 };
+        Door = { 450,0, 450, 150 };
         Opened_Chest.width = 1800;
         Opened_Chest.height = 850;
         Key.width = 100;
@@ -206,7 +249,7 @@ public:
         if (checker6)
         {
             DrawRectangleLinesEx(Door, 7.5, BLACK);
-            if (CheckCollisionPointRec(Hero_obj.HeroPos, Door) && moveBG.bg_pos.x < 450 && moveBG.bg_pos.x > 200)
+            if (CheckCollisionPointRec(Hero_obj.HeroPos, Door) && moveBG.bg_pos.x < 450 && moveBG.bg_pos.x > 300)
             {
                 Hero_obj.HeroPos = { KeyRec.x + 150, (float)GetScreenHeight() - 300 };
                 moveBG.bg_pos.y = GetScreenHeight() + 200;
@@ -262,6 +305,12 @@ public:
         if (checker2)
         {
             DrawTexture(Opened_Chest, 30, 30, WHITE);
+            if (RandomKey[0])
+            {
+
+                DrawTexture(Key, 600, 360, WHITE);
+                DrawRectangleLinesEx(KeyRec, 6, BLANK);
+            }
             DrawCircle(1650, 125, 20, RED);
             DrawRectangleLinesEx(Border, 7.5, BLACK);
             DrawLine(1640, 108, 1660, 142, WHITE);
@@ -272,10 +321,21 @@ public:
             {
                 checker2 = 0;
             }
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, KeyRec))
+            {
+                checker6 = 1;
+                checker2 = 0;
+            }
         }
         if (checker7)
         {
             DrawTexture(Opened_Chest, 30, 30, WHITE);
+            if (RandomKey[1])
+            {
+
+                DrawTexture(Key, 600, 360, WHITE);
+                DrawRectangleLinesEx(KeyRec, 6, BLANK);
+            }
             DrawCircle(1650, 125, 20, RED);
             DrawRectangleLinesEx(Border, 7.5, BLACK);
             DrawLine(1640, 108, 1660, 142, WHITE);
@@ -286,10 +346,21 @@ public:
             {
                 checker7 = 0;
             }
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, KeyRec))
+            {
+                checker6 = 1;
+                checker7 = 0;
+            }
         }
         if (checker8)
         {
             DrawTexture(Opened_Chest, 30, 30, WHITE);
+            if (RandomKey[2])
+            {
+                
+                DrawRectangleLinesEx(KeyRec, 6, BLANK);
+                DrawTexture(Key, 600, 360, WHITE);
+            }
             DrawCircle(1650, 125, 20, RED);
             DrawRectangleLinesEx(Border, 7.5, BLACK);
             DrawLine(1640, 108, 1660, 142, WHITE);
@@ -300,13 +371,22 @@ public:
             {
                 checker8 = 0;
             }
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, KeyRec))
+            {
+                checker6 = 1;
+                checker8 = 0;
+            }
         }
         if (checker3)
         {
             DrawTexture(Opened_Chest, 30, 30, WHITE);
-            DrawTexture(Key, 600, 360, WHITE);
+            if (RandomKey[3])
+            {
+
+                DrawTexture(Key, 600, 360, WHITE);
+                DrawRectangleLinesEx(KeyRec, 6, BLANK);
+            }
             DrawRectangleLinesEx(Border, 7.5, BLACK);
-            DrawRectangleLinesEx(KeyRec, 6, BLANK);
             DrawCircle(1650, 125, 20, RED);
             DrawLine(1640, 108, 1660, 142, WHITE);
             DrawLine(1660, 108, 1640, 142, WHITE);
@@ -322,10 +402,6 @@ public:
                 checker3 = 0;
             }
         }
-        //change checkers for backgrounds
-        if (checker5)
-        {
-            checker3 = 0;
-        }
+        
     }
 };

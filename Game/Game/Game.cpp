@@ -11,7 +11,9 @@ int main()
     // Initialization
     const int screenWidth = 1915;
     const int screenHeight = 1025;
-
+    int counterBg = 0;
+    int counterBg2 = 0;
+    int counterBg3 = 0;
     InitWindow(screenWidth, screenHeight, "The Last Swordsman");
 
     SetTargetFPS(60);
@@ -34,16 +36,30 @@ int main()
             //change backgrounds
             if (arrow_obj.checker5)
             {
-                arrow_obj.moveBG.DrawBackground3();
-                arrow_obj.checker3 = 1;
+                counterBg3 = 0;
+                counterBg++;
+                if (counterBg == 1)
+                {
 
+                arrow_obj.SetRandomPosKey();
+                }
+                arrow_obj.moveBG.DrawBackground3();
             }
             else if (arrow_obj.checker6)
             {
+
                 arrow_obj.moveBG.DrawBackground2();
             }
             else
             {
+                counterBg = 0;
+                counterBg3++;
+                if (counterBg3 == 1)
+                {
+
+                    arrow_obj.SetRandomPosKey();
+                }
+
                 arrow_obj.moveBG.DrawBackground();
 
             }

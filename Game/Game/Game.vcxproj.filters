@@ -38,7 +38,7 @@
     <ClInclude Include="Menu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CheckDoors.h">
+    <ClInclude Include="Boss.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
