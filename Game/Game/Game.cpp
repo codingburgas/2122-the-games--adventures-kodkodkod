@@ -65,7 +65,6 @@ int main()
             }
 
             arrow_obj.MakeChests();
-            arrow_obj.CheckChests();
 
             arrow_obj.checkArrows();
             if (arrow_obj.dia && arrow_obj.checkInput[0])
