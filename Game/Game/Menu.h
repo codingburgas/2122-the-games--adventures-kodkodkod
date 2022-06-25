@@ -24,9 +24,9 @@ public:
     Vector2 Music_No_Circle;
     Vector2 mousePoint;
     Texture2D Rules = LoadTexture("../images/Rules.png");
-    Texture2D bgimg = LoadTexture("../images/Menu_Background.png");
+    Texture2D bgimg = LoadTexture("../images/backgrounds/Menu_Background.png");
     Texture2D Check = LoadTexture("../images/check.png");
-    Texture2D set_bg = LoadTexture("../images/Settings_bg.png");
+    Texture2D set_bg = LoadTexture("../images/backgrounds/Settings_bg.png");
     Rectangle hide = { 0,0,(float)GetScreenWidth(),(float)GetScreenHeight() };
     Rectangle back = { 850,950, 165,50 };
     Rectangle skins[4];

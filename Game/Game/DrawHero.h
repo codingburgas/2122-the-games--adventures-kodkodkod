@@ -3,16 +3,16 @@ using namespace std;
 class Hero {
 private:
 	int fpscouter = 0;
-	Texture2D heroDown = LoadTexture("../images/heroFront.png");
-	Texture2D heroLeft = LoadTexture("../images/heroLeft.png");
-	Texture2D heroRight = LoadTexture("../images/heroRight.png");
-	Texture2D heroUp = LoadTexture("../images/heroBack.png");
+	Texture2D heroDown = LoadTexture("../images/Hero/heroFront.png");
+	Texture2D heroLeft = LoadTexture("../images/Hero/heroLeft.png");
+	Texture2D heroRight = LoadTexture("../images/Hero/heroRight.png");
+	Texture2D heroUp = LoadTexture("../images/Hero/heroBack.png");
 
 	//idle textures
-	Texture2D heroDownIdle = LoadTexture("../images/backIdle.png");
-	Texture2D heroLeftIdle = LoadTexture("../images/leftIdle.png");
-	Texture2D heroRightIdle = LoadTexture("../images/rightIdle.png");
-	Texture2D heroUpIdle = LoadTexture("../images/frontIdle.png");
+	Texture2D heroDownIdle = LoadTexture("../images/Hero/backIdle.png");
+	Texture2D heroLeftIdle = LoadTexture("../images/Hero/leftIdle.png");
+	Texture2D heroRightIdle = LoadTexture("../images/Hero/rightIdle.png");
+	Texture2D heroUpIdle = LoadTexture("../images/Hero/frontIdle.png");
 public:
 	Rectangle HeroClipLeft = { (float)heroLeft.width, 0, (float)heroLeft.width / 6, (float)heroLeft.height };
 	Rectangle HeroClipRight = { 0, 0, (float)heroRight.width / 6, (float)heroRight.height };

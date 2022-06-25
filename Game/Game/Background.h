@@ -16,9 +16,9 @@ class Background {
 	}
 	
 	public:
-	Texture2D background = LoadTexture("../images/background.png");
-	Texture2D background3 = LoadTexture("../images/background3.png");
-	Texture2D background2 = LoadTexture("../images/background2.png");
+	Texture2D background = LoadTexture("../images/backgrounds/background.png");
+	Texture2D background3 = LoadTexture("../images/backgrounds/background3.png");
+	Texture2D background2 = LoadTexture("../images/backgrounds/background2.png");
 	Rectangle bg_pos = { (float)GetScreenWidth() / 2, (float)GetScreenHeight() / 2, (float)GetScreenWidth(), (float)GetScreenHeight()};
 	void DrawBackground()
 	{

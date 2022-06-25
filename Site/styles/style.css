@@ -462,49 +462,49 @@
     }
     .cardcontainer:nth-child(1)
     {
-        background-image: url(../images/Alex.jpg);
+        background-image: url(../images/Team/Alex.jpg);
         top:200px;
     }
     .cardcontainer:nth-child(2)
     {
-        background-image: url(../images/Alexander.jpg);
+        background-image: url(../images/Team/Alexander.jpg);
         
         top:200px;
     }
     .cardcontainer:nth-child(3)
     {
-        background-image: url(../images/George.jpg);
+        background-image: url(../images/Team/George.jpg);
         
         top:200px;
     }
     .cardcontainer:nth-child(4)
     {
-        background-image: url(../images/Denis.jpg);
+        background-image: url(../images/Team/Denis.jpg);
         top:200px;
 
     }
     .cardcontainer:nth-child(5)
     {
-        background-image: url(../images/Denislav.jpg);
+        background-image: url(../images/Team/Denislav.jpg);
         margin-left: -74.5rem;
         top:460px;
     }
     .cardcontainer:nth-child(6)
     {
     
-        background-image: url(../images/Hakan.jpg);
+        background-image: url(../images/Team/Hakan.jpg);
         top:460px;
 
     }
     .cardcontainer:nth-child(7)
     {
-        background-image: url(../images/Ivailo.jpg);
+        background-image: url(../images/Team/Ivailo.jpg);
         top:460px;
     }
     .cardcontainer:nth-child(8)
     {
     
-        background-image: url(../images/Ivan.jpg);
+        background-image: url(../images/Team/Ivan.jpg);
         top:460px;
     }
     .cards

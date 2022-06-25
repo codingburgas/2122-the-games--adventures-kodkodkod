@@ -14,7 +14,6 @@ int main()
     int counterBg = 0;
     int counterBg2 = 0;
     int counterBg3 = 0;
-    int a;
     InitWindow(screenWidth, screenHeight, "The Last Swordsman");
     InitAudioDevice();
     SetTargetFPS(60);
@@ -34,7 +33,7 @@ int main()
         menu_obj.UpdateMenu();
         if (menu_obj.Play)
         {
-            menu_obj.checker = 0;
+            menu_obj.If_it_is_not_chosen_an_option = 0;
             DrawRectangleRec(menu_obj.hide, LIGHTGRAY);
             //change backgrounds
             if (arrow_obj.Is_hero_passed_the_first_door)

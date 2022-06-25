@@ -33,9 +33,8 @@ public:
     
     
     Rectangle hide = { 0,0,(float)GetScreenWidth(),(float)GetScreenHeight() };
-    Texture2D Chest = LoadTexture("../images/chest.png");
-    Texture2D Opened_Chest = LoadTexture("../images/opened_chest.png");
-    Texture2D Opened_Chest2 = LoadTexture("../images/opened_chest_green.png");
+    Texture2D Opened_Chest = LoadTexture("../images/Chests/opened_chest.png");
+    Texture2D Opened_Chest2 = LoadTexture("../images/Chsts/opened_chest_green.png");
     Texture2D Key = LoadTexture("../images/Key.png");
     Rectangle Border;
     Rectangle KeyRec;
