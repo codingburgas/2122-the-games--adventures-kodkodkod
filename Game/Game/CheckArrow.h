@@ -25,7 +25,8 @@ public:
     bool Key_is_pressed = 0;
     bool Upper_right_chest = 0;
     bool Lower_right_chest = 0;
-    bool checks_if_u_are_on_map2=0;
+    int counterDoor = 0;
+    int counterArea = 0;
     bool checkInput[4] = { 0, 0, 0, 0 };
     int speedBG = 100;
     int speedHero = 5;
@@ -237,8 +238,11 @@ public:
                 moveBG.bg_pos.y = GetScreenHeight() + 200;
                 moveBG.bg_pos.x = KeyRec.x - 100;
                 Is_hero_passed_the_first_door = 1;
+                counterArea++;
                 Key_is_pressed = 0;
-                checks_if_u_are_on_map2 = 1;
+            }
+            else {
+                Is_hero_passed_the_first_door = 0;
             }
         }
         KeyRec.x = 590;
@@ -301,6 +305,8 @@ public:
                 Key_is_pressed = 1;
                 Upper_left_chest = 0;
                 pressed_key_checker = 0;
+                counterDoor++;
+
             }
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Close, 32.5))
             {
@@ -331,6 +337,8 @@ public:
                 Key_is_pressed = 1;
                 Upper_right_chest = 0;
                 pressed_key_checker = 0;
+                counterDoor++;
+
             }
         }
         if (Lower_right_chest)
@@ -356,6 +364,8 @@ public:
                 Key_is_pressed = 1;
                 Lower_right_chest = 0;
                 pressed_key_checker = 0;
+                counterDoor++;
+
             }
         }
         if (Lower_leFt_chest)
@@ -377,17 +387,13 @@ public:
                 Key_is_pressed = 1;
                 Lower_leFt_chest = 0;
                 pressed_key_checker = 0;
+                counterDoor++;
+
             }
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Close, 32.5))
             {
                 Lower_leFt_chest = 0;
             }
-        }
-        
-        if (checks_if_u_are_on_map2)
-        {
-            
-        
         }
     }
 };

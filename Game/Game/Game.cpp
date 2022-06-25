@@ -12,7 +12,6 @@ int main()
     const int screenWidth = 1915;
     const int screenHeight = 1025;
     int counterBg = 0;
-    int counterBg2 = 0;
     int counterBg3 = 0;
     InitWindow(screenWidth, screenHeight, "The Last Swordsman");
     InitAudioDevice();
@@ -33,6 +32,7 @@ int main()
         menu_obj.UpdateMenu();
         if (menu_obj.Play)
         {
+            arrow_obj.MakeChests();
             menu_obj.If_it_is_not_chosen_an_option = 0;
             DrawRectangleRec(menu_obj.hide, LIGHTGRAY);
             //change backgrounds
@@ -42,15 +42,40 @@ int main()
                 counterBg++;
                 if (counterBg == 1)
                 {
-
-                arrow_obj.SetRandomPosKey();
+                    arrow_obj.pressed_key_checker = 1;
+                    arrow_obj.SetRandomPosKey();
                 }
-                arrow_obj.moveBG.DrawBackground3();
+
+                if (arrow_obj.counterArea == 1)
+                {
+                    arrow_obj.pressed_key_checker = 1;
+                    arrow_obj.Door = {0,0,0,0};//Namesti doora
+                    arrow_obj.moveBG.DrawBackground3();
+
+                }
+                else if (arrow_obj.counterArea == 2)
+                {
+                    arrow_obj.pressed_key_checker = 1;
+                    arrow_obj.Door = {0,0 ,0,0 };//Namesti doora
+                    arrow_obj.moveBG.DrawBackground4();
+
+                }
             }
             else if (arrow_obj.Key_is_pressed)
             {
+                if (arrow_obj.counterDoor == 1)
+                {
 
                 arrow_obj.moveBG.DrawBackground2();
+                }
+                else if (arrow_obj.counterDoor == 2)
+                {
+                    arrow_obj.moveBG.DrawBackground3_Opened();
+                }
+                else if (arrow_obj.counterDoor == 3)
+                {
+                    arrow_obj.moveBG.DrawBackground4_Opened();
+                }
             }
             else
             {
@@ -66,7 +91,7 @@ int main()
 
             }
 
-            arrow_obj.MakeChests();
+            
 
             arrow_obj.checkArrows();
             if (arrow_obj.diagonal && arrow_obj.checkInput[0])
