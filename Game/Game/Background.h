@@ -1,7 +1,8 @@
 #pragma once
 #include "raylib.h"
 #include<vector>
-#include <algorithm>
+#include <cstdlib>
+#include <ctime>
 class Background {
 
 	void SetupSize()
@@ -25,19 +26,13 @@ class Background {
 		map3_opened.width = GetScreenWidth() * 2;
 		map3_opened.height = GetScreenHeight() * 2;
 	}
-	string StringOfBGs[3] = {"../images/backgrounds/background.png", "../images/backgrounds/background3.png","../images/backgrounds/map3.png" };
+	vector<string>StringOfBGs = { "../images/backgrounds/background.png", "../images/backgrounds/background3.png", "../images/backgrounds/map3.png"};
 	public:
-	Background()
-	{
-		random_shuffle(&StringOfBGs, &StringOfBGs + 3);
-		for (string i : StringOfBGs)
-		{
-			cout << i;
-		}
-	}
+	
 	Texture2D background = LoadTexture(StringOfBGs[0].c_str());
 	Texture2D background3 = LoadTexture(StringOfBGs[1].c_str());
 	Texture2D background2 = LoadTexture("../images/backgrounds/background2.png");
+
 
 	Texture2D background3_opened = LoadTexture("../images/backgrounds/background3_opened1.png");
 	Texture2D map3 = LoadTexture(StringOfBGs[2].c_str());

@@ -19,6 +19,9 @@ public:
     int LimitD = 320;
     int LimitS = 120;
     int LimitW = 120;
+
+    int limitDoorL = 450;
+    int limitDoorR = 200;
     bool Upper_left_chest = 0;
     bool Lower_leFt_chest = 0;
     bool Is_hero_passed_the_first_door = 0;
@@ -231,7 +234,7 @@ public:
         }
         if (Key_is_pressed)
         {
-            DrawRectangleLinesEx(Door, 7.5, BLANK);
+            DrawRectangleLinesEx(Door, 7.5, BLACK);
             if (CheckCollisionPointRec(Hero_obj.HeroPos, Door) && moveBG.bg_pos.x < 450 && moveBG.bg_pos.x > 200)
             {
                 Hero_obj.HeroPos = { KeyRec.x + 150, (float)GetScreenHeight() - 300 };
