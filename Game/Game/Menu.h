@@ -107,12 +107,12 @@ public:
             DrawLineEx(LineOfRulesStart, LineOfRulesEnd, 7, DARKPURPLE);
             DrawLineEx(LineOfExitStart, LineOfExitEnd, 7, DARKPURPLE);
 
-            DrawText("PLAY", 500, 425, 50, ORANGE);
-            DrawText("SETTINGS", 30, 50, 50, ORANGE);
-            DrawText("RULES", 1700, 922.5, 50, ORANGE);
-            DrawText("EXIT", 1200.5, 425, 50, ORANGE);
+            DrawText("PLAY", 500, 425, 50, BEIGE);
+            DrawText("SETTINGS", 30, 50, 50, BEIGE);
+            DrawText("RULES", 1700, 922.5, 50, BEIGE);
+            DrawText("EXIT", 1200.5, 425, 50, BEIGE);
 
-            DrawText("THE LAST SWORDSMAN", 290, 250, 100, ORANGE);
+            DrawText("THE LAST SWORDSMAN", 290, 250, 100, BEIGE);
 
             
 
