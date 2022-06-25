@@ -49,14 +49,14 @@ int main()
                 if (arrow_obj.counterArea == 1)
                 {
                     arrow_obj.pressed_key_checker = 1;
-                    arrow_obj.Door = {0,0,0,0};//Namesti doora
+                    arrow_obj.Door = { 450,0, 550, 150 };
                     arrow_obj.moveBG.DrawBackground3();
 
                 }
                 else if (arrow_obj.counterArea == 2)
                 {
                     arrow_obj.pressed_key_checker = 1;
-                    arrow_obj.Door = {0,0 ,0,0 };//Namesti doora
+                    arrow_obj.Door = { 450,0, 550, 150 };
                     arrow_obj.moveBG.DrawBackground4();
 
                 }
