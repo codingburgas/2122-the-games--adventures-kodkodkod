@@ -149,6 +149,7 @@
     <ClInclude Include="Boss.h" />
     <ClInclude Include="CheckArrow.h" />
     <ClInclude Include="DrawHero.h" />
+    <ClInclude Include="GameOver.h" />
     <ClInclude Include="include.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Namespace.h" />
