@@ -1,4 +1,4 @@
-                                                                                                                                                                                                                                                                                        *
+    *                                                                                                                                                                                                                                                                                    *
     {
         margin: 0;
         padding: 0;
@@ -27,11 +27,11 @@
         text-align: left;
     }
 
-    .nav{
+    nav{
         z-index: 102;
         background-color: #000000;
         height: 112px;
-        width:110%;
+        width:100%;
         text-align: center;
     }
     .htp:hover ~ .how-to-play
@@ -39,9 +39,16 @@
         display:block;
         animation:appear 0.5s ease-out 1;
     }
+    /*effect on hover*/
     .htp
     {
-        margin-left: -10%;
+       
+        margin-left: -25%;
+    }
+    .htp h1
+    {
+       
+        font-weight: 400;
     }
     @keyframes appear
     {
@@ -56,8 +63,10 @@
         }
        
     }
+    /*animation*/
     .how-to-play
     {
+        backdrop-filter: blur(10px);
         display:none;
         z-index: 1000;
         width:100vw;
@@ -69,7 +78,7 @@
         color:white;
         text-align: center;
     }
-
+/*styling of appearing information abour the controls*/
     .controls-col{
         text-align: center;
         padding: 1rem;
@@ -79,13 +88,13 @@
 
     .storyline
     {
+        backdrop-filter: blur(10px);
         display:none;
     }
     .headings h1
     {
         font-weight: 350;
         color:rgba(255, 255, 255, 0.545);
-        /* display:inline-block; */
     }
 
     .headings img{
@@ -120,6 +129,7 @@
         opacity: 60%;
         
     }
+    /*styling of pics*/
     .nav h2
     {
         
@@ -128,23 +138,22 @@
     }
     .nav ul{
     
-        position: static;
         text-align: center;
     }
 
     .nav ul li{
         user-select: none;
         cursor:pointer;
-        font-size: 30px;
+       
         color: white;
         opacity: 42%;
+
         transition: 0.5s;
         padding: 2.22334890000rem 2rem;
         font-size: 2.18458799838rem;
         display:inline-block;
         list-style: none;
     }
-
 
     .nav ul li a{
         text-decoration: none;
@@ -161,6 +170,7 @@
     {
         position:relative;
     }
+   
     main h1{
         z-index: 101;
         display: flex;
@@ -196,8 +206,10 @@
         position:absolute;
         
     }
+    /*style of containers in about us, as well as animation*/
     .upper-waves
     {
+        margin-top: -10px;
         position:absolute;
     }
     .slider.active
@@ -218,62 +230,7 @@
         transition:0.5s;
         background-color: rgba(255, 255, 255, 0.453);
     }
-
-    .arrows-container 
-    {
-        visibility: hidden;
-        text-shadow: 1px 1px 10px black;
-        left:-2.5%;
-        width:105%;
-        height:20px;
-        top:48%;
-        display:flex;
-        justify-content: space-between;
-        align-items: center;
-        position:absolute;
-    }
-    .arrows-container i
-    {
-        display: none;
-        z-index: 107;
-        visibility:visible;
-        color:white;
-        cursor: pointer;
-        font-size: 70px;
-        opacity: 0.4;
-        position:relative;
-        transition:0.4s;
-    
-    }
-    .arrows-container i:hover
-    {
-        opacity:0.7;
-        
-    
-    }
-    .slide-icons-container
-    {
-        width:30%;
-        height:5%;
-        margin: 0 auto;
-        bottom:-620px;
-        position: relative;
-        z-index: 212;
-        display:flex;
-        justify-content: space-around;
-    }
-	
-    .slideicon
-    {
-        display: none;
-        cursor: pointer;
-		box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.347);
-		background-color: rgba(0, 0, 0, 0.616);
-		width:15%;
-		border-radius: 5px;
-		height:20px;
-		margin-top: 180px;
-    }
+/*slider animation*/
     .btn-container
     {
         display: flex;
@@ -285,7 +242,7 @@
     {
         position: absolute;
     }
-
+/*download button container*/
     .download
     {
         user-select: none;
@@ -335,8 +292,10 @@
     
         background-color: rgb(0, 0, 0);
     }
+    /*download button styling and animation on hover*/
     .all h3
     {
+      
         color: rgba(255, 255, 255, 0.649);
         text-transform: uppercase;
         font-size: 50px;
@@ -355,17 +314,35 @@
         height:110vh;
         margin-top: 8.11rem;
     }
-
+ /*style of the skins container, all - the black container*/
     .skins
     {
-        width:700px;
-        transform: translateY(200px);
+       
+        background-image: url(../images/background-of-poses.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        clip-path: polygon(34% 4%, 80% 9%, 99% 38%, 94% 70%, 94% 100%, 10% 100%, 13% 64%, 0 16%);
+        width:80%;
         height:90vh;
         position:relative;
         z-index: 5;
     }
+    .poses
+    {
+        margin-top: 300px;
+        position:relative;
+        width:100%;
+        height: 100%;
+        background-image: url(../images/HeroPose.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat    ;
+    }
+    /*style of background and skins*/
     .appeared
     {
+       
     animation:boom 1s 1;
     }
     .appeared-box
@@ -381,11 +358,12 @@
     }
     @keyframes boom-reverse
     {
-        0%{transform: translateY(0px);}
+        0%{transform: translateY(-200px);}
         1%{opacity:0;}
         99%{opacity: 1;}
-        100%{transform: translateY(200px);}
+        100%{transform: translateY(0px);}
     }
+    /*animations*/
     .about-us-title > a 
     {
         padding:10px 20px;
@@ -396,7 +374,7 @@
     }
     .about-us-title
     {
-        top:0px;
+        top:50px;
     }
     .about-us-title > a:hover
     {
@@ -416,6 +394,7 @@
         flex-wrap: wrap;
 
     }
+    /*style of about us container and it's title*/
     .cardcontainer span
     {
         z-index: 2;
@@ -612,32 +591,7 @@
         animation:circle-reverse 0.5s 1;
         display:block;
     }
-    @media only screen and (max-width:1250px)
-    {
-        .about-us-title
-        {
-            position: relative;
-            top:20px;
-            font-size: 2rem;
-            margin-bottom: 30px;
-        }
-        .cardcontainer
-        {
-            height:150px;
-            width:150px;
-            margin:0 50px;
-            
-        }
-
-        .cardcontainer::before
-        {
-            position:absolute;
-            height:150px;
-            width:150px;
-
-        }
-        
-    }
+    /*style of containers, effects on hover, and on click*/
     /* footer */
 
 .logo-footer
@@ -674,6 +628,7 @@
 {
     color:black;
 }
+/*effects of the social icons*/
 .footer
 {
     color: white;
@@ -682,7 +637,9 @@
 	text-align: center;
 }
 
-
+.storyline-hover{
+    font-size: 40px;
+}
 
 .storyline-hover:hover ~ .storyline
 {
@@ -711,6 +668,7 @@
     margin: 1rem 10% 5%;
     font-size: 2rem;
 }
+/*style of storyline and it's text*/
 .arrow-up
 {
     display: none;
@@ -722,6 +680,7 @@
     right:15px;
     transition: 0.2s;
 }
+/*anchor's style*/
 .appear-arrow
 {
     opacity:0.5;
@@ -742,13 +701,13 @@
     
     width:100%;
     height:150px;
-    margin-top: -89px;
+    margin-bottom: -10px;
 
     transform: rotateZ(180deg);
 }
 
 
-
+/*selection style*/
 ::selection{
 background-color: white;
 color: black;
@@ -780,17 +739,145 @@ border-radius: 5px;
 
   }
 
+  @media only screen and (max-width:1250px)
+  {
+      .about-us-title
+      {
+          position: relative;
+          top:20px;
+          font-size: 2rem;
+          margin-bottom: 30px;
+      }
+      .cardcontainer
+      {
+          height:150px;
+          width:150px;
+          margin:0 50px;
+          
+      }
 
-  @media only screen and (max-width: 1020px){
-    nav img{
-        visibility: hidden;
+      .cardcontainer::before
+      {
+          position:absolute;
+          height:150px;
+          width:150px;
+
+      }
+      
+  }
+  @media only screen and (max-width:1125px)
+  {
+    .cardcontainer
+    {
+        margin:0 -500px;
     }
   }
+  @media only screen and (max-width: 1020px)
+  {
+    .game-name
+    {
+        font-size: 30px;
+    }
+    #header-link
+    {
+        display:none;
+    }
+    .story-text
+    {
+        font-size: 25px;
+    }
+  }
+@media only screen and (max-width:700px)
+{
+    .story-text
+    {
+        font-size: 19px;
+    }
+    .cardcontainer
+    {
+        font-size: 10px;
+        height:100px;
+        width:100px;
+    }
+    .cardcontainer:nth-child(1),.cardcontainer:nth-child(2),.cardcontainer:nth-child(3),.cardcontainer:nth-child(4)
+{
+    top:100px;  
+    left:-170px; 
+    transform: translateX(20px);
+}
+.cardcontainer:nth-child(1)
+{
+    top:250px;
+    left:0px; 
+}
+.cardcontainer:nth-child(5)
+{
+    position: relative  ;
+    top:    250px;
+    left:350px; 
+}
+.storyline-hover
+{
+    transform: scale(0.5);
+}
+li h1
+{
+    transform: scale(0.5);
+}
+.about a{
+    font-size: 15px;
+}
 
+.game-name
+{
+    font-size: 20px;
+}  
+}
   
-  @media only screen and (max-width: 540px){
-    nav h1{
-        font-size: 40px;
+  @media only screen and (max-width: 545px)
+  {
+    .htp
+    {
+        margin-right: -50px;
+    }
+    .about
+    {
+        margin-right: -50px;
+    }
+    .game-name
+    {
+        font-size: 20px;
+    }   
+    
+  }
+  @media only screen and (max-width:460px)
+  {
+    .htp
+    {
+        position:relative;
+        left:-100px;
+    }
+    .storyline-hover:hover
+    {
+      
+        font-size: 20px;
+    }
+.storyline-hover
+{
+    position:relative;
+  top: -120px;
+  left:40px;
+}
+    
+    .about
+    {
+        position:relative;
+        left:-100px;    
+    }
+    .game-name
+    {
+        font-size: 10px;
     }
     
   }
+  /*making the site responsive using media queries*/
