@@ -232,7 +232,6 @@ public:
         }
         if (Key_is_pressed)
         {
-            DrawRectangleLinesEx(Door, 7.5, BLACK);
             if (CheckCollisionPointRec(Hero_obj.HeroPos, Door) && moveBG.bg_pos.x < LimitR && moveBG.bg_pos.x > 200)
             {
                 Hero_obj.HeroPos = { KeyRec.x + 150, (float)GetScreenHeight() - 200/*change where to spawn */};
