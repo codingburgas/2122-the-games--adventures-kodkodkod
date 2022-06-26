@@ -18,10 +18,10 @@ public:
 	
 	Rectangle ClipBoss = {0,0, (float)boss.width / 3, (float)boss.height};
 	Vector2 PosBoss = {(float)GetScreenWidth() / 2, 100};
-	int healthBarBoss = 100;
-	int healthBarHero = 100;
-	int AtackBoss = 10;
-	int AtackHero = 10;
+	float healthBarBoss = 100;
+	float healthBarHero = 200;
+	float AtackBoss = 0.5;
+	float AtackHero = 5;
 	Rectangle HealthBoss = { (float)PosBoss.x, (float)PosBoss.y, (float)healthBarBoss, 10};
 	Rectangle HealthHero = {0,0, (float)healthBarHero,10};
 	void Update(Arrows& object)
@@ -55,13 +55,25 @@ public:
 	}
 	void Check(Arrows &hero)
 	{
-		if ((hero.Hero_obj.HeroPos.x >= PosBoss.x && hero.Hero_obj.HeroPos.x <= PosBoss.x + ClipBoss.width) && 
-			(hero.Hero_obj.HeroPos.y <= PosBoss.y + ClipBoss.height) && IsKeyPressed(KEY_E))
+		if (healthBarHero <= 0)
 		{
-			hero.checkerAtack = 0;	
+			//code
+		}
+		if (healthBarBoss <= 0)
+		{
+			//code
+		}
+		if ((hero.Hero_obj.HeroPos.x >= PosBoss.x && hero.Hero_obj.HeroPos.x <= PosBoss.x + ClipBoss.width) && 
+			(hero.Hero_obj.HeroPos.y <= PosBoss.y + ClipBoss.height))
+		{
+			
+			if (IsKeyPressed(KEY_E))
+			{
+				healthBarBoss -= AtackHero;
+			}
 			if (help::idleAnims[0])
 			{
-							
+				
 				DrawTextureRec(AttackLeft, AttackLeftClip, hero.Hero_obj.HeroPos, WHITE);
 				AttackLeftClip.x += AttackLeftClip.width;
 				DrawTextureRec(AttackLeft, AttackLeftClip, hero.Hero_obj.HeroPos, WHITE);
@@ -101,12 +113,11 @@ public:
 				DrawTextureRec(AttackLeft, AttackLeftClip, hero.Hero_obj.HeroPos, WHITE);
 				AttackLeftClip.x = 0;
 			}
-				
-			healthBarBoss -= AtackHero;
+			healthBarHero -= AtackBoss;
+			
+			
 		}
-		else {
-			hero.checkerAtack = 1;
-		}
+		
 	}
 	void Unload()
 	{

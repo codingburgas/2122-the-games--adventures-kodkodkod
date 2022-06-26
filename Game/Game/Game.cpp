@@ -77,6 +77,10 @@ int main()
                     arrow_obj.checkChests = 0;
                     boss_obj.Update(arrow_obj);
                     boss_obj.Check(arrow_obj);
+                    arrow_obj.LimitD = 0;
+                    arrow_obj.LimitA = 0;
+                    arrow_obj.LimitS = 0;
+                    arrow_obj.LimitW = 0;
                     boss_obj.Draw();
 
 

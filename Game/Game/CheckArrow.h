@@ -23,7 +23,6 @@ public:
     bool Upper_left_chest = 0;
     bool Lower_leFt_chest = 0;
     bool Is_hero_passed_the_first_door = 0;
-    int checkerAtack = 1;
     bool Key_is_pressed = 0;
     bool Upper_right_chest = 0;
     bool Lower_right_chest = 0;
@@ -147,7 +146,7 @@ public:
         {
             checkInput[1] = 0;
             checkInput[0] = 1;
-            if (!(Hero_obj.HeroPos.x <= LimitA) && checkerAtack)
+            if (!(Hero_obj.HeroPos.x <= LimitA))
             {
                 Hero_obj.HeroPos.x -= speedHero;
                
@@ -165,7 +164,7 @@ public:
         {
             checkInput[1] = 1;
             checkInput[0] = 0;
-            if (!(Hero_obj.HeroPos.x >= (GetScreenWidth() - Hero_obj.HeroClipRight.width) - LimitD) && checkerAtack)
+            if (!(Hero_obj.HeroPos.x >= (GetScreenWidth() - Hero_obj.HeroClipRight.width) - LimitD))
             {
                 Hero_obj.HeroPos.x += speedHero;
                 
@@ -183,7 +182,7 @@ public:
         {
             checkInput[3] = 0;
             checkInput[2] = 1;
-            if (!(Hero_obj.HeroPos.y <= LimitW) && checkerAtack)
+            if (!(Hero_obj.HeroPos.y <= LimitW))
             {
                 Hero_obj.HeroPos.y -= speedHero;
                
@@ -201,10 +200,9 @@ public:
         {
             checkInput[3] = 1;
             checkInput[2] = 0;
-            if (!(Hero_obj.HeroPos.y >= (GetScreenHeight() - Hero_obj.HeroClipDown.height) - LimitS) && checkerAtack)
+            if (!(Hero_obj.HeroPos.y >= (GetScreenHeight() - Hero_obj.HeroClipDown.height) - LimitS))
             {
                 Hero_obj.HeroPos.y += speedHero;
-               
             }
             if (!(moveBG.bg_pos.y >= GetScreenHeight()) && Hero_obj.HeroPos.y > 200)
             {
@@ -313,7 +311,7 @@ public:
             DrawTexture(Opened_Chest, 30, 30, WHITE);
             if (RandomKey[0] && pressed_key_checker)
             {
-                cout << pressed_key_checker << endl << "here";
+                
 
                 DrawTexture(Key, 600, 360, WHITE);
                 DrawRectangleLinesEx(KeyRec, 6, BLANK);
@@ -343,7 +341,7 @@ public:
             DrawTexture(Opened_Chest, 30, 30, WHITE);
             if (RandomKey[1] && pressed_key_checker)
             {
-                cout << pressed_key_checker << endl << "here";
+               
 
                 DrawTexture(Key, 600, 360, WHITE);
                 DrawRectangleLinesEx(KeyRec, 6, BLANK);
@@ -372,7 +370,7 @@ public:
             DrawTexture(Opened_Chest, 30, 30, WHITE);
             if (RandomKey[2] && pressed_key_checker)
             {
-                cout << pressed_key_checker << endl << "here";
+                
 
                 DrawRectangleLinesEx(KeyRec, 6, BLANK);
                 DrawTexture(Key, 600, 360, WHITE);
@@ -401,7 +399,7 @@ public:
             DrawTexture(Opened_Chest, 30, 30, WHITE);
             if (RandomKey[3] && pressed_key_checker)
             {
-                cout << pressed_key_checker << endl << "here";
+               
 
                 DrawTexture(Key, 600, 360, WHITE);
                 DrawRectangleLinesEx(KeyRec, 6, BLANK);
