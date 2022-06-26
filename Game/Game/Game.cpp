@@ -12,7 +12,9 @@ int main()
     const int screenWidth = 1915;
     const int screenHeight = 1025;
     int counterBg = 0;
+    int counterBg2 = 0;
     int counterBg3 = 0;
+    int counterBg4 = 0;
     InitWindow(screenWidth, screenHeight, "The Last Swordsman");
     InitAudioDevice();
     SetTargetFPS(60);
@@ -40,7 +42,7 @@ int main()
             {
                 counterBg3 = 0;
                 counterBg++;
-                if (counterBg == 1)
+                if (counterBg == 1 || counterBg2 == 1 ||counterBg4 == 1)
                 {
                     arrow_obj.pressed_key_checker = 1;
                     arrow_obj.SetRandomPosKey();
@@ -49,19 +51,21 @@ int main()
                 {
                     arrow_obj.pressed_key_checker = 1;
                     arrow_obj.Door.x = 550;
-                    arrow_obj.LimitR = 850;
+                    arrow_obj.LimitR = 650;
                     arrow_obj.moveBG.DrawMap1();
 
                 }
                 else if (arrow_obj.counterArea == 2)
                 {
                     arrow_obj.pressed_key_checker = 1;
+                    counterBg2++;
                     arrow_obj.moveBG.DrawMap2();
 
                 }
                 else if (arrow_obj.counterArea == 3)
                 {
                     arrow_obj.pressed_key_checker = 1;
+                    counterBg4++;
                     arrow_obj.moveBG.DrawMap3();
 
                 }

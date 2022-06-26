@@ -232,7 +232,7 @@ public:
         }
         if (Key_is_pressed)
         {
-            if (CheckCollisionPointRec(Hero_obj.HeroPos, Door) && moveBG.bg_pos.x < LimitR && moveBG.bg_pos.x > 200)
+            if (CheckCollisionPointRec(Hero_obj.HeroPos, Door) && moveBG.bg_pos.x < LimitR && moveBG.bg_pos.x > 150)
             {
                 Hero_obj.HeroPos = { KeyRec.x + 150, (float)GetScreenHeight() - 200/*change where to spawn */};
                 moveBG.bg_pos.y = GetScreenHeight();
