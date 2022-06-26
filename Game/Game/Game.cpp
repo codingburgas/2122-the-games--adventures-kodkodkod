@@ -45,17 +45,24 @@ int main()
                     arrow_obj.pressed_key_checker = 1;
                     arrow_obj.SetRandomPosKey();
                 }
-
                 if (arrow_obj.counterArea == 1)
                 {
                     arrow_obj.pressed_key_checker = 1;
-                    arrow_obj.moveBG.DrawBackground3();
+                    arrow_obj.Door.x = 550;
+                    arrow_obj.LimitR = 850;
+                    arrow_obj.moveBG.DrawMap1();
 
                 }
                 else if (arrow_obj.counterArea == 2)
                 {
                     arrow_obj.pressed_key_checker = 1;
-                    arrow_obj.moveBG.DrawBackground4();
+                    arrow_obj.moveBG.DrawMap2();
+
+                }
+                else if (arrow_obj.counterArea == 3)
+                {
+                    arrow_obj.pressed_key_checker = 1;
+                    arrow_obj.moveBG.DrawMap3();
 
                 }
             }
@@ -64,15 +71,19 @@ int main()
                 if (arrow_obj.counterDoor == 1)
                 {
 
-                arrow_obj.moveBG.DrawBackground2();
+                arrow_obj.moveBG.DrawBase_Opened();
                 }
                 else if (arrow_obj.counterDoor == 2)
                 {
-                    arrow_obj.moveBG.DrawBackground3_Opened();
+                    arrow_obj.moveBG.DrawMap1_Opened();
                 }
                 else if (arrow_obj.counterDoor == 3)
                 {
-                    arrow_obj.moveBG.DrawBackground4_Opened();
+                    arrow_obj.moveBG.DrawMap2_Opened();
+                }
+                else if (arrow_obj.counterDoor == 4)
+                {
+                    arrow_obj.moveBG.DrawMap3_Opened();
                 }
             }
             else
@@ -85,7 +96,7 @@ int main()
                     arrow_obj.SetRandomPosKey();
                 }
 
-                arrow_obj.moveBG.DrawBackground();
+                arrow_obj.moveBG.DrawBase();
 
             }
 

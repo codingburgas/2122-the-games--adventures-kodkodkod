@@ -7,18 +7,24 @@ class Background {
 
 	void SetupSize()
 	{
-		background.width = GetScreenWidth() * 2;
-		background.height = GetScreenHeight() * 2;
+		Basebackground.width = GetScreenWidth() * 2;
+		Basebackground.height = GetScreenHeight() * 2;
 
 
-		background2.width = GetScreenWidth() * 2;
-		background2.height = GetScreenHeight() * 2;
+		BasebackgroundOpened.width = GetScreenWidth() * 2;
+		BasebackgroundOpened.height = GetScreenHeight() * 2;
 
-		background3.width = GetScreenWidth() * 2;
-		background3.height = GetScreenHeight() * 2;
+		map1.width = GetScreenWidth() * 2;
+		map1.height = GetScreenHeight() * 2;
 
-		background3_opened.width = GetScreenWidth() * 2;
-		background3_opened.height = GetScreenHeight() * 2;
+		map1_opened.width = GetScreenWidth() * 2;
+		map1_opened.height = GetScreenHeight() * 2;
+
+		map2.width = GetScreenWidth() * 2;
+		map2.height = GetScreenHeight() * 2;
+
+		map2_opened.width = GetScreenWidth() * 2;
+		map2_opened.height = GetScreenHeight() * 2;
 
 		map3.width = GetScreenWidth() * 2;
 		map3.height = GetScreenHeight() * 2;
@@ -26,57 +32,96 @@ class Background {
 		map3_opened.width = GetScreenWidth() * 2;
 		map3_opened.height = GetScreenHeight() * 2;
 	}
-	vector<string>StringOfBGs = { "../images/backgrounds/background.png", "../images/backgrounds/background3.png", "../images/backgrounds/map3.png"};
+	vector<vector<string>>StringOfBGs = { 
+		{"../images/backgrounds/map7.png", "../images/backgrounds/map7_opened.png" },
+		{"../images/backgrounds/map2.png", "../images/backgrounds/map2_opened.png"},
+		{"../images/backgrounds/map3.png", "../images/backgrounds/map3_opened.png"}, 
+		{"../images/backgrounds/map4.png", "../images/backgrounds/map4_opened.png"}, 
+		{"../images/backgrounds/map5.png", "../images/backgrounds/map5_opened.png"}, 
+		{"../images/backgrounds/map6.png", "../images/backgrounds/map6_opened.png"} 
+	};
 	public:
-	
-	Texture2D background = LoadTexture(StringOfBGs[0].c_str());
-	Texture2D background3 = LoadTexture(StringOfBGs[1].c_str());
-	Texture2D background2 = LoadTexture("../images/backgrounds/background2.png");
-
-
-	Texture2D background3_opened = LoadTexture("../images/backgrounds/background3_opened1.png");
-	Texture2D map3 = LoadTexture(StringOfBGs[2].c_str());
-	Texture2D map3_opened = LoadTexture("../images/backgrounds/map3_opened.png");
+		string randomArr[3][2];
+		Texture2D Basebackground = LoadTexture("../images/backgrounds/map1.png");
+		Texture2D map1;
+		Texture2D BasebackgroundOpened = LoadTexture("../images/backgrounds/map1_opened.png");
+		Texture2D map1_opened;
+		Texture2D map2;
+		Texture2D map2_opened;
+		Texture2D map3;
+		Texture2D map3_opened;
+		Background() // constructor
+		{
+			srand(time(0));// set random number every time
+			for (int i = 0; i < 3; i++)
+			{
+				int random = rand() % StringOfBGs.size(); // get random number index of vector with all directories
+				randomArr[i][0] = StringOfBGs[random][0]; // initialize randomArr
+				randomArr[i][1] = StringOfBGs[random][1]; // initialize randomArr
+				StringOfBGs.erase(StringOfBGs.begin() + random);// erase used element of vector
+			}
+			map1 = LoadTexture(randomArr[0][0].c_str());
+			map1_opened = LoadTexture(randomArr[0][1].c_str());
+			map2 = LoadTexture(randomArr[1][0].c_str());
+			map2_opened = LoadTexture(randomArr[1][1].c_str());
+			map3 = LoadTexture(randomArr[2][0].c_str());
+			map3_opened = LoadTexture(randomArr[2][1].c_str());
+		}
 
 	Rectangle bg_pos = { (float)GetScreenWidth() / 2, (float)GetScreenHeight() / 2, (float)GetScreenWidth(), (float)GetScreenHeight()};
-	void DrawBackground()
+	void DrawBase()
 	{
 		SetupSize();
-		DrawTextureRec(background, bg_pos, {0, 0}, WHITE);
+		DrawTextureRec(Basebackground, bg_pos, {0, 0}, WHITE);
+		
 	}
-	void DrawBackground3()
+	void DrawBase_Opened()
 	{
 		SetupSize();
-		DrawTextureRec(background3, bg_pos, { 0, 0 }, WHITE);
+		DrawTextureRec(BasebackgroundOpened, bg_pos, { 0, 0 }, WHITE);
 	}
-	void DrawBackground2()
+	void DrawMap1()
 	{
 		SetupSize();
-		DrawTextureRec(background2, bg_pos, { 0, 0 }, WHITE);
+		DrawTextureRec(map1, bg_pos, { 0, 0 }, WHITE);
 	}
 	//new
-	void DrawBackground3_Opened()
+	void DrawMap1_Opened()
 	{
 		SetupSize();
-		DrawTextureRec(background3_opened, bg_pos, { 0, 0 }, WHITE);
+		DrawTextureRec(map1_opened, bg_pos, { 0, 0 }, WHITE);
 	}
-	void DrawBackground4()
+	void DrawMap2()
+	{
+		SetupSize();
+		DrawTextureRec(map2, bg_pos, { 0, 0 }, WHITE);
+	}
+	void DrawMap2_Opened()
+	{
+		SetupSize();
+		DrawTextureRec(map2_opened, bg_pos, { 0, 0 }, WHITE);
+	}
+	void DrawMap3()
 	{
 		SetupSize();
 		DrawTextureRec(map3, bg_pos, { 0, 0 }, WHITE);
 	}
-	void DrawBackground4_Opened()
+	void DrawMap3_Opened()
 	{
 		SetupSize();
 		DrawTextureRec(map3_opened, bg_pos, { 0, 0 }, WHITE);
 	}
 	void UnloadBG()
 	{
-		UnloadTexture(background);
-		UnloadTexture(background3);
-		UnloadTexture(background2);
+		UnloadTexture(Basebackground);
+		UnloadTexture(BasebackgroundOpened);
 
-		UnloadTexture(background3_opened);
+		UnloadTexture(map1);
+		UnloadTexture(map1_opened);
+
+		UnloadTexture(map2);
+		UnloadTexture(map2_opened);
+
 		UnloadTexture(map3);
 		UnloadTexture(map3_opened);
 	}
