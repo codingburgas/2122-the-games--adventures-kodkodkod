@@ -197,7 +197,9 @@ public:
                 skins[i].height = 351;
                 skins_rectangles[i].x = 285 + (i * 350);
                 skins_rectangles[i].y = 475;
-				
+                skins_rectangles[1].x = 285 + 375;
+               skins_rectangles[2].y = 470;//x = 985 y = 470 width = 153 heigth = 351 
+
 				if(i == 0)
 				{
 					skins[i].width = 320;
@@ -207,7 +209,10 @@ public:
 				}
 				else
 				{
-					DrawText("Coming Soon",  skins_rectangles[i].x + 30, 850, 30, LIGHTGRAY);
+                    //x = 985 y = 470 width = 153 heigth = 351
+                    DrawRectangleRec(skins_rectangles[1], Fade(DARKGRAY, 0.39999999));
+                    DrawRectangle(1010, 470, 240, 400, Fade(DARKGRAY, 0.39999999));
+                    
 				}
 				if(i == 2)
 				{
@@ -216,11 +221,22 @@ public:
 					skins_rectangles[i].x = 305 + (i * 350);
 					skins_rectangles[i].y = 501;
 				}
-                DrawTexture(skins[i], skins_rectangles[i].x + 50, skins_rectangles[i].y, WHITE);
+                DrawTexture(skins[i], skins_rectangles[i].x +50 , skins_rectangles[i].y+20, WHITE);
 				DrawCircle(415 + (i * 350), 925, 31.5, BLACK);
                 DrawCircle(415 + (i * 350), 925.5, 27.5, LIGHTGRAY);
             }
+            DrawRectangleRec(skins_rectangles[3], Fade(DARKGRAY, 0.79999999));
+                DrawText("Will be", 710, 575, 50, WHITE);
+                DrawText("avaliable", 680, 625, 50, WHITE);
+               DrawText("soon", 730, 675, 50, WHITE);
 
+               DrawText("Will be", 1050, 575, 50, WHITE);
+               DrawText("avaliable", 1020, 625, 50, WHITE);
+               DrawText("soon", 1070, 675, 50, WHITE);
+
+               DrawText("Will be", 1385, 575, 50, WHITE);
+               DrawText("avaliable", 1355, 625, 50, WHITE);
+               DrawText("soon", 1405, 675, 50, WHITE);
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointCircle(mousePoint, Skin1_Circle, 31.5))
             {
                 Skin_checker = 1;
@@ -255,47 +271,24 @@ public:
                 Settings_option = 0;
                 Menu_checker = 1;
             }
-            if (Skin_checker)
-            {
-                skins_check.x = 415;
-                skins_check.y = 925;
-
-                DrawCircle(415, 925, 27.5, DARKGRAY);
-                DrawCircle(765, 925, 27.5, LIGHTGRAY);
-                DrawCircle(1115, 925, 27.5, LIGHTGRAY);
-                DrawCircle(1465, 925.5, 27.5, LIGHTGRAY);
-
-                //apply this skin
-            }
+            DrawCircle(415, 925, 27.5, DARKGRAY);
+            DrawCircle(765, 925, 27.5, LIGHTGRAY);
+            DrawCircle(1115, 925, 27.5, LIGHTGRAY);
+            DrawCircle(1465, 925.5, 27.5, LIGHTGRAY);
+            DrawRectangleLinesEx(skins_rectangles[1], 5, BLACK);
+            DrawRectangleLinesEx(skins_rectangles[2], 5, BLACK);
+            DrawRectangleLinesEx(skins_rectangles[3], 5, BLACK);
             if (Skin_checker2)
             {
-                skins_check.x = 765;
-                skins_check.y = 925;
-                DrawCircle(415, 925, 27.5, LIGHTGRAY);
-                DrawCircle(765, 925, 27.5, DARKGRAY);
-                DrawCircle(1115, 925, 27.5, LIGHTGRAY);
-                DrawCircle(1465, 925.5, 27.5, LIGHTGRAY);
-                //apply this skin
+                //this will be avaliable soon
             }
             if (Skin_checker3)
             {
-                skins_check.x = 1115;
-                skins_check.y = 907.5;
-                DrawCircle(415, 925, 27.5, LIGHTGRAY);
-                DrawCircle(765, 925, 27.5, LIGHTGRAY);
-                DrawCircle(1115, 925, 27.5, DARKGRAY);
-                DrawCircle(1465, 925.5, 27.5, LIGHTGRAY);
-                //apply this skin
+                //this will be avaliable soon
             }
             if (Skin_checker4)
             {
-                skins_check.x = 1465;
-                skins_check.y = 925;
-                DrawCircle(415, 925, 27.5, LIGHTGRAY);
-                DrawCircle(765, 925, 27.5, LIGHTGRAY);
-                DrawCircle(1115, 925, 27.5, LIGHTGRAY);
-                DrawCircle(1465, 925.5, 27.5, DARKGRAY);
-                //apply this skin
+                //this will be avaliable soon
             }
 
 
