@@ -23,6 +23,7 @@ public:
     bool Upper_left_chest = 0;
     bool Lower_leFt_chest = 0;
     bool Is_hero_passed_the_first_door = 0;
+    int checkerAtack = 1;
     bool Key_is_pressed = 0;
     bool Upper_right_chest = 0;
     bool Lower_right_chest = 0;
@@ -30,9 +31,9 @@ public:
     int counterArea = 0;
     bool checkInput[4] = { 0, 0, 0, 0 };
     int speedBG = 100;
-    int speedHero = 5;
+    int speedHero = 10;
     bool RandomKey[4] = { 0, 0, 0, 0 };
-    
+    bool checkChests = 1;
     
     Rectangle hide = { 0,0,(float)GetScreenWidth(),(float)GetScreenHeight() };
     Texture2D Opened_Chest = LoadTexture("../images/Chests/opened_chest.png");
@@ -110,6 +111,8 @@ public:
         {
             DrawRectangleLinesEx(chests[i], 7.5, BLANK);
         }
+
+        
     }
     void checkArrows()
     {
@@ -121,14 +124,14 @@ public:
                 count++;
                 if (count == 2)
                 {
-                    speedHero = 2;
+                    speedHero = 5;
                     speedBG = 150;
                     diagonal = 1;
                     break;
                 }
                 else {
                     diagonal = 0;
-                    speedHero = 5;
+                    speedHero = 10;
                     speedBG = 100;
                     for (int i = 0; i < 4; i++)
                     {
@@ -144,9 +147,10 @@ public:
         {
             checkInput[1] = 0;
             checkInput[0] = 1;
-            if (!(Hero_obj.HeroPos.x <= LimitA))
+            if (!(Hero_obj.HeroPos.x <= LimitA) && checkerAtack)
             {
                 Hero_obj.HeroPos.x -= speedHero;
+               
             }
             if (!(moveBG.bg_pos.x <= 0) && Hero_obj.HeroPos.x < (GetScreenWidth() - Hero_obj.HeroClipLeft.width) - 200)
             {
@@ -161,9 +165,10 @@ public:
         {
             checkInput[1] = 1;
             checkInput[0] = 0;
-            if (!(Hero_obj.HeroPos.x >= (GetScreenWidth() - Hero_obj.HeroClipRight.width) - LimitD))
+            if (!(Hero_obj.HeroPos.x >= (GetScreenWidth() - Hero_obj.HeroClipRight.width) - LimitD) && checkerAtack)
             {
                 Hero_obj.HeroPos.x += speedHero;
+                
             }
             if (!(moveBG.bg_pos.x >= GetScreenWidth()) && Hero_obj.HeroPos.x > 200)
             {
@@ -178,9 +183,10 @@ public:
         {
             checkInput[3] = 0;
             checkInput[2] = 1;
-            if (!(Hero_obj.HeroPos.y <= LimitW))
+            if (!(Hero_obj.HeroPos.y <= LimitW) && checkerAtack)
             {
                 Hero_obj.HeroPos.y -= speedHero;
+               
             }
             if (!(moveBG.bg_pos.y <= 0) && Hero_obj.HeroPos.y < (GetScreenHeight() - Hero_obj.HeroClipUp.height) - 200)
             {
@@ -195,9 +201,10 @@ public:
         {
             checkInput[3] = 1;
             checkInput[2] = 0;
-            if (!(Hero_obj.HeroPos.y >= (GetScreenHeight() - Hero_obj.HeroClipDown.height) - LimitS))
+            if (!(Hero_obj.HeroPos.y >= (GetScreenHeight() - Hero_obj.HeroClipDown.height) - LimitS) && checkerAtack)
             {
                 Hero_obj.HeroPos.y += speedHero;
+               
             }
             if (!(moveBG.bg_pos.y >= GetScreenHeight()) && Hero_obj.HeroPos.y > 200)
             {
@@ -217,12 +224,16 @@ public:
         }
         if (chests[0].width - Hero_obj.HeroPos.x > Hero_obj.HeroClipLeft.width / 2 && chests[0].height - Hero_obj.HeroPos.y > Hero_obj.HeroClipLeft.height / 2)
         {
-            if (CheckCollisionPointRec(Hero_obj.HeroPos, chests[0]))
+            if (checkChests)
             {
-                DrawText("Press 'E' to open the chest", 10, 50, 35, WHITE);
-                if (IsKeyPressed(KEY_E))
+
+                if (CheckCollisionPointRec(Hero_obj.HeroPos, chests[0]))
                 {
-                    Upper_left_chest = 1;
+                    DrawText("Press 'E' to open the chest", 10, 50, 35, WHITE);
+                    if (IsKeyPressed(KEY_E))
+                    {
+                        Upper_left_chest = 1;
+                    }
                 }
             }
         }
@@ -251,10 +262,14 @@ public:
         KeyRec.height = 225;
         if (CheckCollisionPointRec(Hero_obj.HeroPos, chests[1]))
         {
-            DrawText("Press 'E' to open the chest", 1380, 50, 35, WHITE);
-            if (IsKeyPressed(KEY_E))
+            if (checkChests)
             {
-                Upper_right_chest = 1;
+
+                DrawText("Press 'E' to open the chest", 1380, 50, 35, WHITE);
+                if (IsKeyPressed(KEY_E))
+                {
+                    Upper_right_chest = 1;
+                }
             }
         }
         else
@@ -263,10 +278,14 @@ public:
         }
         if (CheckCollisionPointRec(Hero_obj.HeroPos, chests[2]))
         {
-            DrawText("Press 'E' to open the chest", 10, 620, 35, WHITE);
-            if (IsKeyPressed(KEY_E))
+            if (checkChests)
             {
-                Lower_leFt_chest = 1;
+
+                DrawText("Press 'E' to open the chest", 10, 620, 35, WHITE);
+                if (IsKeyPressed(KEY_E))
+                {
+                    Lower_leFt_chest = 1;
+                }
             }
         }
         else
@@ -275,10 +294,14 @@ public:
         }
         if (CheckCollisionPointRec(Hero_obj.HeroPos, chests[3]))
         {
-            DrawText("Press 'E' to open the chest", 1380, 620, 35, WHITE);
-            if (IsKeyPressed(KEY_E))
+            if (checkChests)
             {
-                Lower_right_chest = 1;
+
+                DrawText("Press 'E' to open the chest", 1380, 620, 35, WHITE);
+                if (IsKeyPressed(KEY_E))
+                {
+                    Lower_right_chest = 1;
+                }
             }
         }
         else
@@ -290,6 +313,7 @@ public:
             DrawTexture(Opened_Chest, 30, 30, WHITE);
             if (RandomKey[0] && pressed_key_checker)
             {
+                cout << pressed_key_checker << endl << "here";
 
                 DrawTexture(Key, 600, 360, WHITE);
                 DrawRectangleLinesEx(KeyRec, 6, BLANK);
@@ -319,6 +343,7 @@ public:
             DrawTexture(Opened_Chest, 30, 30, WHITE);
             if (RandomKey[1] && pressed_key_checker)
             {
+                cout << pressed_key_checker << endl << "here";
 
                 DrawTexture(Key, 600, 360, WHITE);
                 DrawRectangleLinesEx(KeyRec, 6, BLANK);
@@ -337,6 +362,7 @@ public:
                 Key_is_pressed = 1;
                 Upper_right_chest = 0;
                 pressed_key_checker = 0;
+
                 counterDoor++;
 
             }
@@ -346,6 +372,7 @@ public:
             DrawTexture(Opened_Chest, 30, 30, WHITE);
             if (RandomKey[2] && pressed_key_checker)
             {
+                cout << pressed_key_checker << endl << "here";
 
                 DrawRectangleLinesEx(KeyRec, 6, BLANK);
                 DrawTexture(Key, 600, 360, WHITE);
@@ -364,6 +391,7 @@ public:
                 Key_is_pressed = 1;
                 Lower_right_chest = 0;
                 pressed_key_checker = 0;
+
                 counterDoor++;
 
             }
@@ -373,6 +401,7 @@ public:
             DrawTexture(Opened_Chest, 30, 30, WHITE);
             if (RandomKey[3] && pressed_key_checker)
             {
+                cout << pressed_key_checker << endl << "here";
 
                 DrawTexture(Key, 600, 360, WHITE);
                 DrawRectangleLinesEx(KeyRec, 6, BLANK);
@@ -387,6 +416,7 @@ public:
                 Key_is_pressed = 1;
                 Lower_leFt_chest = 0;
                 pressed_key_checker = 0;
+
                 counterDoor++;
 
             }

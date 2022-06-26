@@ -26,7 +26,6 @@ public:
 	Rectangle HeroClipDownIdle = { (float)heroDownIdle.width, 0, (float)heroDownIdle.width / 3, (float)heroDownIdle.height };
 	
 	Vector2 HeroPos = {800, 700};
-
 	
 	void DrawLeft()
 	{

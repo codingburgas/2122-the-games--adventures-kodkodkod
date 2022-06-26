@@ -4,6 +4,7 @@
 #include "Background.h"
 #include "Menu.h"
 #include "Namespace.h"
+#include "Boss.h"
 using namespace std;
 using namespace help;
 int main()
@@ -21,6 +22,7 @@ int main()
     
     Menu menu_obj;
     Arrows arrow_obj;
+    Boss boss_obj;
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
 
@@ -34,7 +36,9 @@ int main()
         menu_obj.UpdateMenu();
         if (menu_obj.Play)
         {
+           
             arrow_obj.MakeChests();
+            
             menu_obj.If_it_is_not_chosen_an_option = 0;
             DrawRectangleRec(menu_obj.hide, LIGHTGRAY);
             //change backgrounds
@@ -64,9 +68,17 @@ int main()
                 }
                 else if (arrow_obj.counterArea == 3)
                 {
-                    arrow_obj.pressed_key_checker = 1;
                     counterBg4++;
                     arrow_obj.moveBG.DrawMap3();
+
+                }
+                else if (arrow_obj.counterArea == 4)
+                {
+                    arrow_obj.checkChests = 0;
+                    boss_obj.Update(arrow_obj);
+                    boss_obj.Check(arrow_obj);
+                    boss_obj.Draw();
+
 
                 }
             }
@@ -74,19 +86,25 @@ int main()
             {
                 if (arrow_obj.counterDoor == 1)
                 {
-
-                arrow_obj.moveBG.DrawBase_Opened();
+                    arrow_obj.pressed_key_checker = 0;
+                    arrow_obj.moveBG.DrawBase_Opened();
                 }
                 else if (arrow_obj.counterDoor == 2)
                 {
+                    arrow_obj.pressed_key_checker = 0;
+
                     arrow_obj.moveBG.DrawMap1_Opened();
                 }
                 else if (arrow_obj.counterDoor == 3)
                 {
+                    arrow_obj.pressed_key_checker = 0;
+
                     arrow_obj.moveBG.DrawMap2_Opened();
                 }
                 else if (arrow_obj.counterDoor == 4)
                 {
+                    arrow_obj.pressed_key_checker = 0;
+
                     arrow_obj.moveBG.DrawMap3_Opened();
                 }
             }
@@ -237,6 +255,7 @@ int main()
     }
     arrow_obj.Hero_obj.UnloadHero();
     arrow_obj.moveBG.UnloadBG();
+    boss_obj.Unload();
     
     CloseWindow();        // Close window and OpenGL context
     
