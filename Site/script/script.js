@@ -112,8 +112,9 @@ window.addEventListener("scroll", AppearWhenScrollbox);
 //parallax for skins and slider
 
 let allskins = document.querySelector(".poses");
+let background = document.querySelector(".skins");
 
-//selects the element .poses, meaning the picture with skins
+//selects the element .poses and .skins, meaning the picture with skins and the background
 
 window.addEventListener("scroll", function()
 {
@@ -122,7 +123,7 @@ window.addEventListener("scroll", function()
     //the variable gets the window's verticle scroll value, meaning it changes everytime you scroll vertically
 
     allskins.style.bottom = ScrollValue *0.3  + 'px';
-
+    background.style.bottom = ScrollValue *0.1  + 'px';
     //moves the element up with every scroll, creating the parallax effect
 });
 
@@ -148,4 +149,3 @@ Card.forEach(cardcontainer =>
          });
         
     });
-   

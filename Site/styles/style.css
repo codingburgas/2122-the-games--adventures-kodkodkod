@@ -19,7 +19,7 @@
         user-select: none;
         position: absolute;
         left: 3%;
-        top: 0.3rem;
+        top: 15px;
         opacity:0.7;
     }
 
@@ -124,11 +124,6 @@
         opacity: 31%;
         
     }
-    img[alt = "mouse-click"]
-    {
-        opacity: 60%;
-        
-    }
     /*styling of pics*/
     .nav h2
     {
@@ -191,8 +186,8 @@
         height:100vh;
         position:relative;
         z-index: -1;
-        top:50px;
-        margin-top: -130px;
+        top:35px;
+        margin-top: -110px;
         margin-bottom: -210px;
         box-shadow: 2px 1px 40px rgba(0, 0, 0, 0.533);
     }
@@ -245,6 +240,7 @@
 /*download button container*/
     .download
     {
+        
         user-select: none;
         background-color: #000000ae;
         border-radius: 20px;
@@ -317,7 +313,7 @@
  /*style of the skins container, all - the black container*/
     .skins
     {
-       
+       margin-top: 50px;
         background-image: url(../images/background-of-poses.jpg);
         background-position: center;
         background-size: cover;
@@ -601,6 +597,8 @@
 
 .button-footer
 {
+    text-decoration: none;
+    text-align: center;
     padding: 0.5rem 4rem;
     background-color: black;
     color: rgba(255, 255, 255, 0.658);
