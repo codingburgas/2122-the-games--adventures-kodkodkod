@@ -7,7 +7,8 @@ class Background {
 
 	void SetupSize()
 	{
-		Basebackground.width = GetScreenWidth() * 2;
+		//sets backgrounds width and heigth *2 because the background should move 
+		Basebackground.width = GetScreenWidth() * 2; 
 		Basebackground.height = GetScreenHeight() * 2;
 
 
@@ -32,6 +33,7 @@ class Background {
 		map3_opened.width = GetScreenWidth() * 2;
 		map3_opened.height = GetScreenHeight() * 2;
 	}
+	//all the backgrounds in a vector that  then is used to make them random
 	vector<vector<string>>StringOfBGs = { 
 		{"../images/backgrounds/map7.png", "../images/backgrounds/map7_opened.png" },
 		{"../images/backgrounds/map2.png", "../images/backgrounds/map2_opened.png"},
@@ -41,6 +43,7 @@ class Background {
 		{"../images/backgrounds/map6.png", "../images/backgrounds/map6_opened.png"} 
 	};
 	public:
+		//array making them random
 		string randomArr[3][2];
 		Texture2D Basebackground = LoadTexture("../images/backgrounds/map1.png");
 		Texture2D map1;
@@ -113,6 +116,7 @@ class Background {
 	}
 	void UnloadBG()
 	{
+		//unload every background
 		UnloadTexture(Basebackground);
 		UnloadTexture(BasebackgroundOpened);
 

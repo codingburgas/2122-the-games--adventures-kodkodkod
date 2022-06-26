@@ -4,25 +4,26 @@ class Menu
 {
 
 public:
-    Sound music = LoadSound("../Music/music.mp3");
+    Sound music = LoadSound("../Music/music.mp3"); // music load
     bool If_it_is_not_chosen_an_option = 1;
-    bool Menu_checker = 1;
-    bool Music_checker = 1;
-    bool Music_checker2 = 0;
-    bool Music_checker3 = 0;
-    bool Skin_checker = 1;
-    bool Skin_checker2 = 0;
-    bool Skin_checker3 = 0;
-    bool Skin_checker4 = 0;
+    bool Menu_checker = 1; //checker for option in menu
+    bool Music_checker = 1; //checker for option in settings
+    bool Music_checker2 = 0; //checker for option in settings
+    bool Music_checker3 = 0; //checker for option in settings
+    bool Skin_checker = 1;//checker for option in settings
+    bool Skin_checker2 = 0;//checker for option in settings
+    bool Skin_checker3 = 0;//checker for option in settings
+    bool Skin_checker4 = 0;//checker for option in settings
    
-    Vector2 Close;
-    Vector2 Skin1_Circle;
-    Vector2 Skin2_Circle;
-    Vector2 Skin3_Circle;
-    Vector2 Skin4_Circle;
-    Vector2 Music_Yes_Circle;
-    Vector2 Music_No_Circle;
-    Vector2 mousePoint;
+    Vector2 Close; //closes the page
+    Vector2 Skin1_Circle; //position of option in settings
+    Vector2 Skin2_Circle; //position of option in settings
+    Vector2 Skin3_Circle; //position of option in settings
+    Vector2 Skin4_Circle; //position of option in settings
+    Vector2 Music_Yes_Circle; //position of option in settings
+    Vector2 Music_No_Circle; //position of option in settings
+    Vector2 mousePoint; //position of mouse
+    //texture loading
     Texture2D Rules = LoadTexture("../images/Rules.png");
     Texture2D bgimg = LoadTexture("../images/backgrounds/Menu_Background.png");
     Texture2D Check = LoadTexture("../images/check.png");
@@ -31,9 +32,9 @@ public:
     Rectangle skins_rectangles[4];
     Rectangle hide = { 0,0,(float)GetScreenWidth(),(float)GetScreenHeight() };
     Rectangle back = { 850,950, 165,50 };
-    bool Play = 0, Settings_option = 0, Rules_option = 0, Exit = 0;
-    int MusicArr[2];
-    void SetMenuSize()
+    bool Play = 0, Settings_option = 0, Rules_option = 0, Exit = 0; //options in menu checkers
+    int MusicArr[2]; //arr for music
+    void SetMenuSize() //sets size of menu
     {
         bgimg.width = GetScreenWidth();
         bgimg.height = GetScreenHeight();
@@ -44,28 +45,28 @@ public:
     void UpdateMenu()
     {
         
-        SetSoundVolume(music, 1);
-        mousePoint = GetMousePosition();
-        Rectangle options[4];
+        SetSoundVolume(music, 0.75696969); //make volume specific
+        mousePoint = GetMousePosition(); // gets position of mouse
+        Rectangle options[4]; // array for options in menu
 
-        Vector2 Rules_line_1_start = { 1540,88 };
-        Vector2 Rules_line_1_end = { 1560,112 };
-        Vector2 Rules_line_2_start = { 1560,88 };
-        Vector2 Rules_line_2_end = { 1540,112 };
+        Vector2 Rules_line_1_start = { 1540,88 }; // position of point of line in rules
+        Vector2 Rules_line_1_end = { 1560,112 }; // position of point of line in rules
+        Vector2 Rules_line_2_start = { 1560,88 }; // position of point of line in rules
+        Vector2 Rules_line_2_end = { 1540,112 }; // position of point of line in rules
 
-        Vector2 right_check = { 1027.5, 327.5 };
-        Vector2 skins_check = { 392.5, 907.5 };
+        Vector2 right_check = { 1027.5, 327.5 }; //checker position 
+        Vector2 skins_check = { 392.5, 907.5 }; //checker position
 
-        Vector2 LineOfPlayStart = { 460,495 };
-        Vector2 LineOfSettingsStart = { 17.5,100 };
-        Vector2 LineOfRulesStart = { 1670,975 };
-        Vector2 LineOfExitStart = { 1160, 495 };
+        Vector2 LineOfPlayStart = { 460,495 }; // position of point of line
+        Vector2 LineOfSettingsStart = { 17.5,100 }; // position of point of line
+        Vector2 LineOfRulesStart = { 1670,975 }; // position of point of line
+        Vector2 LineOfExitStart = { 1160, 495 };// position of point of line
 
-        Vector2 LineOfPlayEnd = { 675,495 };
-        Vector2 LineOfSettingsEnd = { 400,100 };
-        Vector2 LineOfRulesEnd = { 1870,975 };
-        Vector2 LineOfExitEnd = { 1375, 495 };
-
+        Vector2 LineOfPlayEnd = { 675,495 }; // position of point of line
+        Vector2 LineOfSettingsEnd = { 400,100 }; // position of point of line
+        Vector2 LineOfRulesEnd = { 1870,975 }; // position of point of line
+        Vector2 LineOfExitEnd = { 1375, 495 }; // position of point of line
+         //setes sizes and positions
         Check.width = 45;
         Check.height = 45;
 
@@ -102,21 +103,21 @@ public:
             }
 
             DrawTexture(bgimg, 0, 0, WHITE);
-
+            //draws lines
             DrawLineEx(LineOfPlayStart, LineOfPlayEnd, 7, DARKPURPLE);
             DrawLineEx(LineOfSettingsStart, LineOfSettingsEnd, 7, DARKPURPLE);
             DrawLineEx(LineOfRulesStart, LineOfRulesEnd, 7, DARKPURPLE);
             DrawLineEx(LineOfExitStart, LineOfExitEnd, 7, DARKPURPLE);
-
+            //draw texts for options
             DrawText("PLAY", 500, 425, 50, BEIGE);
             DrawText("SETTINGS", 30, 50, 50, BEIGE);
             DrawText("RULES", 1700, 922.5, 50, BEIGE);
             DrawText("EXIT", 1200.5, 425, 50, BEIGE);
-
+            //draws our NAME
             DrawText("THE LAST SWORDSMAN", 290, 250, 100, BEIGE);
 
             
-
+            //checks if option was chosen
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, options[0]) && If_it_is_not_chosen_an_option)
             {
 
@@ -148,7 +149,7 @@ public:
                 Rules_option = 0;
             }
         }
-        if (Settings_option)
+        if (Settings_option) //the settings option
         {
             Menu_checker = 0;
             DrawTexture(set_bg, 0, 0, WHITE);
@@ -302,7 +303,7 @@ public:
             DrawRectangleRounded(back,7,7, DARKGRAY);
             DrawText("Back", 885, 957.5, 40, WHITE);
         }
-        if (Rules_option)
+        if (Rules_option) // rules option
         {
             Rules.width = 1600;
             Rules.height = 850;
@@ -317,7 +318,7 @@ public:
 
             }
         }
-        if (Exit)
+        if (Exit) //exit
         {
             
             exit(0);

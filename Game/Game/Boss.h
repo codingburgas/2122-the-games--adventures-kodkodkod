@@ -4,12 +4,15 @@
 #include "Namespace.h"
 class Boss{
 	int fpscounter = 0;
+	//texture for boss
 	Texture2D boss = LoadTexture("../images/boss.png");
+	//texture for background
 	Texture2D finalBG = LoadTexture("../images/backgrounds/finalmap.png");
 	
 public:
-	
+	//rectangle for boss
 	Rectangle ClipBoss = {0,0, (float)boss.width / 3, (float)boss.height};
+	//boss position vector
 	Vector2 PosBoss = {(float)GetScreenWidth() / 2, 100};
 	float healthBarBoss = 400;
 	float healthBarHero = 200;
@@ -41,6 +44,7 @@ public:
 	}
 	void Draw()
 	{
+		//draw everything
 		DrawTexture(finalBG, 0, 0, WHITE);
 		DrawTextureRec(boss, ClipBoss, PosBoss, WHITE);
 		DrawRectangleRec(HealthBoss, RED);
@@ -48,10 +52,12 @@ public:
 	}
 	void Check(Arrows &hero)
 	{
+		//gameover for losing
 		if (healthBarHero <= 0)
 		{
 			//code
 		}
+		//gameover for winning
 		if (healthBarBoss <= 0)
 		{
 			//code
@@ -59,7 +65,7 @@ public:
 		if ((hero.Hero_obj.HeroPos.x >= PosBoss.x && hero.Hero_obj.HeroPos.x <= PosBoss.x + ClipBoss.width) && 
 			(hero.Hero_obj.HeroPos.y <= PosBoss.y + ClipBoss.height))
 		{
-			
+			//atacks
 			if (IsKeyPressed(KEY_E))
 			{
 				healthBarBoss -= AtackHero;
@@ -73,6 +79,7 @@ public:
 	}
 	void Unload()
 	{
+		//unload textures
 		UnloadTexture(finalBG);
 		UnloadTexture(boss);
 	}

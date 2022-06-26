@@ -1,47 +1,49 @@
-#include "include.h"
-#include "DrawHero.h"
-#include "CheckArrow.h"
-#include "Background.h"
-#include "Menu.h"
-#include "Namespace.h"
-#include "Boss.h"
-using namespace std;
-using namespace help;
-int main()
+#include "include.h" // includes additional library
+#include "DrawHero.h" // includes additional library
+#include "CheckArrow.h" // includes additional library
+#include "Background.h" // includes additional library
+#include "Menu.h" // includes additional library
+#include "Namespace.h" // includes additional library
+#include "Boss.h" // includes additional library
+
+
+using namespace std; // add namespace
+using namespace help; // add namespace
+
+int main() //main function
 {
-    // Initialization
-    const int screenWidth = 1915;
-    const int screenHeight = 1025;
-    int counterBg = 0;
-    int counterBg2 = 0;
-    int counterBg3 = 0;
-    int counterBg4 = 0;
-    InitWindow(screenWidth, screenHeight, "The Last Swordsman");
-    InitAudioDevice();
-    SetTargetFPS(60);
+    const int screenWidth = 1915; //sets width of the screen window
+    const int screenHeight = 1025; //sets heigth of the screen window
+
+    int counterBg = 0; // counter for the background
+    int counterBg2 = 0; // counter for the background 
+    int counterBg3 = 0; // counter for the background
+    int counterBg4 = 0; // counter for the background
+    InitWindow(screenWidth, screenHeight, "The Last Swordsman"); // initialise window and add tittle to it
+    InitAudioDevice(); // initialise audio device
+    SetTargetFPS(60); // set fps to the game
     
-    Menu menu_obj;
-    Arrows arrow_obj;
-    Boss boss_obj;
+    Menu menu_obj; // add object from class
+    Arrows arrow_obj; // add object from class
+    Boss boss_obj; // add object from class
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
 
-        BeginDrawing();
+        BeginDrawing(); // starts drawing the widnow
 
         ClearBackground(DARKPURPLE);  
-        
-       
 
-        menu_obj.SetMenuSize();
-        menu_obj.UpdateMenu();
-        if (menu_obj.Play)
+        menu_obj.SetMenuSize(); // uses function from different class 
+        menu_obj.UpdateMenu(); // uses function from different class
+        if (menu_obj.Play) //check for option in different class
         {
            
-            arrow_obj.MakeChests();
+            arrow_obj.MakeChests(); // uses function from different class
             
-            menu_obj.If_it_is_not_chosen_an_option = 0;
-            DrawRectangleRec(menu_obj.hide, LIGHTGRAY);
-            //change backgrounds
+            menu_obj.If_it_is_not_chosen_an_option = 0; // uses variable from different class and sets it to false
+            DrawRectangleRec(menu_obj.hide, LIGHTGRAY); //hides everything
+
+            //this if changes the backgrounds
             if (arrow_obj.Is_hero_passed_the_first_door)
             {
                 counterBg3 = 0;
@@ -254,13 +256,13 @@ int main()
         }
         
         EndDrawing();
-        /*system("CLS");*/
+        /*stops drawing and system("CLS");*/
         
     }
-    arrow_obj.Hero_obj.UnloadHero();
-    arrow_obj.moveBG.UnloadBG();
-    boss_obj.Unload();
+    arrow_obj.Hero_obj.UnloadHero(); //unload textures from different class
+    arrow_obj.moveBG.UnloadBG(); //unload textures from different class
+    boss_obj.Unload(); //unload textures from different class
     
-    CloseWindow();        // Close window and OpenGL context
+    CloseWindow();        // Close window 
     
 }

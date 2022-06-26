@@ -3,6 +3,7 @@ using namespace std;
 class Hero {
 private:
 	int fpscouter = 0;
+	//textures for hero looking side
 	Texture2D heroDown = LoadTexture("../images/Hero/heroFront.png");
 	Texture2D heroLeft = LoadTexture("../images/Hero/heroLeft.png");
 	Texture2D heroRight = LoadTexture("../images/Hero/heroRight.png");
@@ -187,6 +188,7 @@ public:
 	}
 	void UnloadHero()
 	{
+		//unload everything
 		UnloadTexture(heroLeft);
 		UnloadTexture(heroRight);
 		UnloadTexture(heroUp);
