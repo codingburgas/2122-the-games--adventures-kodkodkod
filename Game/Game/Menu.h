@@ -27,9 +27,10 @@ public:
     Texture2D bgimg = LoadTexture("../images/backgrounds/Menu_Background.png");
     Texture2D Check = LoadTexture("../images/check.png");
     Texture2D set_bg = LoadTexture("../images/backgrounds/Settings_bg.png");
+    Texture2D skins[4] = { LoadTexture("../images/Skins/red-skin.png"), LoadTexture("../images/Skins/green-skin.png"), LoadTexture("../images/Skins/purple-skin.png"), LoadTexture("../images/Skins/black-skin.png") };
+    Rectangle skins_rectangles[4];
     Rectangle hide = { 0,0,(float)GetScreenWidth(),(float)GetScreenHeight() };
     Rectangle back = { 850,950, 165,50 };
-    Rectangle skins[4];
     bool Play = 0, Settings_option = 0, Rules_option = 0, Exit = 0;
     int MusicArr[2];
     void SetMenuSize()
@@ -188,12 +189,34 @@ public:
 
             for (int i = 0; i < 4; i++)
             {
-                skins[i].width = 250;
-                skins[i].height = 400;
-                skins[i].x = 285 + (i * 350);
-                skins[i].y = 475;
-                DrawRectangleRec(skins[i], BLACK);
-                DrawCircle(415 + (i * 350), 925, 31.5, BLACK);
+                skins_rectangles[i].width = 250;
+                skins_rectangles[i].height = 400;
+                
+				skins[i].width = 153;
+                skins[i].height = 351;
+                skins_rectangles[i].x = 285 + (i * 350);
+                skins_rectangles[i].y = 475;
+				
+				if(i == 0)
+				{
+					skins[i].width = 320;
+					skins[i].height = 320;
+					skins_rectangles[i].x = 305 + (i * 350);
+					skins_rectangles[i].y = 501;
+				}
+				else
+				{
+					DrawText("Coming Soon",  skins_rectangles[i].x + 30, 850, 30, LIGHTGRAY);
+				}
+				if(i == 2)
+				{
+					skins[i].width = 200;
+					skins[i].height = 320;
+					skins_rectangles[i].x = 305 + (i * 350);
+					skins_rectangles[i].y = 501;
+				}
+                DrawTexture(skins[i], skins_rectangles[i].x + 50, skins_rectangles[i].y, WHITE);
+				DrawCircle(415 + (i * 350), 925, 31.5, BLACK);
                 DrawCircle(415 + (i * 350), 925.5, 27.5, LIGHTGRAY);
             }
 
