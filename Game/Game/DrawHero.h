@@ -9,10 +9,10 @@ private:
 	Texture2D heroUp = LoadTexture("../images/Hero/heroBack.png");
 
 	//idle textures
-	Texture2D heroDownIdle = LoadTexture("../images/Hero/backIdle.png");
-	Texture2D heroLeftIdle = LoadTexture("../images/Hero/leftIdle.png");
-	Texture2D heroRightIdle = LoadTexture("../images/Hero/rightIdle.png");
-	Texture2D heroUpIdle = LoadTexture("../images/Hero/frontIdle.png");
+	Texture2D heroDownIdle = LoadTexture("../images/idles/backIdle.png");
+	Texture2D heroLeftIdle = LoadTexture("../images/idles/leftIdle.png");
+	Texture2D heroRightIdle = LoadTexture("../images/idles/rightIdle.png");
+	Texture2D heroUpIdle = LoadTexture("../images/idles/frontIdle.png");
 public:
 	Rectangle HeroClipLeft = { (float)heroLeft.width, 0, (float)heroLeft.width / 6, (float)heroLeft.height };
 	Rectangle HeroClipRight = { 0, 0, (float)heroRight.width / 6, (float)heroRight.height };
