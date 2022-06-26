@@ -6,22 +6,15 @@ class Boss{
 	int fpscounter = 0;
 	Texture2D boss = LoadTexture("../images/boss.png");
 	Texture2D finalBG = LoadTexture("../images/backgrounds/finalmap.png");
-	Texture2D AttackLeft = LoadTexture("../images/Hero/attackSprite_left.png");
-	Texture2D AttackUp = LoadTexture("../images/Hero/attackSprite_up.png");
-	Texture2D AttackRight = LoadTexture("../images/Hero/attackSprite_right.png");
-
-	Rectangle AttackLeftClip = {0,0, (float)AttackLeft.width / 3, (float)AttackLeft.height };
-	Rectangle AttackUpClip = {0,0, (float)AttackUp.width / 3, (float)AttackUp.height};
-	Rectangle AttackRightClip = { (float)AttackRight.width, 0, (float)AttackRight.width / 3, (float)AttackRight.height};
 	
 public:
 	
 	Rectangle ClipBoss = {0,0, (float)boss.width / 3, (float)boss.height};
 	Vector2 PosBoss = {(float)GetScreenWidth() / 2, 100};
-	float healthBarBoss = 100;
+	float healthBarBoss = 400;
 	float healthBarHero = 200;
 	float AtackBoss = 0.5;
-	float AtackHero = 5;
+	float AtackHero = 80;
 	Rectangle HealthBoss = { (float)PosBoss.x, (float)PosBoss.y, (float)healthBarBoss, 10};
 	Rectangle HealthHero = {0,0, (float)healthBarHero,10};
 	void Update(Arrows& object)
@@ -71,48 +64,7 @@ public:
 			{
 				healthBarBoss -= AtackHero;
 			}
-			if (help::idleAnims[0])
-			{
-				
-				DrawTextureRec(AttackLeft, AttackLeftClip, hero.Hero_obj.HeroPos, WHITE);
-				AttackLeftClip.x += AttackLeftClip.width;
-				DrawTextureRec(AttackLeft, AttackLeftClip, hero.Hero_obj.HeroPos, WHITE);
-				AttackLeftClip.x += AttackLeftClip.width;
-				DrawTextureRec(AttackLeft, AttackLeftClip, hero.Hero_obj.HeroPos, WHITE);
-				AttackLeftClip.x = 0;
-			}
-						
-			if (help::idleAnims[1])
-			{
-				DrawTextureRec(AttackUp, AttackUpClip, hero.Hero_obj.HeroPos, WHITE);
-				AttackUpClip.x += AttackUpClip.width;
-				DrawTextureRec(AttackLeft, AttackUpClip, hero.Hero_obj.HeroPos, WHITE);
-				AttackUpClip.x += AttackUpClip.width;
-				DrawTextureRec(AttackUp, AttackUpClip, hero.Hero_obj.HeroPos, WHITE);
-				AttackUpClip.x = 0;
-
-			}
-						
-			if (help::idleAnims[2])
-			{
-				DrawTextureRec(AttackRight, AttackRightClip, hero.Hero_obj.HeroPos, WHITE);
-				AttackRightClip.x -= AttackRightClip.width;
-				DrawTextureRec(AttackLeft, AttackRightClip, hero.Hero_obj.HeroPos, WHITE);
-				AttackRightClip.x -= AttackRightClip.width;
-				DrawTextureRec(AttackRight, AttackRightClip, hero.Hero_obj.HeroPos, WHITE);
-				AttackRightClip.x = 0;
-
-			}
-						
-			if (help::idleAnims[3])
-			{
-				DrawTextureRec(AttackLeft, AttackLeftClip, hero.Hero_obj.HeroPos, WHITE);
-				AttackLeftClip.x += AttackLeftClip.width;
-				DrawTextureRec(AttackLeft, AttackLeftClip, hero.Hero_obj.HeroPos, WHITE);
-				AttackLeftClip.x += AttackLeftClip.width;
-				DrawTextureRec(AttackLeft, AttackLeftClip, hero.Hero_obj.HeroPos, WHITE);
-				AttackLeftClip.x = 0;
-			}
+			
 			healthBarHero -= AtackBoss;
 			
 			
