@@ -110,6 +110,7 @@ void Boss::Draw(Menu& Menu_object, Arrows& hero)
 		{
 
 			DrawTextureRec(Attack_left, RectLeft, hero.Hero_obj.HeroPos, WHITE);
+			cout << "Here";
 		}
 		else if (help::idleAnims[1] && finish_attack)
 		{

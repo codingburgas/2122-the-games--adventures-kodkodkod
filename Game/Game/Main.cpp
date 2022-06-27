@@ -129,9 +129,9 @@ int main() //main function
             }
 
             
+            arrow_obj.checkArrows();
             if(boss_obj.checkToStopMovement)
             { 
-                arrow_obj.checkArrows();
                 if (arrow_obj.diagonal && arrow_obj.checkInput[0])
                 {
                     arrow_obj.Hero_obj.DrawLeft();
@@ -254,7 +254,11 @@ int main() //main function
             }
             
         }
-        
+        for (bool I : help::idleAnims)
+        {
+            cout << I << " ";
+        }
+        cout << endl;
         EndDrawing();
         /*stops drawing and system("CLS");*/
         

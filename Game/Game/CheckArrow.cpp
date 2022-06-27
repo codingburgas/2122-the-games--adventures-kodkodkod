@@ -81,9 +81,9 @@ void Arrows::checkArrows()
                 for (int i = 0; i < 4; i++)
                 {
                     if (checkInput[i])
-                        idleAnims[i] = 1;//for static
+                        help::idleAnims[i] = 1;//for static
                     else
-                        idleAnims[i] = 0;// for static
+                        help::idleAnims[i] = 0;// for static
                 }
             }
         }
