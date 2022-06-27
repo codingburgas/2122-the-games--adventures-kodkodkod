@@ -6,6 +6,7 @@ class Menu
 public:
     Sound music = LoadSound("../Music/music.mp3"); // music load
     bool If_it_is_not_chosen_an_option = 1;
+    bool menu_checker = 1;
     bool Menu_checker = 1; //checker for option in menu
     bool Music_checker = 1; //checker for option in settings
     bool Music_checker2 = 0; //checker for option in settings

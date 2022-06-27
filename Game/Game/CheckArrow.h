@@ -30,7 +30,7 @@ public:
     int counterArea = 0;
     bool checkInput[4] = { 0, 0, 0, 0 };
     int speedBG = 100;
-    int speedHero = 10;
+    int speedHero = 6;
     bool RandomKey[4] = { 0, 0, 0, 0 };
     bool checkChests = 1;
     
@@ -122,14 +122,14 @@ public:
                 count++;
                 if (count == 2)
                 {
-                    speedHero = 5;
+                    speedHero = 4;
                     speedBG = 150;
                     diagonal = 1;
                     break;
                 }
                 else {
                     diagonal = 0;
-                    speedHero = 10;
+                    speedHero = 6;
                     speedBG = 100;
                     for (int i = 0; i < 4; i++)
                     {

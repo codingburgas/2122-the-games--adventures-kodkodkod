@@ -83,7 +83,7 @@ int main() //main function
                     arrow_obj.LimitA = 0;
                     arrow_obj.LimitS = 0;
                     arrow_obj.LimitW = 0;
-                    boss_obj.Draw();
+                    boss_obj.Draw(menu_obj);
 
 
                 }
