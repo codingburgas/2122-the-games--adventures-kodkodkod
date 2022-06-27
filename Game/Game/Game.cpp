@@ -19,6 +19,7 @@ int main() //main function
     int counterBg2 = 0; // counter for the background 
     int counterBg3 = 0; // counter for the background
     int counterBg4 = 0; // counter for the background
+    bool checkBoss = 0;
     InitWindow(screenWidth, screenHeight, "The Last Swordsman"); // initialise window and add tittle to it
     InitAudioDevice(); // initialise audio device
     SetTargetFPS(60); // set fps to the game
@@ -76,15 +77,15 @@ int main() //main function
                 }
                 else if (arrow_obj.counterArea == 4)
                 {
+                    checkBoss = 1;
                     arrow_obj.checkChests = 0;
                     boss_obj.Update(arrow_obj);
                     boss_obj.Check(arrow_obj);
-                    arrow_obj.LimitD = 0;
-                    arrow_obj.LimitA = 0;
-                    arrow_obj.LimitS = 0;
-                    arrow_obj.LimitW = 0;
-                    boss_obj.Draw(menu_obj);
-
+                    arrow_obj.LimitD = 50;
+                    arrow_obj.LimitA = 50;
+                    arrow_obj.LimitS = 50;
+                    arrow_obj.LimitW = 50;
+                    boss_obj.Draw(menu_obj, arrow_obj);
 
                 }
             }
@@ -129,129 +130,129 @@ int main() //main function
             }
 
             
-
-            arrow_obj.checkArrows();
-            if (arrow_obj.diagonal && arrow_obj.checkInput[0])
-            {
-                arrow_obj.Hero_obj.DrawLeft();
-                arrow_obj.Hero_obj.UpdateLeft();
-
-            }
-            else if (arrow_obj.diagonal && arrow_obj.checkInput[1])
-            {
-                arrow_obj.Hero_obj.DrawRight();
-                arrow_obj.Hero_obj.UpdateRight();
-
-            }
-            else if (arrow_obj.checkInput[0] && arrow_obj.diagonal == 0)
-            {
-                arrow_obj.Hero_obj.DrawLeft();
-                arrow_obj.Hero_obj.UpdateLeft();
-
-            }
-            else if (arrow_obj.checkInput[1] && arrow_obj.diagonal == 0)
-            {
-                arrow_obj.Hero_obj.DrawRight();
-                arrow_obj.Hero_obj.UpdateRight();
-
-            }
-            else if (arrow_obj.checkInput[2] && arrow_obj.diagonal == 0)
-            {
-                arrow_obj.Hero_obj.DrawUp();
-                arrow_obj.Hero_obj.UpdateUp();
-
-
-            }
-            else if (arrow_obj.checkInput[3] && arrow_obj.diagonal == 0)
-            {
-                arrow_obj.Hero_obj.DrawDown();
-                arrow_obj.Hero_obj.UpdateDown();
-
-            }
-            else
-            {
-                bool fourth = 0;
-                bool idleChek = 0;
-                int IdleCount = 0;
-                for (int i = 0; i < 4; i++)
+            if(boss_obj.checkToStopMovement)
+            { 
+                arrow_obj.checkArrows();
+                if (arrow_obj.diagonal && arrow_obj.checkInput[0])
                 {
-                    if (arrow_obj.checkInput[i])
-                        
-                    fourth = 1;
+                    arrow_obj.Hero_obj.DrawLeft();
+                    arrow_obj.Hero_obj.UpdateLeft();
+
                 }
-                if (fourth == 0)
+                else if (arrow_obj.diagonal && arrow_obj.checkInput[1])
                 {
+                    arrow_obj.Hero_obj.DrawRight();
+                    arrow_obj.Hero_obj.UpdateRight();
 
-                    for (int i = 0;i< 4; i++)
+                }
+                else if (arrow_obj.checkInput[0] && arrow_obj.diagonal == 0)
+                {
+                    arrow_obj.Hero_obj.DrawLeft();
+                    arrow_obj.Hero_obj.UpdateLeft();
+
+                }
+                else if (arrow_obj.checkInput[1] && arrow_obj.diagonal == 0)
+                {
+                    arrow_obj.Hero_obj.DrawRight();
+                    arrow_obj.Hero_obj.UpdateRight();
+
+                }
+                else if (arrow_obj.checkInput[2] && arrow_obj.diagonal == 0)
+                {
+                    arrow_obj.Hero_obj.DrawUp();
+                    arrow_obj.Hero_obj.UpdateUp();
+
+
+                }
+                else if (arrow_obj.checkInput[3] && arrow_obj.diagonal == 0)
+                {
+                    arrow_obj.Hero_obj.DrawDown();
+                    arrow_obj.Hero_obj.UpdateDown();
+
+                }
+                else
+                {
+                    bool fourth = 0;
+                    bool idleChek = 0;
+                    int IdleCount = 0;
+                    for (int i = 0; i < 4; i++)
                     {
-                        if(idleAnims[i])
+                        if (arrow_obj.checkInput[i])
+                        
+                        fourth = 1;
+                    }
+                    if (fourth == 0)
+                    {
+
+                        for (int i = 0;i< 4; i++)
                         {
-                            idleChek = 1;
-                            IdleCount++;
-                            switch (i)
+                            if(idleAnims[i])
                             {
-                                case 0:
+                                idleChek = 1;
+                                IdleCount++;
+                                switch (i)
                                 {
-                                    if (!(IdleCount == 2))
+                                    case 0:
                                     {
+                                        if (!(IdleCount == 2))
+                                        {
 
-                                    arrow_obj.Hero_obj.IdleLeft();
-                                    arrow_obj.Hero_obj.UpdateLeftIdle();
+                                        arrow_obj.Hero_obj.IdleLeft();
+                                        arrow_obj.Hero_obj.UpdateLeftIdle();
+                                        }
+                                        else
+                                            IdleCount = 0;
+                                        break;
                                     }
-                                    else
-                                        IdleCount = 0;
-                                    break;
-                                }
-                                case 1:
-                                {
-                                    if (!(IdleCount == 2))
+                                    case 1:
                                     {
+                                        if (!(IdleCount == 2))
+                                        {
 
-                                    arrow_obj.Hero_obj.IdleRight();
-                                    arrow_obj.Hero_obj.UpdateRightIdle();
+                                        arrow_obj.Hero_obj.IdleRight();
+                                        arrow_obj.Hero_obj.UpdateRightIdle();
+                                        }
+                                        else
+                                            IdleCount = 0;
+                                        break;
                                     }
-                                    else
-                                        IdleCount = 0;
-                                    break;
-                                }
-                                case 2:
-                                {
-                                    if (!(IdleCount == 2))
+                                    case 2:
                                     {
+                                        if (!(IdleCount == 2))
+                                        {
 
                                     
 
-                                    arrow_obj.Hero_obj.IdleDown();
-                                    arrow_obj.Hero_obj.UpdateDownIdle();
+                                        arrow_obj.Hero_obj.IdleDown();
+                                        arrow_obj.Hero_obj.UpdateDownIdle();
+                                        }
+                                        else
+                                            IdleCount = 0;
+                                        break;
                                     }
-                                    else
-                                        IdleCount = 0;
-                                    break;
-                                }
-                                case 3:
-                                {
-                                    if (!(IdleCount == 2))
+                                    case 3:
                                     {
+                                        if (!(IdleCount == 2))
+                                        {
 
-                                        arrow_obj.Hero_obj.IdleUp();
-                                        arrow_obj.Hero_obj.UpdateUpIdle();
+                                            arrow_obj.Hero_obj.IdleUp();
+                                            arrow_obj.Hero_obj.UpdateUpIdle();
+                                        }
+                                        else
+                                            IdleCount = 0;
+                                        break;
                                     }
-                                    else
-                                        IdleCount = 0;
-                                    break;
                                 }
                             }
                         }
-                    }
-                    if (idleChek == 0)
-                    {
-                        arrow_obj.Hero_obj.IdleDown();
-                        arrow_obj.Hero_obj.UpdateDownIdle();
+                        if (idleChek == 0)
+                        {
+                            arrow_obj.Hero_obj.IdleDown();
+                            arrow_obj.Hero_obj.UpdateDownIdle();
+                        }
                     }
                 }
             }
-              
-            
             
         }
         

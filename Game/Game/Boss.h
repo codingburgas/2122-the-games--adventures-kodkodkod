@@ -4,6 +4,7 @@
 #include "Namespace.h"
 class Boss {
 	int fpscounter = 0;
+	int Attack_counter = 0;
 	//texture for boss
 	Texture2D boss = LoadTexture("../images/boss.png");
 	//texture for background
@@ -21,13 +22,24 @@ public:
 	bool you_win = 0;
 	bool you_lose = 0;
 	bool playAgain = 0;
+	bool checkToStopMovement = 1;
 	Rectangle HealthBoss = { (float)PosBoss.x, (float)PosBoss.y, (float)healthBarBoss, 10 };
 	Rectangle HealthHero = { 0,0, (float)healthBarHero,10 };
-
+	bool check_attack = 0;
 	bool not_play_again = 1;
+	bool finish_attack = 1;
 
 	Texture2D GameOver_img_lose = LoadTexture("../images/GameOver_you_lose.png");
 	Texture2D GameOver_img_win = LoadTexture("../images/GameOver_you_win.png");
+
+	Texture2D Attack_left = LoadTexture("../images/Hero/attackSprite_left.png");
+	Texture2D Attack_up = LoadTexture("../images/Hero/attackSprite_up.png");
+	Texture2D Attack_right = LoadTexture("../images/Hero/attackSprite_right.png");
+
+	
+	Rectangle RectLeft= { 0, 0, (float)Attack_left.width /3, (float)Attack_left.height };
+	Rectangle RectUp = { 0, 0, (float)Attack_up.width /3, (float)Attack_up.height };
+	Rectangle RectRight = { (float)Attack_right.width, 0, (float)Attack_right.width /3, (float)Attack_right.height };
 
 	Vector2 Close;
 	Vector2 mousePoint;
@@ -59,7 +71,7 @@ public:
 		HealthBoss.width = healthBarBoss;
 
 	}
-	void Draw(Menu& Menu_object)
+	void Draw(Menu& Menu_object, Arrows & hero)
 	{
 		//draw everything
 		DrawTexture(finalBG, 0, 0, WHITE);
@@ -142,7 +154,24 @@ public:
 			Menu_object.Rules_option = 0;
 			playAgain = 0;
 		}
+		if (checkToStopMovement == 0)
+		{
+			if (help::idleAnims[0] && finish_attack)
+			{
 
+			DrawTextureRec(Attack_left, RectLeft, hero.Hero_obj.HeroPos, WHITE);
+			}
+			else if (help::idleAnims[1] && finish_attack)
+			{
+
+			DrawTextureRec(Attack_right, RectRight, hero.Hero_obj.HeroPos, WHITE);
+			}
+			else if (help::idleAnims[2] && finish_attack)
+			{
+			DrawTextureRec(Attack_up, RectUp, hero.Hero_obj.HeroPos, WHITE);
+
+			}
+		}
 
 	}
 	void Check(Arrows& hero)
@@ -164,8 +193,58 @@ public:
 			if (IsKeyPressed(KEY_F) or IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 			{
 				healthBarBoss -= AtackHero;
+				check_attack = 1;
+				finish_attack = 1;
+				checkToStopMovement = 0;
 			}
-
+			if (check_attack)
+			{
+				if (help::idleAnims[0] && finish_attack)
+				{
+					if (Attack_counter == 5)
+					{
+						RectLeft.x += (float)Attack_left.width / 3;
+						Attack_counter = 0;
+					}
+					if (RectLeft.x >= Attack_left.width)
+					{
+						RectLeft.x = 0;
+						finish_attack = 0;
+						checkToStopMovement = 1;
+					}
+					Attack_counter++;
+				}
+				else if (help::idleAnims[1] && finish_attack)
+				{
+					if (Attack_counter == 5)
+					{
+						RectRight.x -= (float)Attack_right.width / 3;
+						Attack_counter = 0;
+					}
+					if (RectRight.x <= 0)
+					{
+						RectRight.x = Attack_right.width;
+						finish_attack = 0;
+						checkToStopMovement = 1;
+					}
+					Attack_counter++;
+				}
+				else if (help::idleAnims[2] && finish_attack)
+				{
+					if (Attack_counter == 5)
+					{
+						RectUp.x += (float)Attack_up.width / 3;
+						Attack_counter = 0;
+					}
+					if (RectUp.x >= Attack_up.width)
+					{
+						RectUp.x = 0;
+						finish_attack = 0;
+						checkToStopMovement = 1;
+					}
+					Attack_counter++;
+				}
+			}
 			healthBarHero -= AtackBoss;
 
 
@@ -177,5 +256,8 @@ public:
 		//unload textures
 		UnloadTexture(finalBG);
 		UnloadTexture(boss);
+		UnloadTexture(Attack_left);
+		UnloadTexture(Attack_right);
+		UnloadTexture(Attack_up);
 	}
 };
