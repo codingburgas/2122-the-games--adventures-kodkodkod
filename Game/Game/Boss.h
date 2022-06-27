@@ -157,16 +157,20 @@ public:
 		{
 			you_win = 1;
 		}
-		else if ((hero.Hero_obj.HeroPos.x >= PosBoss.x + 200 && hero.Hero_obj.HeroPos.x <= PosBoss.x + ClipBoss.width) &&
+		else if ((hero.Hero_obj.HeroPos.x >= PosBoss.x && hero.Hero_obj.HeroPos.x <= PosBoss.x + ClipBoss.width) &&
 			(hero.Hero_obj.HeroPos.y <= PosBoss.y + ClipBoss.height))
 		{
 			//atacks
-			if (IsKeyPressed(KEY_E))
+			if (IsKeyPressed(KEY_F) or IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 			{
 				healthBarBoss -= AtackHero;
 			}
+
 			healthBarHero -= AtackBoss;
+
+
 		}
+
 	}
 	void Unload()
 	{

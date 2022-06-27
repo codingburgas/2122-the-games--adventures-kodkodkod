@@ -33,7 +33,7 @@ public:
     int speedHero = 6;
     bool RandomKey[4] = { 0, 0, 0, 0 };
     bool checkChests = 1;
-    
+
     Rectangle hide = { 0,0,(float)GetScreenWidth(),(float)GetScreenHeight() };
     Texture2D Opened_Chest = LoadTexture("../images/Chests/opened_chest.png");
     Texture2D Key = LoadTexture("../images/Key.png");
@@ -59,35 +59,35 @@ public:
         RandomKey[Rand] = 1;
         switch (Rand)
         {
-            case 0:
-            {
+        case 0:
+        {
 
-                RandomKey[1] = 0;
-                RandomKey[2] = 0;
-                RandomKey[3] = 0;
-                break;
-            }
-            case 1:
-            {
-                RandomKey[0] = 0;
-                RandomKey[2] = 0;
-                RandomKey[3] = 0;
-                break;
-            }
-            case 2:
-            {
-                RandomKey[0] = 0;
-                RandomKey[1] = 0;
-                RandomKey[3] = 0;
-                break;
-            }
-            case 3:
-            {
-                RandomKey[1] = 0;
-                RandomKey[2] = 0;
-                RandomKey[0] = 0;
-                break;
-            }
+            RandomKey[1] = 0;
+            RandomKey[2] = 0;
+            RandomKey[3] = 0;
+            break;
+        }
+        case 1:
+        {
+            RandomKey[0] = 0;
+            RandomKey[2] = 0;
+            RandomKey[3] = 0;
+            break;
+        }
+        case 2:
+        {
+            RandomKey[0] = 0;
+            RandomKey[1] = 0;
+            RandomKey[3] = 0;
+            break;
+        }
+        case 3:
+        {
+            RandomKey[1] = 0;
+            RandomKey[2] = 0;
+            RandomKey[0] = 0;
+            break;
+        }
         }
 
     }
@@ -104,13 +104,13 @@ public:
         Opened_Chest.height = 850;
         Key.width = 100;
         Key.height = 200;
-        
+
         for (int i = 0; i < 4; i++)
         {
             DrawRectangleLinesEx(chests[i], 7.5, BLANK);
         }
 
-        
+
     }
     void checkArrows()
     {
@@ -148,7 +148,7 @@ public:
             if (!(Hero_obj.HeroPos.x <= LimitA))
             {
                 Hero_obj.HeroPos.x -= speedHero;
-               
+
             }
             if (!(moveBG.bg_pos.x <= 0) && Hero_obj.HeroPos.x < (GetScreenWidth() - Hero_obj.HeroClipLeft.width) - 200)
             {
@@ -166,7 +166,7 @@ public:
             if (!(Hero_obj.HeroPos.x >= (GetScreenWidth() - Hero_obj.HeroClipRight.width) - LimitD))
             {
                 Hero_obj.HeroPos.x += speedHero;
-                
+
             }
             if (!(moveBG.bg_pos.x >= GetScreenWidth()) && Hero_obj.HeroPos.x > 200)
             {
@@ -184,7 +184,7 @@ public:
             if (!(Hero_obj.HeroPos.y <= LimitW))
             {
                 Hero_obj.HeroPos.y -= speedHero;
-               
+
             }
             if (!(moveBG.bg_pos.y <= 0) && Hero_obj.HeroPos.y < (GetScreenHeight() - Hero_obj.HeroClipUp.height) - 200)
             {
@@ -242,7 +242,7 @@ public:
         {
             if (CheckCollisionPointRec(Hero_obj.HeroPos, Door) && moveBG.bg_pos.x < LimitR && moveBG.bg_pos.x > 150)
             {
-                Hero_obj.HeroPos = { KeyRec.x + 150, (float)GetScreenHeight() - 200/*change where to spawn */};
+                Hero_obj.HeroPos = { KeyRec.x + 150, (float)GetScreenHeight() - 200/*change where to spawn */ };
                 moveBG.bg_pos.y = GetScreenHeight();
                 moveBG.bg_pos.x = 0;
                 Is_hero_passed_the_first_door = 1;
@@ -310,7 +310,7 @@ public:
             DrawTexture(Opened_Chest, 30, 30, WHITE);
             if (RandomKey[0] && pressed_key_checker)
             {
-                
+
 
                 DrawTexture(Key, 600, 360, WHITE);
                 DrawRectangleLinesEx(KeyRec, 6, BLANK);
@@ -321,7 +321,7 @@ public:
             Close.x = 1550;
             Close.y = 115;
 
-            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, KeyRec))
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, KeyRec) or IsKeyPressed(KEY_R))
             {
                 Key_is_pressed = 1;
                 Upper_left_chest = 0;
@@ -340,7 +340,7 @@ public:
             DrawTexture(Opened_Chest, 30, 30, WHITE);
             if (RandomKey[1] && pressed_key_checker)
             {
-               
+
 
                 DrawTexture(Key, 600, 360, WHITE);
                 DrawRectangleLinesEx(KeyRec, 6, BLANK);
@@ -354,7 +354,7 @@ public:
             {
                 Upper_right_chest = 0;
             }
-            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, KeyRec))
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, KeyRec) or IsKeyPressed(KEY_R))
             {
                 Key_is_pressed = 1;
                 Upper_right_chest = 0;
@@ -369,7 +369,7 @@ public:
             DrawTexture(Opened_Chest, 30, 30, WHITE);
             if (RandomKey[2] && pressed_key_checker)
             {
-                
+
 
                 DrawRectangleLinesEx(KeyRec, 6, BLANK);
                 DrawTexture(Key, 600, 360, WHITE);
@@ -383,7 +383,7 @@ public:
             {
                 Lower_right_chest = 0;
             }
-            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, KeyRec))
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, KeyRec) or IsKeyPressed(KEY_R))
             {
                 Key_is_pressed = 1;
                 Lower_right_chest = 0;
@@ -398,7 +398,7 @@ public:
             DrawTexture(Opened_Chest, 30, 30, WHITE);
             if (RandomKey[3] && pressed_key_checker)
             {
-               
+
 
                 DrawTexture(Key, 600, 360, WHITE);
                 DrawRectangleLinesEx(KeyRec, 6, BLANK);
@@ -408,7 +408,7 @@ public:
             DrawLineEx(Close_line_2_start, Close_line_2_end, 6, WHITE);
             Close.x = 1550;
             Close.y = 115;
-            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, KeyRec))
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, KeyRec) or IsKeyPressed(KEY_R))
             {
                 Key_is_pressed = 1;
                 Lower_leFt_chest = 0;
