@@ -1,6 +1,6 @@
 #pragma once
 namespace help { //our own namespace for idle anims
-	bool finish = 0;
-	bool idleAnims[4] = {0, 0, 0, 0};
+	static bool finish = 0;
+	static bool idleAnims[4] = { 0, 0, 0, 0 };
 
-}
+};
