@@ -92,7 +92,8 @@ function AppearWhenScrollbox()
         arrowUp.classList.add("appear-arrow");
         arrowUp.style.color = "rgba(255, 255, 255, 0.53)";
 
-        //adds styling and class whenever the position of skins + 600 is smaller than the window height, meaning whenever the arrows bottom position is the same or smaller than the window's, it appears
+        //adds styling and class whenever the position of skins + 600 is smaller than the window height, meaning whenever the arrows bottom
+        // position is the same or smaller than the window's, it appears
     }
     else
     {
