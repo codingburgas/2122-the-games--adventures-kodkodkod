@@ -114,14 +114,14 @@
         
         opacity:31%;
     }
-    img[alt = "e-key"]
+    img[alt = "keys"]
     {
         opacity: 31%;
         
     }
-    img[alt = "f-key"]
+    img[alt = "mouse click"]
     {
-        opacity: 31%;
+        opacity: 50%;
         
     }
     /*styling of pics*/
@@ -191,6 +191,7 @@
         margin-bottom: -210px;
         box-shadow: 2px 1px 40px rgba(0, 0, 0, 0.533);
     }
+   
     .slider
     {
         border-radius: inherit;
@@ -212,6 +213,12 @@
         opacity:1;
         transition:0.9s;
     }
+    .slider.active
+    {
+        opacity:1;
+        transition:0.9s;
+        
+    }
     .slider img
     {
         border-radius: inherit;
@@ -219,11 +226,6 @@
         height:100%;
         object-fit:cover;
         transition:transform 0.3s;
-    }
-
-    .slideicon.active{
-        transition:0.5s;
-        background-color: rgba(255, 255, 255, 0.453);
     }
 /*slider animation*/
     .btn-container

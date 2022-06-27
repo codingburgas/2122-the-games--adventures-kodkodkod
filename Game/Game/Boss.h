@@ -131,7 +131,7 @@ public:
 
 
 		}
-		else if ((hero.Hero_obj.HeroPos.x >= PosBoss.x && hero.Hero_obj.HeroPos.x <= PosBoss.x + ClipBoss.width) && 
+		else if ((hero.Hero_obj.HeroPos.x >= PosBoss.x + 200 && hero.Hero_obj.HeroPos.x <= PosBoss.x + ClipBoss.width) && 
 			(hero.Hero_obj.HeroPos.y <= PosBoss.y + ClipBoss.height))
 		{
 			//atacks
