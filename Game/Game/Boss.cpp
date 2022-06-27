@@ -42,17 +42,10 @@ void Boss::Draw(Menu& Menu_object, Arrows& hero)
 
 			DrawTexture(GameOver_img_lose, 150, 100, WHITE);
 
-			DrawRectangleRounded(Play_Again, 7, 7, YELLOW);
-			DrawText("Play again", 590, 875, 50, WHITE);
-
+		
 			DrawRectangleRounded(Exit, 7, 7, RED);
-			DrawText("Quit", 1030, 875, 65, WHITE);
+			DrawText("Quit", 830, 875, 65, WHITE);
 
-			if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, Play_Again))
-			{
-				playAgain = 1;
-
-			}
 			if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, Exit))
 			{
 				exit(0);
@@ -74,17 +67,12 @@ void Boss::Draw(Menu& Menu_object, Arrows& hero)
 
 		DrawTexture(GameOver_img_win, 150, 100, WHITE);
 
-		DrawRectangleRounded(Play_Again, 7, 7, YELLOW);
-		DrawText("Play again", 590, 875, 50, WHITE);
+	
 
 		DrawRectangleRounded(Exit, 7, 7, RED);
-		DrawText("Quit", 1030, 875, 65, WHITE);
+		DrawText("Quit", 830, 875, 65, WHITE);
 
-		if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, Play_Again))
-		{
-			playAgain = 1;
-
-		}
+	
 		if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, Exit))
 		{
 			exit(0);

@@ -45,8 +45,7 @@ public:
 	Vector2 Close;
 	Vector2 mousePoint;
 
-	Rectangle Play_Again = { 580,850, 275, 100 };
-	Rectangle Exit = { 950,850, 275, 100 };
+	Rectangle Exit = { 750,850, 275, 100 };
 
 	Rectangle hide = { 0,0,(float)GetScreenWidth(),(float)GetScreenHeight() };
 

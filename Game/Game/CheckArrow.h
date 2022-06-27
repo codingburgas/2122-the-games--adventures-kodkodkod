@@ -13,11 +13,12 @@ public:
     Hero Hero_obj;
     Background moveBG;
     bool If_it_is_not_chosen_an_option = 1;
-    int LimitA = 320; // variable to change the limit of the hero in different areas
-    int LimitD = 320; // variable to change the limit of the hero in different areas
-    int LimitS = 120; // variable to change the limit of the hero in different areas
-    int LimitW = 120; // variable to change the limit of the hero in different areas
-    int LimitR = 650; // variable to change the limit of the door in different areas
+    // variable to change the limit of the hero in different areas
+    int LimitA = 320;
+    int LimitD = 320;
+    int LimitS = 120;
+    int LimitW = 120;
+    int LimitR = 650;
     bool Upper_left_chest = 0;
     bool Lower_leFt_chest = 0;
     bool Is_hero_passed_the_first_door = 0;
