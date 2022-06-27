@@ -2,7 +2,7 @@
 #include"raylib.h"
 #include "CheckArrow.h"
 #include "Namespace.h"
-class Boss{
+class Boss {
 	int fpscounter = 0;
 	//texture for boss
 	Texture2D boss = LoadTexture("../images/boss.png");
@@ -11,17 +11,18 @@ class Boss{
 
 public:
 	//rectangle for boss
-	Rectangle ClipBoss = {0,0, (float)boss.width / 3, (float)boss.height};
+	Rectangle ClipBoss = { 0,0, (float)boss.width / 3, (float)boss.height };
 	//boss position vector
-	Vector2 PosBoss = {(float)GetScreenWidth() / 2, 100};
+	Vector2 PosBoss = { (float)GetScreenWidth() / 2, 100 };
 	float healthBarBoss = 300;
 	float healthBarHero = 200;
 	float AtackBoss = 1;
 	float AtackHero = 25;
 	bool you_win = 0;
 	bool you_lose = 0;
-	Rectangle HealthBoss = { (float)PosBoss.x, (float)PosBoss.y, (float)healthBarBoss, 10};
-	Rectangle HealthHero = {0,0, (float)healthBarHero,10};
+	bool playAgain = 0;
+	Rectangle HealthBoss = { (float)PosBoss.x, (float)PosBoss.y, (float)healthBarBoss, 10 };
+	Rectangle HealthHero = { 0,0, (float)healthBarHero,10 };
 
 	bool not_play_again = 1;
 
@@ -31,8 +32,8 @@ public:
 	Vector2 Close;
 	Vector2 mousePoint;
 
-
-	Rectangle Exit = { 750,850, 275, 100 };
+	Rectangle Play_Again = { 580,850, 275, 100 };
+	Rectangle Exit = { 950,850, 275, 100 };
 
 	Rectangle hide = { 0,0,(float)GetScreenWidth(),(float)GetScreenHeight() };
 
@@ -56,7 +57,7 @@ public:
 		HealthHero.y = object.Hero_obj.HeroPos.y - 20;
 		HealthHero.width = healthBarHero;
 		HealthBoss.width = healthBarBoss;
-		
+
 	}
 	void Draw(Menu& Menu_object)
 	{
@@ -65,7 +66,7 @@ public:
 		DrawTextureRec(boss, ClipBoss, PosBoss, WHITE);
 		DrawRectangleRec(HealthBoss, RED);
 		DrawRectangleRec(HealthHero, RED);
-		DrawText("Baikal",PosBoss.x +45, PosBoss.y - 35,40,WHITE);
+		DrawText("Baikal", PosBoss.x + 45, PosBoss.y - 35, 40, WHITE);
 		if (you_lose)
 		{
 			if (not_play_again)
@@ -79,15 +80,23 @@ public:
 
 				DrawTexture(GameOver_img_lose, 150, 100, WHITE);
 
-				DrawRectangleRounded(Exit, 7, 7, DARKGRAY);
-				DrawText("Quit", 830, 875, 65, WHITE);
+				DrawRectangleRounded(Play_Again, 7, 7, YELLOW);
+				DrawText("Play again", 590, 875, 50, WHITE);
 
+				DrawRectangleRounded(Exit, 7, 7, RED);
+				DrawText("Quit", 1030, 875, 65, WHITE);
+
+				if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, Play_Again))
+				{
+					playAgain = 1;
+
+				}
 				if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, Exit))
 				{
 					exit(0);
 				}
 
-				
+
 			}
 
 		}
@@ -103,21 +112,40 @@ public:
 
 			DrawTexture(GameOver_img_win, 150, 100, WHITE);
 
-			
+			DrawRectangleRounded(Play_Again, 7, 7, YELLOW);
+			DrawText("Play again", 590, 875, 50, WHITE);
 
-			DrawRectangleRounded(Exit, 7, 7, DARKGRAY);
-			DrawText("Quit", 830, 875, 65, WHITE);
+			DrawRectangleRounded(Exit, 7, 7, RED);
+			DrawText("Quit", 1030, 875, 65, WHITE);
 
+			if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, Play_Again))
+			{
+				playAgain = 1;
+
+			}
 			if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, Exit))
 			{
 				exit(0);
 
 			}
 		}
-		
-		
+		if (playAgain)
+		{
+
+			Menu_object.Menu_checker = 1;
+			Menu_object.If_it_is_not_chosen_an_option = 1;
+			you_win = 0;
+			you_lose = 0;
+			Menu_object.Exit = 0;
+			Menu_object.Settings_option = 0;
+			Menu_object.Play = 0;
+			Menu_object.Rules_option = 0;
+			playAgain = 0;
+		}
+
+
 	}
-	void Check(Arrows &hero)
+	void Check(Arrows& hero)
 	{
 		//gameover for losing
 		if (healthBarHero <= 0)
@@ -128,10 +156,8 @@ public:
 		else if (healthBarBoss <= 0)
 		{
 			you_win = 1;
-
-
 		}
-		else if ((hero.Hero_obj.HeroPos.x >= PosBoss.x + 200 && hero.Hero_obj.HeroPos.x <= PosBoss.x + ClipBoss.width) && 
+		else if ((hero.Hero_obj.HeroPos.x >= PosBoss.x + 200 && hero.Hero_obj.HeroPos.x <= PosBoss.x + ClipBoss.width) &&
 			(hero.Hero_obj.HeroPos.y <= PosBoss.y + ClipBoss.height))
 		{
 			//atacks
@@ -139,12 +165,8 @@ public:
 			{
 				healthBarBoss -= AtackHero;
 			}
-			
 			healthBarHero -= AtackBoss;
-			
-			
 		}
-		
 	}
 	void Unload()
 	{
