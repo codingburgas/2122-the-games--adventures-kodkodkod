@@ -1,0 +1,883 @@
+    *                                                                                                                                                                                                                                                                                    *
+    {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        text-decoration: none;
+        
+    }
+
+    body
+    {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        background-color:#cccccc;
+    }
+
+    .nav img{
+        user-select: none;
+        position: absolute;
+        left: 3%;
+        top: 15px;
+        opacity:0.7;
+    }
+
+    .nav-links{
+        text-align: left;
+    }
+
+    nav{
+        z-index: 102;
+        background-color: #000000;
+        height: 112px;
+        width:100%;
+        text-align: center;
+    }
+    .htp:hover ~ .how-to-play
+    {
+        display:block;
+        animation:appear 0.5s ease-out 1;
+    }
+    /*effect on hover*/
+    .htp
+    {
+       
+        margin-left: -25%;
+    }
+    .htp h1
+    {
+       
+        font-weight: 400;
+    }
+    @keyframes appear
+    {
+        
+        0%
+        {
+            opacity:0;
+        }
+        100%
+        {
+            opacity:100%;
+        }
+       
+    }
+    /*animation*/
+    .how-to-play
+    {
+        backdrop-filter: blur(10px);
+        display:none;
+        z-index: 1000;
+        width:100vw;
+        height: min-content;
+        position:absolute;
+        left:0;
+        top:110px;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
+        color:white;
+        text-align: center;
+    }
+/*styling of appearing information abour the controls*/
+    .controls-col{
+        text-align: center;
+        padding: 1rem;
+
+    }
+
+
+    .storyline
+    {
+        backdrop-filter: blur(10px);
+        display:none;
+    }
+    .headings h1
+    {
+        font-weight: 350;
+        color:rgba(255, 255, 255, 0.545);
+    }
+
+    .headings img{
+        position: static;
+    }
+
+    .headings
+    {
+        
+        margin-top:30px;
+    
+    }
+    img[alt = "movements keys"]
+    {
+        height:300px;
+        width:300px;
+        
+        opacity:31%;
+    }
+    img[alt = "keys"]
+    {
+        opacity: 31%;
+        
+    }
+    img[alt = "mouse click"]
+    {
+        opacity: 50%;
+        
+    }
+    /*styling of pics*/
+    .nav h2
+    {
+        
+        color:rgba(255, 255, 255, 0.251);
+
+    }
+    .nav ul{
+    
+        text-align: center;
+    }
+
+    .nav ul li{
+        user-select: none;
+        cursor:pointer;
+       
+        color: white;
+        opacity: 42%;
+
+        transition: 0.5s;
+        padding: 2.22334890000rem 2rem;
+        font-size: 2.18458799838rem;
+        display:inline-block;
+        list-style: none;
+    }
+
+    .nav ul li a{
+        text-decoration: none;
+        color: white;
+
+        transition: 0.5s;
+    }
+
+    .nav ul li:hover{
+        opacity: 100%;
+        transform: scale(1.3);
+    }
+    main
+    {
+        position:relative;
+    }
+   
+    main h1{
+        z-index: 101;
+        display: flex;
+        position: relative;
+        justify-content: center;
+        top: 250px;
+        font-size: 3rem;
+        font-family: 'Inter', sans-serif;
+        letter-spacing: 10px;
+        color: white;
+        text-transform: uppercase;
+    }
+
+    .slider-container
+    {
+        margin:0px auto;
+        width:100%;
+        height:100vh;
+        position:relative;
+        z-index: -1;
+        top:35px;
+        margin-top: -110px;
+        margin-bottom: -210px;
+        box-shadow: 2px 1px 40px rgba(0, 0, 0, 0.533);
+    }
+   
+    .slider
+    {
+        border-radius: inherit;
+    overflow: hidden;
+        opacity:0;
+        width:100%;
+    height:100%;
+        position:absolute;
+        
+    }
+    /*style of containers in about us, as well as animation*/
+    .upper-waves
+    {
+        margin-top: -10px;
+        position:absolute;
+    }
+    .slider.active
+    {
+        opacity:1;
+        transition:0.9s;
+    }
+    .slider.active
+    {
+        opacity:1;
+        transition:0.9s;
+        
+    }
+    .slider img
+    {
+        border-radius: inherit;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        transition:transform 0.3s;
+    }
+/*slider animation*/
+    .btn-container
+    {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        transform: translateY(-30px);
+    }
+    .btn-container img
+    {
+        position: absolute;
+    }
+/*download button container*/
+    .download
+    {
+        
+        user-select: none;
+        background-color: #000000ae;
+        border-radius: 20px;
+        border: 2px solid rgba(255, 255, 255, 0.504);
+        padding: 15px 40px;;
+        position:absolute;
+        color: rgba(255, 255, 255, 0.655);
+        font-size: 2rem;
+        letter-spacing: 7px;
+        text-decoration: none;
+        font-family: 'Inter', sans-serif;
+        transition:0.3s;
+    }
+    .download::before
+    {
+        content: "";
+        position:absolute;
+        height:100%;
+        width: 100%;
+        top:0;
+        left:0;
+        border-radius: inherit;
+      background-color: #ffffff5a;;
+      display: none;
+    }
+    .download:hover
+    {
+        color:rgba(0, 0, 0, 0.659);
+        background-color: transparent;
+    }
+    .download:hover::before
+    {
+        z-index: -1;
+        display: block;
+        clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);
+        animation:polygon 0.3s 1;
+    }
+    @keyframes polygon
+    {
+        0%{clip-path: polygon(0% 0%, 11% 0, 25% 51%, 11% 100%, 0% 100%);}
+        100%{clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);}
+    }
+    .download:active
+    {
+    
+        background-color: rgb(0, 0, 0);
+    }
+    /*download button styling and animation on hover*/
+    .all h3
+    {
+      
+        color: rgba(255, 255, 255, 0.649);
+        text-transform: uppercase;
+        font-size: 50px;
+        position: relative;
+        z-index: 10000;
+
+    }
+    .all
+    {
+        display: flex;;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-image:linear-gradient(to bottom, rgb(0, 0, 0), rgba(0, 0, 0, 0.9), black);
+        width: 100%;
+        height:110vh;
+        margin-top: 8.11rem;
+    }
+ /*style of the skins container, all - the black container*/
+    .skins
+    {
+       margin-top: 50px;
+        background-image: url(../images/background-of-poses.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        clip-path: polygon(34% 4%, 80% 9%, 99% 38%, 94% 70%, 94% 100%, 10% 100%, 13% 64%, 0 16%);
+        width:80%;
+        height:90vh;
+        position:relative;
+        z-index: 5;
+    }
+    .poses
+    {
+        margin-top: 300px;
+        position:relative;
+        width:100%;
+        height: 100%;
+        background-image: url(../images/HeroPose.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat    ;
+    }
+    /*style of background and skins*/
+    .appeared
+    {
+       
+    animation:boom 1s 1;
+    }
+    .appeared-box
+    {
+    animation:boom-reverse 2s 1;
+    }
+    @keyframes boom
+    {
+        0%{transform: translateX(-500px);}
+        1%{opacity:0;}
+        99%{opacity: 1;}
+        100%{transform: translateX(0px);}
+    }
+    @keyframes boom-reverse
+    {
+        0%{transform: translateY(-200px);}
+        1%{opacity:0;}
+        99%{opacity: 1;}
+        100%{transform: translateY(0px);}
+    }
+    /*animations*/
+    .about-us-title > a 
+    {
+        padding:10px 20px;
+        border-radius: 10px;
+        color:rgba(255, 255, 255, 0.64);
+        text-decoration: none;
+        transition: 0.5s;
+    }
+    .about-us-title
+    {
+        top:50px;
+    }
+    .about-us-title > a:hover
+    {
+        background-color: #7b7b7b5f;
+    }
+    .about-us
+    {
+        position: relative;
+        top:-100px;
+        background-image:linear-gradient(to top, rgba(0, 0, 0, 0.789), black);
+        box-shadow: 10px 0px 10px black;
+        width:100vw;
+        height:100vh;
+        display:flex;
+        align-items: flex-start;
+        justify-content: space-around;
+        flex-wrap: wrap;
+
+    }
+    /*style of about us container and it's title*/
+    .cardcontainer span
+    {
+        z-index: 2;
+    }
+    .info
+    {
+
+        position:absolute;
+        font-size: 0.9em;
+        color:rgba(0, 0, 0, 0.601);
+        font-weight: 500;
+        height:200px;
+        bottom:-20%;
+        text-align: center;
+        width: 150px;
+        z-index: 2;
+        display: none;
+    }
+
+    .name{
+        font-size: 24px;
+    }
+
+    .cardcontainer
+    {
+        overflow:hidden;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        position:relative;
+        cursor: pointer;
+        border: 1px solid #6b6b6b7d;
+
+        border-radius: 1000px;
+        float: left;
+        margin-top: 50px;
+        background-color:transparent;
+        width: 160px;
+        height:160px;
+        transition: box-shadow 0.5s;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        
+    }
+    .cardcontainer:nth-child(1)
+    {
+        background-image: url(../images/Team/Alex.jpg);
+        top:200px;
+    }
+    .cardcontainer:nth-child(2)
+    {
+        background-image: url(../images/Team/Alexander.jpg);
+        
+        top:200px;
+    }
+    .cardcontainer:nth-child(3)
+    {
+        background-image: url(../images/Team/George.jpg);
+        
+        top:200px;
+    }
+    .cardcontainer:nth-child(4)
+    {
+        background-image: url(../images/Team/Denis.jpg);
+        top:200px;
+
+    }
+    .cardcontainer:nth-child(5)
+    {
+        background-image: url(../images/Team/Denislav.jpg);
+        margin-left: -74.5rem;
+        top:460px;
+    }
+    .cardcontainer:nth-child(6)
+    {
+    
+        background-image: url(../images/Team/Hakan.jpg);
+        top:460px;
+
+    }
+    .cardcontainer:nth-child(7)
+    {
+        background-image: url(../images/Team/Ivailo.jpg);
+        top:460px;
+    }
+    .cardcontainer:nth-child(8)
+    {
+    
+        background-image: url(../images/Team/Ivan.jpg);
+        top:460px;
+    }
+    .cards
+    {
+        transition:filter 0.4s ease-out;
+        position:absolute;
+        height: 100%;
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+    .cardcontainer:hover span
+    {
+        display:none;
+        
+    }
+    .cardcontainer::before
+    {
+        overflow:hidden;
+        border-radius: inherit;
+        z-index: 1;
+        display:none;
+        content:"";
+        clip-path: circle(142.2% at 0 0);
+        background-color: rgba(0, 0, 0, 0.719);
+        width:100%;
+        height:100%;
+        position:absolute;
+        
+    }
+    .cardcontainer:hover::before
+    {
+        display:block;
+        animation:circle 0.5s 1;
+    }
+    .cardcontainer:hover
+    {
+        border: 1px solid rgba(255, 255, 255, 0.437);
+        box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.482);
+    }
+    .cardcontainer:hover .cards
+    {
+        filter:blur(2px);
+    }
+    .cardcontainer:hover .click-me
+    {
+        display:inline-block;
+        animation:hover 0.5s 1;
+    }
+    @keyframes hover 
+    {
+        0%{opacity: 0;}
+        100%{opacity: 1;}
+    }
+    @keyframes up
+    {
+        0%{transform: translateY(10px);}
+        100%{transform: translateY(0px);}
+    }
+
+    @keyframes circle 
+    {
+        0%{clip-path: circle(11.9% at 50% 0);}
+        100%{clip-path: circle(142.2% at 50% 0);}
+    }
+    @keyframes circle-reverse
+    {
+        0%{clip-path: circle(11.9% at 50% 100%);}
+        100%{clip-path: circle(142.2% at 50% 100%);}
+    }
+    .click-me
+    {
+        z-index: 3;
+        display:none;
+        text-shadow: 1px 1px 10px white;
+        color:rgba(255, 255, 255, 0.649);
+    }
+    .clicked .info
+    {
+        animation:up 0.7s 1;
+        display: flex;
+		justify-content: center;
+		align-items: center;
+    }
+    .clicked span
+    {
+        display: none;
+    }
+    .clicked .cards
+    {
+        filter: blur(5px);
+    }
+    .clicked:hover .click-me
+    {
+        display: none;
+    }
+    .clicked::before
+    {
+        background-color: rgba(255, 255, 255, 0.525);
+        display:block;
+    }
+    .clicked:hover::before
+    {
+        animation:circle-reverse 0.5s 1;
+        display:block;
+    }
+    /*style of containers, effects on hover, and on click*/
+    /* footer */
+
+.logo-footer
+{
+    width: 4rem;
+}
+
+.button-footer
+{
+    text-decoration: none;
+    text-align: center;
+    padding: 0.5rem 4rem;
+    background-color: black;
+    color: rgba(255, 255, 255, 0.658);
+    border-radius: 5px;
+    transition:0.4s;
+}
+
+.button-footer:hover
+{
+    background-color: rgba(87, 87, 87, 0.678);
+    color: white;
+}
+
+.icon-footer
+{
+    text-decoration: none;
+    color:white;
+    background-color: rgb(87, 87, 87);
+    padding: 0.3rem;
+    border-radius: 5px;
+    margin: 0.5rem 0.1rem;
+    transition:0.5s;
+}
+.icon-footer:hover
+{
+    color:black;
+}
+/*effects of the social icons*/
+.footer
+{
+    color: white;
+	background-color: black;
+	padding: 1rem 0 2rem 0;
+	text-align: center;
+}
+
+.storyline-hover{
+    font-size: 40px;
+}
+
+.storyline-hover:hover ~ .storyline
+{
+    display:block;
+    animation:appear 0.5s ease-out 1;
+}
+
+
+.storyline
+{
+    display:none;
+    z-index: 1000;
+    width:100vw;
+    height: min-content;
+    position:absolute;
+    left:0;
+    top:110px;
+    background-color: rgba(0, 0, 0, 0.9);
+    color:white;
+    text-align: center;
+}
+
+.story-text{
+    text-align: left;
+    opacity: 0.5;
+    margin: 1rem 10% 5%;
+    font-size: 2rem;
+}
+/*style of storyline and it's text*/
+.arrow-up
+{
+    display: none;
+    text-decoration: none;
+    color:rgba(255, 255, 255, 0.53);
+    font-size: 50px;
+    position:fixed;
+    bottom:50px;
+    right:15px;
+    transition: 0.2s;
+}
+/*anchor's style*/
+.appear-arrow
+{
+    opacity:0.5;
+    display:block;
+    animation:pop-up 0.5s 1;
+}
+.appear-arrow:hover
+{
+    opacity:1;
+}
+@keyframes pop-up
+{
+    0%{opacity:0;}
+    100%{opacity:0.5;}
+}
+.waves 
+{
+    
+    width:100%;
+    height:150px;
+    margin-bottom: -10px;
+
+    transform: rotateZ(180deg);
+}
+
+
+/*selection style*/
+::selection{
+background-color: white;
+color: black;
+border-radius: 5px;
+}
+
+/* scrollbar */
+
+
+::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+
+  ::-webkit-scrollbar-track {
+    background: rgb(0, 0, 0);
+    padding: 3px;
+  }
+  
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+  }
+  
+
+  ::-webkit-scrollbar-thumb:hover {
+    background:rgba(255, 255, 255, 0.53);
+
+  }
+
+  @media only screen and (max-width:1250px)
+  {
+      .about-us-title
+      {
+          position: relative;
+          top:20px;
+          font-size: 2rem;
+          margin-bottom: 30px;
+      }
+      .cardcontainer
+      {
+          height:150px;
+          width:150px;
+          margin:0 50px;
+          
+      }
+
+      .cardcontainer::before
+      {
+          position:absolute;
+          height:150px;
+          width:150px;
+
+      }
+      
+  }
+  @media only screen and (max-width:1125px)
+  {
+    .cardcontainer
+    {
+        margin:0 -500px;
+    }
+  }
+  @media only screen and (max-width: 1020px)
+  {
+    .game-name
+    {
+        font-size: 30px;
+    }
+    #header-link
+    {
+        display:none;
+    }
+    .story-text
+    {
+        font-size: 25px;
+    }
+  }
+@media only screen and (max-width:700px)
+{
+    .story-text
+    {
+        font-size: 19px;
+    }
+    .cardcontainer
+    {
+        font-size: 10px;
+        height:100px;
+        width:100px;
+    }
+    .cardcontainer:nth-child(1),.cardcontainer:nth-child(2),.cardcontainer:nth-child(3),.cardcontainer:nth-child(4)
+{
+    top:100px;  
+    left:-170px; 
+    transform: translateX(20px);
+}
+.cardcontainer:nth-child(1)
+{
+    top:250px;
+    left:0px; 
+}
+.cardcontainer:nth-child(5)
+{
+    position: relative  ;
+    top:    250px;
+    left:350px; 
+}
+.storyline-hover
+{
+    transform: scale(0.5);
+}
+li h1
+{
+    transform: scale(0.5);
+}
+.about a{
+    font-size: 15px;
+}
+
+.game-name
+{
+    font-size: 20px;
+}  
+}
+  
+  @media only screen and (max-width: 545px)
+  {
+    .htp
+    {
+        margin-right: -50px;
+    }
+    .about
+    {
+        margin-right: -50px;
+    }
+    .game-name
+    {
+        font-size: 20px;
+    }   
+    
+  }
+  @media only screen and (max-width:460px)
+  {
+    .htp
+    {
+        position:relative;
+        left:-100px;
+    }
+    .storyline-hover:hover
+    {
+      
+        font-size: 20px;
+    }
+.storyline-hover
+{
+    position:relative;
+  top: -120px;
+  left:40px;
+}
+    
+    .about
+    {
+        position:relative;
+        left:-100px;    
+    }
+    .game-name
+    {
+        font-size: 10px;
+    }
+    
+  }
+  /*making the site responsive using media queries*/
