@@ -196,7 +196,8 @@ void Arrows::checkArrows()
             counterArea++;
             Key_is_pressed = 0;
         }
-        else {
+        else
+        {
             Is_hero_passed_the_first_door = 0;
         }
     }
@@ -268,7 +269,7 @@ void Arrows::checkArrows()
         Close.x = 1550;
         Close.y = 115;
 
-        if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, KeyRec) or IsKeyPressed(KEY_R))
+        if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, KeyRec) or IsKeyPressed(KEY_R)&& RandomKey[0])
         {
             Key_is_pressed = 1;
             Upper_left_chest = 0;

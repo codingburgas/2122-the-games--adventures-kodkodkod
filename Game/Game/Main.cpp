@@ -254,11 +254,6 @@ int main() //main function
             }
             
         }
-        for (bool I : help::idleAnims)
-        {
-            cout << I << " ";
-        }
-        cout << endl;
         EndDrawing();
         /*stops drawing and system("CLS");*/
         

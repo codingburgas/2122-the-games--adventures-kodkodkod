@@ -96,18 +96,39 @@ void Boss::Draw(Menu& Menu_object, Arrows& hero)
 	{
 		if (help::idleAnims[0] && finish_attack)
 		{
-
+			if (!(hero.Hero_obj.HeroPos.x >= PosBoss.x && hero.Hero_obj.HeroPos.x <= PosBoss.x + ClipBoss.width) || (hero.Hero_obj.HeroPos.y > PosBoss.y + ClipBoss.height))
+			{
+				finish_attack = 0;
+				checkToStopMovement = 1;
+				check_attack = 0;
+			}else
 			DrawTextureRec(Attack_left, RectLeft, hero.Hero_obj.HeroPos, WHITE);
-			cout << "Here";
+			
 		}
 		else if (help::idleAnims[1] && finish_attack)
 		{
-
+			if (!(hero.Hero_obj.HeroPos.x >= PosBoss.x && hero.Hero_obj.HeroPos.x <= PosBoss.x + ClipBoss.width) || (hero.Hero_obj.HeroPos.y > PosBoss.y + ClipBoss.height))
+			{
+				finish_attack = 0;
+				checkToStopMovement = 1;
+				check_attack = 0;
+			}
+			else
 			DrawTextureRec(Attack_right, RectRight, hero.Hero_obj.HeroPos, WHITE);
+			
 		}
-		else if (help::idleAnims[2] && finish_attack)
+		else if (help::idleAnims[2] || help::idleAnims[3]  && finish_attack)
 		{
+			if (!(hero.Hero_obj.HeroPos.x >= PosBoss.x && hero.Hero_obj.HeroPos.x <= PosBoss.x + ClipBoss.width) || (hero.Hero_obj.HeroPos.y > PosBoss.y + ClipBoss.height))
+			{
+				finish_attack = 0;
+				checkToStopMovement = 1;
+				check_attack = 0;
+				
+			}
+			else
 			DrawTextureRec(Attack_up, RectUp, hero.Hero_obj.HeroPos, WHITE);
+			
 
 		}
 	}
@@ -125,7 +146,7 @@ void Boss::Check(Arrows& hero)
 	{
 		you_win = 1;
 	}
-	else if ((hero.Hero_obj.HeroPos.x >= PosBoss.x && hero.Hero_obj.HeroPos.x <= PosBoss.x + ClipBoss.width) &&
+	if ((hero.Hero_obj.HeroPos.x >= PosBoss.x && hero.Hero_obj.HeroPos.x <= PosBoss.x + ClipBoss.width) &&
 		(hero.Hero_obj.HeroPos.y <= PosBoss.y + ClipBoss.height))
 	{
 		//atacks
@@ -168,7 +189,7 @@ void Boss::Check(Arrows& hero)
 				}
 				Attack_counter++;
 			}
-			else if (help::idleAnims[2] && finish_attack)
+			else if (help::idleAnims[2] || help::idleAnims[3] && finish_attack)
 			{
 				if (Attack_counter == 5)
 				{
@@ -183,7 +204,9 @@ void Boss::Check(Arrows& hero)
 				}
 				Attack_counter++;
 			}
+
 		}
+		
 		healthBarHero -= AtackBoss;
 
 
